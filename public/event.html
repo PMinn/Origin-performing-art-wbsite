@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活動行程 - Origin | 起源劇團</title>
+    <!-- icon -->
+    <link rel="shortcut icon" href="icon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+    <!-- apple icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+    <link rel="apple-touch-startup-image" href="icon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Origin">
+
+    <link rel="stylesheet" href="./css/loading.css">
+    <link rel="stylesheet" href="./css/init.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/li.css">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <style>
+        .anchor {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body class="nav">
+    <div id="loading">
+        <div>
+            <div id="logo">
+                <img src="./media/Logo.webp" width="100" height="100" alt="" loading="eager">
+            </div>
+            <div id="circle">
+                <img src="./media/load-circle.webp" width="323" height="323" alt="" loading="eager">
+            </div>
+        </div>
+    </div>
+    <!-- menu last update 2022/2/22 -->
+    <nav>
+        <a id="title" class="ENG" href="/">Origin</a>
+        <div id="menu-icon">
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+    <div id="menu" class="ZH">
+        <a href="/">首頁</a>
+        <a href="/about">關於我們</a>
+        <a href="/event">活動行程</a>
+        <a href="/blog" class="ENG">BLOG</a>
+        <a href="/contact">聯絡我們</a>
+    </div>
+    <!-- menu end -->
+
+    <div id="events"></div>
+
+    <!-- footer last update 2022/2/22 -->
+    <footer class="ZH">
+        <div class="hr">
+            <img src="./media/Logo.webp" width="300" height="300" alt="">
+            <a class="anchor"><span class="ENG">Origin</span>&ensp;<span class="ZH">起源劇團</span></a>
+        </div>
+        <div class="hr">
+            <a href="/facebook" class="ENG anchor">
+                <img src="./media/facebook2.svg" widyh="24" height="24" alt="">
+                OriginPerformingArt
+            </a>
+            <a href="/instagram" class="ENG anchor">
+                <img src="./media/instagram.svg" widyh="24" height="24" alt="">
+                origin_performing_art
+            </a>
+        </div>
+        <div class="hr">
+            <a href="/" class="anchor">首頁</a>
+            <a href="/about" class="anchor">關於我們</a>
+            <a href="/event" class="anchor">活動行程</a>
+            <a href="/blog" class="anchor ENG">BLOG</a>
+            <a href="/contact" class="anchor">聯絡我們</a>
+        </div>
+        <small class="ENG">Copyright© 2022 P'MIN. All Rights Reserved.</small>
+    </footer>
+    <!-- footer end -->
+
+    <script type="module" src="js/nav.js" async></script>
+    <script type="module" src="js/fonts.js" async></script>
+    <script type="module">
+        import liFunc from './js/li.js';
+        import app from './js/firebase.js';
+        import { getStorage, getURL } from './js/firebase-storage.js';
+        import { getDatabase, ref, query, get, orderByChild, startAt, limitToFirst } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js';
+
+        import LoadingPage from './js/loading.js';
+        const loadingPage = new LoadingPage();
+
+        const storage = getStorage(app);
+        const database = getDatabase();
+        const datasorted = query(ref(database, 'events'), orderByChild('sort'));
+        var startIndex = -999;
+        var inSearching = false;
+
+        function getData() {
+            inSearching = true;
+            return get(query(datasorted, startAt(startIndex), limitToFirst(10))).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const eventsDOM = document.getElementById('events');
+                    
+                    var events = snapshot.val();
+                    events = Object.keys(events).map((key) => events[key]);
+                    events.sort(function(a, b) {
+                        return a.sort - b.sort;
+                    });
+                    console.log(events);
+                    const imgURLs = events.map(event => (getURL(storage, event.image)));
+                    return Promise.all(imgURLs)
+                        .then(imgDownloadURLs => {
+                            events.forEach((event, index) => {
+                                var anchor = document.createElement('a');
+                                anchor.classList.add('anchor');
+                                anchor.classList.add('li');
+                                anchor.dataset.load = 'false';
+                                anchor.href = `/event/${event.id}`;
+
+                                var inner = document.createElement('div');
+                                inner.classList.add('ZH');
+                                inner.style['background-image'] = `url("${imgDownloadURLs[index]}")`;
+                                inner.innerText = event.title;
+
+                                anchor.appendChild(inner);
+                                eventsDOM.appendChild(anchor);
+
+                                startIndex = Math.max(startIndex,event.sort) + 1;
+                            });
+                        })
+                } else {
+                    console.log("No data available");
+                    window.removeEventListener('scroll',onScroll);
+                }
+            }).catch((error) => {
+                console.error(error);
+            }).finally(()=>{
+                inSearching = false;
+            });
+        }
+
+        function onScroll(){
+            if(!inSearching && document.documentElement.scrollTop + window.innerHeight > window.innerHeight * 1.44){
+                getData();
+            }
+        }
+
+        window.addEventListener('scroll',onScroll);
+
+        document.addEventListener('DOMContentLoaded',() => {
+            setTimeout(()=>{
+                window.scroll(0, 0);
+            },100)
+            getData().then(() => {
+                liFunc();
+                loadingPage.hide();
+            })
+        })
+        
+    </script>
+</body>
+
+</html>

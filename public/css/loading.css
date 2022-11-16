@@ -1,0 +1,57 @@
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+    z-index: 100;
+    will-change: transform;
+    transition: all 1s 0s;
+    transform: translateY(0);
+}
+
+#loading.hide {
+    transform: translateY(-100%);
+}
+
+#loading>div {
+    width: 200px;
+    height: 200px;
+    margin: calc(50vh - 100px) calc(50vw - 100px);
+    position: relative;
+}
+
+#loading>div>div:nth-child(1) {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    will-change: transform;
+    transform: rotateY(0);
+    transition: transform 10s linear 0s;
+}
+
+#loading>div>div:nth-child(1)>img {
+    width: 100px;
+    height: 100px;
+}
+
+#loading>div>div:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+    transform: rotateZ(0);
+    transition: transform 10s linear 0s;
+}
+
+#loading>div>div:nth-child(2)>img {
+    width: 200px;
+    height: 200px;
+}

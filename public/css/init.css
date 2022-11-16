@@ -1,0 +1,11 @@
+:root {
+    --main-color: #242424;
+    --second-color: #eb5604;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-color);
+}
