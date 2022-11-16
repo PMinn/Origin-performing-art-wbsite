@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG - Origin | 起源劇團</title>
+    
+    <!-- icon -->
+    <link rel="shortcut icon" href="/icon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <!-- apple icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="apple-touch-startup-image" href="/icon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Origin">
+
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/loading.css">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <style>
+        body {
+            background-color: #242424;
+        }
+
+        #main {
+            height: 40vh;
+            color: #fff;
+            position: relative;
+        }
+
+        .main-text {
+            position: absolute;
+            bottom: 5vh;
+            left: 10vw;
+            width: 80vw;
+        }
+
+        #blog_date,
+        #blog_title {
+            margin: 1vh 0;
+        }
+
+        #blog_date {
+            color: gray;
+        }
+
+        #main_img {
+            width: 100vw;
+            height: 40vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #main_img>img {
+            height: 100%;
+            filter: brightness(0.8);
+            -webkit-transition: all 0.1s ease 0s;
+            -o-transition: all 0.1s ease 0s;
+            transition: all 0.1s ease 0s;
+        }
+
+        #content {
+            width: 80vw;
+            padding: 2vh 10vw;
+            color: #fff;
+            font-size: 15px;
+            line-height: 28px;
+        }
+
+        #content img {
+            width: 100%;
+        }
+
+        #content>* {
+            width: 80vw;
+            margin: 3vh 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.5s ease 0s, transform 1.5s ease 0s;
+        }
+
+        #content>*.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading">
+        <div>
+            <div id="logo">
+                <img src="../media/Logo.webp" width="100" height="100" alt="" loading="eager">
+            </div>
+            <div id="circle">
+                <img src="../media/load-circle.webp" width="323" height="323" alt="" loading="eager">
+            </div>
+        </div>
+    </div>
+    <!-- menu last update 2022/2/22 -->
+    <nav>
+        <a id="title" class="ENG" href="/">Origin</a>
+        <div id="menu-icon">
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+    <div id="menu" class="ZH">
+        <a href="/">首頁</a>
+        <a href="/about">關於我們</a>
+        <a href="/event">活動行程</a>
+        <a href="/blog" class="ENG">BLOG</a>
+        <a href="/contact">聯絡我們</a>
+    </div>
+    <!-- menu end -->
+
+    <div id="page">
+        <div id="main">
+            <div id="main_img">
+                <img src="../media/p1.jpg" alt="">
+            </div>
+            <div class="main-text">
+                <h6 class="ENG" id="blog_date">2022 / 2 / 6</h6>
+                <h1 class="ZH" id="blog_title">春節表演</h1>
+                <div class="hr" style="border-color: rgb(168, 168, 168);"></div>
+            </div>
+        </div>
+        <div id="content">
+            <p class="ZH">
+                新春再臨，<br>
+                <span class="ENG">Origin</span> 在這段日子裡，<br>
+                以不疾不徐、踏實穩健的速度，<br>
+                形塑屬於自己的理想鄉，<br>
+                年初正式的立案，<br>
+                是一個嶄新宣告，<br>
+                也是全新開始！<br>
+                我們是<span class="ENG">Origin</span> 起源劇團，<br>
+                在這個愉悅的假期，<br>
+                一樣帶給大家屬於我們的熾熱！
+            </p>
+            <!-- <img src="../media/p5.jpg" alt=""> -->
+        </div>
+    </div>
+
+    <!-- footer last update 2022/2/22 -->
+    <footer class="ZH">
+        <div class="hr">
+            <img src="../media/Logo.webp" width="300" height="300" alt="">
+            <a class="anchor"><span class="ENG">Origin</span>&ensp;<span class="ZH">起源劇團</span></a>
+        </div>
+        <div class="hr">
+            <a href="/facebook" class="ENG anchor">
+                <img src="../media/facebook2.svg" widyh="24" height="24" alt="">
+                OriginPerformingArt
+            </a>
+            <a href="/instagram" class="ENG anchor">
+                <img src="../media/instagram.svg" widyh="24" height="24" alt="">
+                origin_performing_art
+            </a>
+        </div>
+        <div class="hr">
+            <a href="/" class="anchor">首頁</a>
+            <a href="/about" class="anchor">關於我們</a>
+            <a href="/event" class="anchor">活動行程</a>
+            <a href="/blog" class="anchor ENG">BLOG</a>
+            <a href="/contact" class="anchor">聯絡我們</a>
+        </div>
+        <small class="ENG">Copyright© 2022 P'MIN. All Rights Reserved.</small>
+    </footer>
+    <!-- footer end -->
+
+    <script type="module" src="../js/fonts.js" async></script>
+    <script type="module" src="../js/nav.js" async></script>
+    <script type="module">
+        import LoadingPage from '../js/loading.js';
+        const loadingPage = new LoadingPage(true);
+        import app from '../js/firebase.js';
+        import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js';
+        import { getStorage, getURL } from '../js/firebase-storage.js';
+        const storage = getStorage(app);
+
+        async function getData(id) {
+            const db = getFirestore();
+            const docRef = doc(db, "blog", id);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                var data = docSnap.data();
+                var date = data.date.toDate();
+                document.getElementById('content').innerHTML = data.html;
+                document.getElementById('blog_title').innerText = data.title;
+                document.getElementById('blog_date').innerText = `${date.getFullYear()} / ${date.getMonth() + 1} / ${date.getDate()}`;
+
+                console.log(data);
+                var imgs = [getURL(storage, data.img)];
+                var imgDOMs = document.getElementById('content').querySelectorAll('img');
+                imgDOMs.forEach(imgDOM => {
+                    imgs.push(getURL(storage, imgDOM.dataset.storage));
+                })
+                console.log(imgDOMs);
+                return Promise.all(imgs).then(url => {
+                    document.getElementById('main_img').lastElementChild.src = url[0];
+                    imgDOMs.forEach((imgDOM, index) => {
+                        imgDOMs[index].src = url[index + 1];
+                    })
+                });
+            } else {
+                console.log("No such document!");
+            }
+        }
+
+        var path = location.pathname.split('/');
+        getData(path[path.length - 1]).then(() => { //  "IPExp31W3wV1Ppn7cxpz"
+            window.scroll(0, 0);
+
+            function inviewAni() {
+                document.querySelectorAll('#content>*:not(.show)').forEach(item => {
+                    if (window.pageYOffset + window.innerHeight > item.offsetTop - item.offsetHeight / 2) {
+                        item.classList.add('show');
+                    }
+                })
+            }
+            setTimeout(() => {
+                inviewAni();
+                document.addEventListener('scroll', () => {
+                    document.getElementById('main_img').lastElementChild.style.height = (40 + window.pageYOffset / 20) + 'vh';
+                    inviewAni();
+                })
+            }, 1000);
+        }).finally(() => {
+            loadingPage.hide();
+        });
+    </script>
+</body>
+
+</html>

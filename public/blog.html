@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blogs - Origin | 起源劇團</title>
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="icon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+    <!-- apple icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+    <link rel="apple-touch-startup-image" href="icon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Origin">
+    
+    <link rel="stylesheet" href="./css/init.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/loading.css">
+    <style>
+        .li {
+            width: calc(100vw - 40px);
+            background-color: #1d1d1d;
+            margin: 2vh auto;
+        }
+
+        .li>div {
+            max-height: 20vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .li>div>img {
+            width: 100%;
+        }
+
+        .li>.content_text {
+            padding: 30px;
+            width: auto;
+            position: relative;
+            color: #fff;
+            display: block;
+        }
+
+        .li>.content_text>h4 {
+            width: 100%;
+        }
+
+        .li .content_bar {
+            width: 40px;
+            height: 1px;
+            background-color: #eb5604;
+        }
+    </style>
+</head>
+
+<body class="nav">
+    <div id="loading">
+        <div>
+            <div id="logo">
+                <img src="./media/Logo.webp" width="100" height="100" alt="" loading="eager">
+            </div>
+            <div id="circle">
+                <img src="./media/load-circle.webp" width="323" height="323" alt="" loading="eager">
+            </div>
+        </div>
+    </div>
+
+    <!-- menu last update 2022/2/22 -->
+    <nav>
+        <a id="title" class="ENG" href="/">Origin</a>
+        <div id="menu-icon">
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+    <div id="menu" class="ZH">
+        <a href="/">首頁</a>
+        <a href="/about">關於我們</a>
+        <a href="/event">活動行程</a>
+        <a href="/blog" class="ENG">BLOG</a>
+        <a href="/contact">聯絡我們</a>
+    </div>
+    <!-- menu end -->
+
+    <div id="content"></div>
+
+    <!-- footer last update 2022/2/22 -->
+    <footer class="ZH">
+        <div class="hr">
+            <img src="./media/Logo.webp" width="300" height="300" alt="">
+            <a class="anchor"><span class="ENG">Origin</span>&ensp;<span class="ZH">起源劇團</span></a>
+        </div>
+        <div class="hr">
+            <a href="/facebook" class="ENG anchor">
+                <img src="./media/facebook2.svg" widyh="24" height="24" alt="">
+                OriginPerformingArt
+            </a>
+            <a href="/instagram" class="ENG anchor">
+                <img src="./media/instagram.svg" widyh="24" height="24" alt="">
+                origin_performing_art
+            </a>
+        </div>
+        <div class="hr">
+            <a href="/" class="anchor">首頁</a>
+            <a href="/about" class="anchor">關於我們</a>
+            <a href="/event" class="anchor">活動行程</a>
+            <a href="/blog" class="anchor ENG">BLOG</a>
+            <a href="/contact" class="anchor">聯絡我們</a>
+        </div>
+        <small class="ENG">Copyright© 2022 P'MIN. All Rights Reserved.</small>
+    </footer>
+    <!-- footer end -->
+
+    <script type="module" src="js/fonts.js" async></script>
+    <script type="module" src="js/nav.js" async></script>
+    <script type="module">
+        import app from './js/firebase.js';
+        import { getStorage, getURL } from './js/firebase-storage.js';
+        import { getDatabase, ref, query, get, orderByChild, startAt, limitToFirst } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js';
+
+        import LoadingPage from './js/loading.js';
+        const loadingPage = new LoadingPage();
+
+        const storage = getStorage(app);
+        const database = getDatabase();
+        const datasorted = query(ref(database, 'blogs'), orderByChild('date'));
+        var startIndex = null;
+        var inSearching = false;
+
+        function getData() {
+            inSearching = true;
+            return get(query(datasorted, startAt(startIndex), limitToFirst(10))).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const blogsDOM = document.getElementById('content');
+
+                    var blogs = snapshot.val();
+                    blogs = Object.keys(blogs).map((key) => blogs[key]);
+                    console.log(blogs)
+                    const imgURLs = blogs.map(event => (getURL(storage, event.img)));
+                    return Promise.all(imgURLs)
+                        .then(imgDownloadURLs => {
+                            blogs.forEach((blog, index) => {
+                                var anchor = document.createElement('a');
+                                anchor.classList.add('anchor');
+                                anchor.href = `/blog/${blog.id}`;
+
+                                var inner = document.createElement('div');
+                                inner.classList.add('li');
+
+                                var outerImg = document.createElement('div');
+                                var img = document.createElement('img');
+                                img.src = imgDownloadURLs[index];
+                                outerImg.appendChild(img);
+
+                                var content_text = document.createElement('div');
+                                content_text.classList.add('content_text');
+
+                                var content_bar = document.createElement('div');
+                                content_bar.classList.add('content_bar');
+
+                                var title = document.createElement('h4');
+                                title.innerText = blog.title;
+
+                                content_text.appendChild(content_bar);
+                                content_text.appendChild(title);
+
+                                inner.appendChild(outerImg);
+                                inner.appendChild(content_text);
+
+                                anchor.appendChild(inner);
+                                blogsDOM.appendChild(anchor);
+
+                                if (startIndex < blog.date) startIndex = blog.date;
+                            });
+                        })
+                } else {
+                    console.log("No data available");
+                    window.removeEventListener('scroll', onScroll);
+                }
+            }).catch((error) => {
+                console.error(error);
+            }).finally(() => {
+                inSearching = false;
+            });
+        }
+
+        function onScroll() {
+            if (!inSearching && document.documentElement.scrollTop + window.innerHeight > window.innerHeight * 1.8) {
+                getData();
+            }
+        }
+
+        window.addEventListener('scroll', onScroll);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                window.scroll(0, 0);
+            }, 100)
+            getData().then(() => {
+                loadingPage.hide();
+            })
+        })
+    </script>
+</body>
+
+</html>
