@@ -201,6 +201,14 @@
     margin: 5vh auto;
 }
 
+#p4 .anchor.event>div {
+    background-image: url('../media/li/p2.webp');
+}
+
+#p4 .anchor.blog>div {
+    background-image: url('../media/li/p1.webp');
+}
+
 /* @media (min-width: 480px) {
 
     #intro,

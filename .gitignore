@@ -65,9 +65,7 @@ node_modules/
 # dotenv environment variables file
 .env
 
-resource/
 
-unuse/
 SEO/
 *.js
 *.ai
@@ -75,3 +73,9 @@ SEO/
 *.glb
 *.json
 preview-blog.html
+
+unuse/
+resource/
+source/
+
+update/

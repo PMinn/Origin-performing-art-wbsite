@@ -29,3 +29,11 @@
 #p4>.li {
     width: 100%;
 }
+
+#p4 .anchor.event>div {
+    background-image: url('../media/li/2.webp');
+}
+
+#p4 .anchor.blog>div {
+    background-image: url('../media/li/1.webp');
+}
