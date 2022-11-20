@@ -9,3 +9,18 @@ html {
     padding: 0;
     background-color: var(--main-color);
 }
+
+* {
+    cursor: none;
+}
+
+.anchor {
+    line-height: 16px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}

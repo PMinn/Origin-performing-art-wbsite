@@ -31,7 +31,6 @@ nav {
     display: flex;
     flex-direction: column;
     padding: 1.5vh;
-    cursor: pointer;
 }
 
 #menu-icon>div {

@@ -124,17 +124,30 @@
 }
 
 #p2 {
-    margin: 8rem auto 12rem auto;
+
+    background: var(--main-color);
+    background: linear-gradient(180deg, var(--main-color) 0%, #000 100%);
+}
+
+#p2 .anchor,
+#p3 .anchor,
+#p4 .anchor {
+    display: flex;
+}
+
+#p2>div {
+    margin: 8rem auto 0 auto;
     width: 86vw;
     max-width: 500px;
     color: #fff;
+    padding-bottom: 80px;
 }
 
-#p2>* {
+#p2>div>* {
     margin-bottom: 80px;
 }
 
-#p2>.img {
+#p2>div>.img {
     width: 100%;
     height: 110vw;
     max-height: 640px;
@@ -144,14 +157,14 @@
     position: relative;
 }
 
-#p2>.img>div {
+#p2>div>.img>div {
     position: absolute;
     bottom: 3%;
     left: 5%;
     width: 90%;
 }
 
-#p2>.img>div>div {
+#p2>div>.img>div>div {
     width: 100%;
     text-align: end;
     mix-blend-mode: difference;
