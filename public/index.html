@@ -212,32 +212,34 @@
 
     <script type="module">
         import cursor from './js/cursor.js';
+        import LoadingPage from './js/loading.js';
         import loadFonts from './js/fonts.js';
-        import nav from './js/nav.js';
-        import split from './js/split.js';
-        import liFunc from './js/li.js';
 
-        import app from './js/firebase.js';
+        // import app from './js/firebase.js';
 
-        import splide from './js/image-carousel.js';
         // import notification from './js/firebase-notification.js';
 
-        import LoadingPage from './js/loading.js';
-
+        cursor();
         loadFonts();
-        nav();
         const loadingPage = new LoadingPage(true);
-
         function init() {
-            cursor();
-            setTimeout(() => {
-                splide();
-                document.body.style.overflow = 'auto';
-                window.scroll(0, 0);
-                split();
-                // notification('home');
-                liFunc();
-            }, 1000);
+            import('./js/image-carousel.js').then(module => {
+                module.default();
+            });
+            import('./js/nav.js').then(module => {
+                module.default();
+            });
+            import('./js/split.js').then(splitModule => {
+                setTimeout(() => {
+                    splitModule.default();
+                    document.body.style.overflow = 'auto';
+                    window.scroll(0, 0);
+                    // notification('home');
+                    import('./js/li.js').then(module => {
+                        module.default();
+                    });
+                }, 1000);
+            });
         }
         // document.addEventListener("DOMContentLoaded", start);
         // window.addEventListener("load", init);
