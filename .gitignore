@@ -67,11 +67,11 @@ node_modules/
 
 
 SEO/
-*.js
 *.ai
 *.gltf
 *.glb
 *.json
+/public/js/firebase*.js
 preview-blog.html
 
 unuse/
