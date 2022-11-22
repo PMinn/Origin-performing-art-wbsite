@@ -65,9 +65,6 @@ node_modules/
 # dotenv environment variables file
 .env
 
-*.ai
-*.gltf
-*.glb
 /public/js/firebase*.js
 preview-blog.html
 
