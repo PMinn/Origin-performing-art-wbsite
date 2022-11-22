@@ -1,4 +1,5 @@
 user-agent: *
 Allow: /
+Disallow: /media
 
 Sitemap: https://origin-performing-art.web.app/sitemap.xml
