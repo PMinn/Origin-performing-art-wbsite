@@ -15,49 +15,14 @@
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
     <link rel="apple-touch-startup-image" href="icon/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="Origin">
-    
+
     <link rel="stylesheet" href="./css/init.css">
+    <link rel="stylesheet" media="only screen and (min-width: 480px)" href="./css/cursor.css">
     <link rel="stylesheet" href="./css/nav.css">
-    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/loading.css">
-    <style>
-        .li {
-            width: calc(100vw - 40px);
-            background-color: #1d1d1d;
-            margin: 2vh auto;
-        }
-
-        .li>div {
-            max-height: 20vh;
-            width: 100%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .li>div>img {
-            width: 100%;
-        }
-
-        .li>.content_text {
-            padding: 30px;
-            width: auto;
-            position: relative;
-            color: #fff;
-            display: block;
-        }
-
-        .li>.content_text>h4 {
-            width: 100%;
-        }
-
-        .li .content_bar {
-            width: 40px;
-            height: 1px;
-            background-color: #eb5604;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" media="only screen and (max-width: 480px)" href="./css/footer-mobile.css">
+    <link rel="stylesheet" href="./css/blog.css">
 </head>
 
 <body class="nav">
@@ -72,61 +37,69 @@
         </div>
     </div>
 
-    <!-- menu last update 2022/2/22 -->
+    <!-- menu last update 2022/11/20 -->
     <nav>
-        <a id="title" class="ENG" href="/">Origin</a>
-        <div id="menu-icon">
+        <a id="title" class="ENG pointer" href="/">Origin</a>
+        <div id="menu-icon" class="pointer">
             <div></div>
             <div></div>
         </div>
     </nav>
     <div id="menu" class="ZH">
-        <a href="/">首頁</a>
-        <a href="/about">關於我們</a>
-        <a href="/event">活動行程</a>
-        <a href="/blog" class="ENG">BLOG</a>
-        <a href="/contact">聯絡我們</a>
+        <a href="/" class="pointer">首頁</a>
+        <a href="/about" class="pointer">關於我們</a>
+        <a href="/event" class="pointer">活動行程</a>
+        <a href="/blog" class="ENG pointer">BLOG</a>
+        <a href="/contact" class="pointer">聯絡我們</a>
     </div>
     <!-- menu end -->
-
     <div id="content"></div>
 
-    <!-- footer last update 2022/2/22 -->
+    <!-- footer last update 2022/11/20 -->
     <footer class="ZH">
-        <div class="hr">
-            <img src="./media/Logo.webp" width="300" height="300" alt="">
-            <a class="anchor"><span class="ENG">Origin</span>&ensp;<span class="ZH">起源劇團</span></a>
+        <div class="footer-inner">
+            <div class="footer-inner-left">
+                <div class="hr footer-block-logo">
+                    <img class="footer-logo" src="./media/Logo.webp" alt="">
+                    <a class="anchor"><span class="ENG">Origin</span>&ensp;<span class="ZH">起源劇團</span></a>
+                </div>
+                <div class="hr footer-block-media">
+                    <a href="/facebook" class="ENG anchor pointer">
+                        <img src="./media/facebook2.svg" widyh="24" height="24" alt="">
+                        OriginPerformingArt
+                    </a>
+                    <a href="/instagram" class="ENG anchor pointer">
+                        <img src="./media/instagram.svg" widyh="24" height="24" alt="">
+                        origin_performing_art
+                    </a>
+                </div>
+            </div>
+            <div class="footer-inner-right">
+                <div class="hr footer-block-link">
+                    <a href="/" class="anchor pointer">首頁</a>
+                    <a href="/about" class="anchor pointer">關於我們</a>
+                    <a href="/event" class="anchor pointer">活動行程</a>
+                    <a href="/blog" class="anchor ENG pointer">BLOG</a>
+                    <a href="/contact" class="anchor pointer">聯絡我們</a>
+                </div>
+                <small class="ENG footer-block-copyright">Copyright© 2022 P'MIN. All Rights Reserved.</small>
+            </div>
         </div>
-        <div class="hr">
-            <a href="/facebook" class="ENG anchor">
-                <img src="./media/facebook2.svg" widyh="24" height="24" alt="">
-                OriginPerformingArt
-            </a>
-            <a href="/instagram" class="ENG anchor">
-                <img src="./media/instagram.svg" widyh="24" height="24" alt="">
-                origin_performing_art
-            </a>
-        </div>
-        <div class="hr">
-            <a href="/" class="anchor">首頁</a>
-            <a href="/about" class="anchor">關於我們</a>
-            <a href="/event" class="anchor">活動行程</a>
-            <a href="/blog" class="anchor ENG">BLOG</a>
-            <a href="/contact" class="anchor">聯絡我們</a>
-        </div>
-        <small class="ENG">Copyright© 2022 P'MIN. All Rights Reserved.</small>
     </footer>
     <!-- footer end -->
 
-    <script type="module" src="js/fonts.js" async></script>
-    <script type="module" src="js/nav.js" async></script>
     <script type="module">
-        import app from './js/firebase.js';
-        import { getStorage, getURL } from './js/firebase-storage.js';
+        import cursor from './js/cursor.js';
+        import LoadingPage from './js/loading.js';
+        import loadFonts from './js/fonts.js';
+
+        import app from './js/firebase/firebase.js';
+        import { getStorage, getURL } from './js/firebase/firebase-storage.js';
         import { getDatabase, ref, query, get, orderByChild, startAt, limitToFirst } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js';
 
-        import LoadingPage from './js/loading.js';
         const loadingPage = new LoadingPage();
+        cursor();
+        loadFonts();
 
         const storage = getStorage(app);
         const database = getDatabase();
@@ -149,6 +122,7 @@
                             blogs.forEach((blog, index) => {
                                 var anchor = document.createElement('a');
                                 anchor.classList.add('anchor');
+                                anchor.classList.add('pointer');
                                 anchor.href = `/blog/${blog.id}`;
 
                                 var inner = document.createElement('div');
@@ -199,14 +173,19 @@
 
         window.addEventListener('scroll', onScroll);
 
-        document.addEventListener('DOMContentLoaded', () => {
+        function init() {
+            import('./js/nav.js').then(module => {
+                module.default();
+            });
+
             setTimeout(() => {
                 window.scroll(0, 0);
             }, 100)
             getData().then(() => {
                 loadingPage.hide();
             })
-        })
+        }
+        document.addEventListener("DOMContentLoaded", init);
     </script>
 </body>
 
