@@ -1,0 +1,69 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|eot|otf|ttf|ttc|woff|woff2|font.css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/event/**",
+        "destination": "/event/event.html"
+      },
+      {
+        "source": "/blog/**",
+        "destination": "/blog/blog.html"
+      },
+      {
+        "source": "/preview-blog",
+        "destination": "/blog/preview-blog.html"
+      },
+      {
+        "source": "/google4c2ac737afd0a9f5.html",
+        "destination": "/SEO/google4c2ac737afd0a9f5.html"
+      },
+      {
+        "source": "/sitemap.xml",
+        "destination": "/SEO/sitemap.xml"
+      },
+      {
+        "source": "/robots.txt",
+        "destination": "/SEO/robots.txt"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/instagram",
+        "destination": "https://www.instagram.com/origin_performing_art/",
+        "type": 301
+      },
+      {
+        "source": "/facebook",
+        "destination": "https://www.facebook.com/OriginPerformingArt/",
+        "type": 301
+      }
+    ],
+    "cleanUrls": true
+  }
+}
