@@ -1,0 +1,7 @@
+#events {
+    width: 100vw;
+}
+
+#events>div {
+    margin: 0;
+}

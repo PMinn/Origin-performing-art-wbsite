@@ -1,7 +1,6 @@
 .li>div {
-    width: 84vw;
+    width: calc(100% - 16vw);
     height: 18vh;
-    /* overflow: hidden; */
     background-position: center;
     line-height: 20vh;
     font-size: 25px;
@@ -9,7 +8,7 @@
     padding: 0 8vw;
     background-size: 100% auto;
 
-    position: relative; 
+    position: relative;
     left: -100vw;
     transition: left 1s ease 0s;
 }

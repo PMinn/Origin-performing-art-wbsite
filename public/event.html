@@ -25,6 +25,7 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="./css/event.css">
+    <link rel="stylesheet" media="only screen and (max-width: 480px)" href="./css/event-mobile.css">
 </head>
 
 <body class="nav">
@@ -126,9 +127,11 @@
                     return Promise.all(imgURLs)
                         .then(imgDownloadURLs => {
                             events.forEach((event, index) => {
+                                var outer = document.createElement('div');
                                 var anchor = document.createElement('a');
                                 anchor.classList.add('anchor');
                                 anchor.classList.add('li');
+                                anchor.classList.add('pointer');
                                 anchor.dataset.load = 'false';
                                 anchor.href = `/event/${event.id}`;
 
@@ -138,7 +141,8 @@
                                 inner.innerText = event.title;
 
                                 anchor.appendChild(inner);
-                                eventsDOM.appendChild(anchor);
+                                outer.appendChild(anchor);
+                                eventsDOM.appendChild(outer);
 
                                 startIndex = Math.max(startIndex, event.sort) + 1;
                             });

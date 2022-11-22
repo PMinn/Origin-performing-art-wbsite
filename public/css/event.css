@@ -1,3 +1,12 @@
 .anchor {
     margin: 0;
 }
+
+#events {
+    width: 600px;
+    margin: 0 auto;
+}
+
+#events>div {
+    margin: 3vh auto;
+}
