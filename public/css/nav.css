@@ -38,9 +38,9 @@ nav {
     height: 1px;
     border-radius: 5px;
     background-color: rgb(235, 86, 4);
-    -webkit-transition: transform 0.5s ease;
-    -webkit-transition: -webkit-transform 0.5s ease;
-    transition: transform 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    /* -webkit-transition: -webkit-transform 0.5s ease; */
+    transition: all 0.5s ease;
 }
 
 #menu-icon>div:nth-child(1) {
