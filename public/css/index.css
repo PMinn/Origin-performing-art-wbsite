@@ -90,7 +90,7 @@
 #timeline-img>div::before {
     display: block;
     content: '';
-    background-color: #eb5604;
+    background-color: var(--second-color);
     height: 1px;
     width: 20vw;
     max-width: 120px;
@@ -221,34 +221,3 @@
 #p4 .anchor.blog>div {
     background-image: url('../media/li/p1.webp');
 }
-
-/* @media (min-width: 480px) {
-
-    #intro,
-    #timeline-img {
-        width: 500px;
-        left: calc(50vw - 250px);
-    }
-
-    #p2 {
-        width: 500px;
-        margin: 0 auto;
-    }
-
-    #p2>.img {
-        background-size: 800px auto;
-        height: 666.6px;
-    }
-
-    #p3 {
-        position: relative;
-        height: 80vh;
-        padding-top: 20vh;
-    }
-
-    #logo-video {
-        height: 100vh;
-        position: absolute;
-        top: 0;
-    }
-} */

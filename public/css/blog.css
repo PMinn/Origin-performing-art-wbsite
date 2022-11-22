@@ -38,5 +38,5 @@
 .li .content_bar {
     width: 40px;
     height: 1px;
-    background-color: #eb5604;
+    background-color: var(--second-color);
 }

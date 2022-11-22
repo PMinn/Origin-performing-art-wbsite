@@ -32,9 +32,7 @@
     position: absolute;
     top: 50px;
     left: 50px;
-    /* will-change: transform; */
     transform: rotateY(0);
-    /* transition: transform 10s linear 0s; */
     animation: logoRotate 10s linear infinite;
 }
 
@@ -47,9 +45,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    /* will-change: transform; */
     transform: rotateZ(0);
-    /* transition: transform 10s linear 0s; */
     animation: circleRotate 10s linear infinite;
 }
 

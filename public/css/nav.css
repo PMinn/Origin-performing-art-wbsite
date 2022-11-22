@@ -17,7 +17,7 @@ nav {
 }
 
 #title {
-    color: #eb5604;
+    color: var(--second-color);
     font-size: 20px;
     /* font-family: monospace; */
     text-decoration: none;
@@ -37,7 +37,7 @@ nav {
     width: 30px;
     height: 1px;
     border-radius: 5px;
-    background-color: rgb(235, 86, 4);
+    background-color: var(--second-color);
     -webkit-transition: all 0.5s ease;
     /* -webkit-transition: -webkit-transform 0.5s ease; */
     transition: all 0.5s ease;
@@ -69,7 +69,7 @@ nav {
     width: 100vw;
     height: 36vh;
     padding: 32vh 0;
-    background-color: rgb(235, 86, 4);
+    background-color: var(--second-color);
     -webkit-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease;
     opacity: 0;
