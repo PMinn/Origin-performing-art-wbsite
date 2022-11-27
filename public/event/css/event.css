@@ -23,7 +23,7 @@
     text-align: center;
     position: relative;
     top: -20vh;
-    left: calc(100vw - 43px);
+    left: calc(50vw - 43px);
     border-radius: 83px;
     border: 1px #ffffff solid;
     color: #ffffff;
@@ -65,7 +65,7 @@
     margin-right: 5px;
 }
 
-.hr {
+#inner .hr {
     border-color: rgb(148, 148, 148);
     margin: 2vh auto;
 }
