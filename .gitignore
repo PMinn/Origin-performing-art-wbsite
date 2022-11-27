@@ -65,7 +65,6 @@ node_modules/
 # dotenv environment variables file
 .env
 
-/public/js/firebase*.js
 preview-blog.html
 
 unuse/
