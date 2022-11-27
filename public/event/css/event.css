@@ -1,0 +1,109 @@
+#content {
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: sticky;
+    top: 0;
+}
+
+#inner {
+    width: 80vw;
+    padding: 0 10vw 5vh 10vw;
+    backdrop-filter: blur(2px);
+    overflow-y: auto;
+    color: #fff;
+}
+
+#upsign {
+    width: 20vw;
+    height: 20vw;
+    line-height: 20vw;
+    text-align: center;
+    position: relative;
+    top: -20vh;
+    left: 40vw;
+    border-radius: 20vw;
+    border: 1px #ffffff solid;
+    color: #ffffff;
+    background-color: #ffffff20;
+    animation: upsignMove 2s ease infinite alternate 1s;
+}
+
+@keyframes upsignMove {
+    from {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5vh);
+    }
+
+    to {
+        transform: translateY(-5vh);
+    }
+}
+
+#event_title {
+    transform: translateX(-100vw);
+    transition: transform 1s ease 0s;
+}
+
+#event_detail {
+    opacity: 0;
+    transform: translateY(5vh);
+    transition: opacity 1s ease 1s, transform 1s ease 1s;
+}
+
+#event_detail>div>a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#event_detail img {
+    margin-right: 5px;
+}
+
+.hr {
+    border-color: rgb(148, 148, 148);
+    margin: 2vh auto;
+}
+
+#text {
+    color: #fff;
+    width: 86vw;
+    margin: 8vh auto;
+    line-height: 180%;
+}
+
+.event-bar {
+    display: flex;
+    height: 20px;
+    margin-top: 1vh;
+}
+
+.event-bar>* {
+    margin-right: 2vw;
+}
+
+.google {
+    background-color: #fff;
+    color: rgb(51, 51, 51);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 14px;
+    text-decoration: none;
+    height: 20px;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 3px;
+    font-family: PingFang SC, Helvetica Neue, Helvetica, STHeitiSC-Light, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+
+.google img {
+    width: 14px;
+    position: relative;
+    top: 3px;
+}

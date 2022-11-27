@@ -17,123 +17,15 @@
     <meta name="apple-mobile-web-app-title" content="Origin">
 
     <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" media="only screen and (min-width: 480px)" href="./css/cursor.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" media="only screen and (max-width: 480px)" href="./css/footer-mobile.css">
     <link rel="stylesheet" href="../css/loading.css">
+    <link rel="stylesheet" href="./css/event.css">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://plugins.timetreeapp.com/sdk_v1.js" defer></script>
-    <style>
-        #content {
-            height: 100vh;
-            width: 100vw;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: sticky;
-            top: 0;
-        }
-
-        #inner {
-            width: 80vw;
-            padding: 0 10vw 5vh 10vw;
-            backdrop-filter: blur(2px);
-            overflow-y: auto;
-            color: #fff;
-        }
-
-        #upsign {
-            width: 20vw;
-            height: 20vw;
-            line-height: 20vw;
-            text-align: center;
-            position: relative;
-            top: -20vh;
-            left: 40vw;
-            border-radius: 20vw;
-            border: 1px #ffffff solid;
-            color: #ffffff;
-            background-color: #ffffff20;
-            animation: upsignMove 2s ease infinite alternate 1s;
-        }
-
-        @keyframes upsignMove {
-            from {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-5vh);
-            }
-
-            to {
-                transform: translateY(-5vh);
-            }
-        }
-
-        #event_title {
-            transform: translateX(-100vw);
-            transition: transform 1s ease 0s;
-        }
-
-        #event_detail {
-            opacity: 0;
-            transform: translateY(5vh);
-            transition: opacity 1s ease 1s, transform 1s ease 1s;
-        }
-
-        #event_detail>div>a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        #event_detail img {
-            margin-right: 5px;
-        }
-
-        .hr {
-            border-color: rgb(148, 148, 148);
-            margin: 2vh auto;
-        }
-
-        #text {
-            color: #fff;
-            width: 86vw;
-            margin: 8vh auto;
-            line-height: 180%;
-        }
-
-        .event-bar {
-            display: flex;
-            height: 20px;
-            margin-top: 1vh;
-        }
-
-        .event-bar>* {
-            margin-right: 2vw;
-        }
-
-        .google {
-            background-color: #fff;
-            color: rgb(51, 51, 51);
-            font-size: 11px;
-            font-weight: 600;
-            line-height: 14px;
-            text-decoration: none;
-            height: 20px;
-            width: auto;
-            padding-left: 10px;
-            padding-right: 10px;
-            border-radius: 3px;
-            font-family: PingFang SC, Helvetica Neue, Helvetica, STHeitiSC-Light, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-        }
-
-        .google img {
-            width: 14px;
-            position: relative;
-            top: 3px;
-        }
-    </style>
 </head>
 
 <body>
@@ -147,20 +39,20 @@
             </div>
         </div>
     </div>
-    <!-- menu last update 2022/2/22 -->
+    <!-- menu last update 2022/11/20 -->
     <nav>
-        <a id="title" class="ENG" href="/">Origin</a>
-        <div id="menu-icon">
+        <a id="title" class="ENG pointer" href="/">Origin</a>
+        <div id="menu-icon" class="pointer">
             <div></div>
             <div></div>
         </div>
     </nav>
     <div id="menu" class="ZH">
-        <a href="/">首頁</a>
-        <a href="/about">關於我們</a>
-        <a href="/event">活動行程</a>
-        <a href="/blog" class="ENG">BLOG</a>
-        <a href="/contact">聯絡我們</a>
+        <a href="/" class="pointer">首頁</a>
+        <a href="/about" class="pointer">關於我們</a>
+        <a href="/event" class="pointer">活動行程</a>
+        <a href="/blog" class="ENG pointer">BLOG</a>
+        <a href="/contact" class="pointer">聯絡我們</a>
     </div>
     <!-- menu end -->
 
@@ -201,30 +93,61 @@
         <small class="ENG">Copyright© 2022 P'MIN. All Rights Reserved.</small>
     </footer>
     <!-- footer end -->
-
-    <script type="module" src="../js/fonts.js" async></script>
-    <script type="module" src="../js/nav.js" async></script>
+    <!-- footer last update 2022/11/20 -->
+    <footer class="ZH">
+        <div class="footer-inner">
+            <div class="footer-inner-left">
+                <div class="hr footer-block-logo">
+                    <img class="footer-logo" src="./media/Logo.webp" alt="">
+                    <a class="anchor"><span class="ENG">Origin</span>&ensp;<span class="ZH">起源劇團</span></a>
+                </div>
+                <div class="hr footer-block-media">
+                    <a href="/facebook" class="ENG anchor pointer">
+                        <img src="./media/facebook2.svg" widyh="24" height="24" alt="">
+                        OriginPerformingArt
+                    </a>
+                    <a href="/instagram" class="ENG anchor pointer">
+                        <img src="./media/instagram.svg" widyh="24" height="24" alt="">
+                        origin_performing_art
+                    </a>
+                </div>
+            </div>
+            <div class="footer-inner-right">
+                <div class="hr footer-block-link">
+                    <a href="/" class="anchor pointer">首頁</a>
+                    <a href="/about" class="anchor pointer">關於我們</a>
+                    <a href="/event" class="anchor pointer">活動行程</a>
+                    <a href="/blog" class="anchor ENG pointer">BLOG</a>
+                    <a href="/contact" class="anchor pointer">聯絡我們</a>
+                </div>
+                <small class="ENG footer-block-copyright">Copyright© 2022 P'MIN. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
 
     <script type="module">
-        import LoadingPage from '../js/loading.js';
+        import cursor from './js/cursor.js';
+        import loadFonts from './js/fonts.js';
+        import LoadingPage from '/js/loading.js';
         const loadingPage = new LoadingPage();
-        import app from '../js/firebase.js';
+        import app from '/js/firebase/firebase.js';
         import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js';
-        import { getStorage, getURL } from '../js/firebase-storage.js';
+        import { getStorage, getURL } from '/js/firebase/firebase-storage.js';
         const storage = getStorage(app);
 
-        const CalendarEvent = function(start, end, locate) {
+        const CalendarEvent = function (start, end, locate) {
             var title = `Origin 起源劇團 | ${start.getHours().toString().padStart(2, '0')}:${start.getMinutes().toString().padStart(2, '0')} - ${end.getHours().toString().padStart(2, '0')}:${end.getMinutes().toString().padStart(2, '0')}`;
-            
+
             this.event_bar = document.createElement('div');
             this.event_bar.classList.add('event-bar');
-            
+
             this.timetree = document.createElement('div');
             this.timetree.classList.add('tt-plugin-event');
             this.timetree.dataset.title = title;
             this.timetree.dataset.style = 'button';
-            this.timetree.setAttribute('data-start-at', `${start.toJSON().split('T')[0].replace(/-/gi,'')}T000000Z`);
-            this.timetree.setAttribute('data-end-at', `${end.toJSON().split('T')[0].replace(/-/gi,'')}T000000Z`);
+            this.timetree.setAttribute('data-start-at', `${start.toJSON().split('T')[0].replace(/-/gi, '')}T000000Z`);
+            this.timetree.setAttribute('data-end-at', `${end.toJSON().split('T')[0].replace(/-/gi, '')}T000000Z`);
             this.timetree.setAttribute('data-all-day', 'true');
             this.timetree.setAttribute('data-location', locate);
             this.timetree.setAttribute('data-url', location.toString());
@@ -234,7 +157,7 @@
             this.google.classList.add('google');
             this.google.target = '_blank';
             this.google.innerText = 'Add';
-            this.google.href = `https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml&text=${encodeURI(title)}&location=${locate}&details=&dates=${new Date(start.getTime()+24*60*60*1000).toJSON().split('T')[0].replace(/-/gi,'')}/${new Date(end.getTime()+24*60*60*1000).toJSON().split('T')[0].replace(/-/gi,'')}`
+            this.google.href = `https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml&text=${encodeURI(title)}&location=${locate}&details=&dates=${new Date(start.getTime() + 24 * 60 * 60 * 1000).toJSON().split('T')[0].replace(/-/gi, '')}/${new Date(end.getTime() + 24 * 60 * 60 * 1000).toJSON().split('T')[0].replace(/-/gi, '')}`
             this.googleIcon = document.createElement('img');
             this.googleIcon.src = '../media/event/google.webp';
             this.google.prepend(this.googleIcon);
@@ -277,13 +200,13 @@
                     var start = list.start.toDate();
                     var end = list.end.toDate();
                     console.log(start, end);
-                    time.innerText = `${start.getMonth()+1}/${start.getDate()} - ${end.getMonth()+1}/${end.getDate()}, ${start.getFullYear()} ${start.getHours().toString().padStart(2, '0')}:${start.getMinutes().toString().padStart(2, '0')} - ${end.getHours().toString().padStart(2, '0')}:${end.getMinutes().toString().padStart(2, '0')}`;
+                    time.innerText = `${start.getMonth() + 1}/${start.getDate()} - ${end.getMonth() + 1}/${end.getDate()}, ${start.getFullYear()} ${start.getHours().toString().padStart(2, '0')}:${start.getMinutes().toString().padStart(2, '0')} - ${end.getHours().toString().padStart(2, '0')}:${end.getMinutes().toString().padStart(2, '0')}`;
 
                     var timeIcon = document.createElement('img');
                     timeIcon.src = '../media/event/time.svg';
                     time.prepend(timeIcon);
 
-                    var calendarEvent = new CalendarEvent(start,end,list.location.zh);
+                    var calendarEvent = new CalendarEvent(start, end, list.location.zh);
 
                     block.appendChild(location);
                     block.appendChild(br);
@@ -293,7 +216,7 @@
                     document.getElementById('event_detail').appendChild(block);
                 });
                 ttplugin.load();
-                
+
                 console.log(data);
                 return getURL(storage, data.image).then(url => {
                     document.getElementById('content').style['background-image'] = `url("${url}")`;
@@ -315,6 +238,13 @@
         }).finally(() => {
             loadingPage.hide();
         });
+
+        function init() {
+            import('./js/nav.js').then(module => {
+                module.default();
+            });
+        }
+        document.addEventListener("DOMContentLoaded", init);
     </script>
 
 </body>
