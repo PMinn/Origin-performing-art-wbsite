@@ -105,11 +105,16 @@
         import cursor from '/js/cursor.js';
         import loadFonts from '/js/fonts.js';
         import LoadingPage from '/js/loading.js';
-        const loadingPage = new LoadingPage();
+
         import app from '/js/firebase/firebase.js';
         import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js';
         import { getStorage, getURL } from '/js/firebase/firebase-storage.js';
         const storage = getStorage(app);
+
+
+        cursor();
+        loadFonts();
+        const loadingPage = new LoadingPage();
 
         const CalendarEvent = function (start, end, locate) {
             var title = `Origin 起源劇團 | ${start.getHours().toString().padStart(2, '0')}:${start.getMinutes().toString().padStart(2, '0')} - ${end.getHours().toString().padStart(2, '0')}:${end.getMinutes().toString().padStart(2, '0')}`;

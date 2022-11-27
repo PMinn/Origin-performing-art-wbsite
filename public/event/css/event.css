@@ -17,14 +17,14 @@
 }
 
 #upsign {
-    width: 20vw;
-    height: 20vw;
-    line-height: 20vw;
+    width: 83px;
+    height: 83px;
+    line-height: 83px;
     text-align: center;
     position: relative;
     top: -20vh;
-    left: 40vw;
-    border-radius: 20vw;
+    left: calc(100vw - 43px);
+    border-radius: 83px;
     border: 1px #ffffff solid;
     color: #ffffff;
     background-color: #ffffff20;
