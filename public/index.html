@@ -103,18 +103,20 @@
         </div>
     </section>
     <div id="p2" class="ZH">
-        <div>
+        <div class="p2-inner">
             <div class="split">
                 <div class="content_title">演出項目</div>
             </div>
-            <div class="img" style="background-image: url('media/index/p2/1.webp');">
-                <div class="split">
-                    <div>街頭表演</div>
+            <div class="imgs">
+                <div class="img" style="background-image: url('media/index/p2/1.webp');">
+                    <div class="split">
+                        <div>街頭表演</div>
+                    </div>
                 </div>
-            </div>
-            <div class="img" style="background-image: url('media/index/p2/2.webp');">
-                <div class="split">
-                    <div>商業演出</div>
+                <div class="img" style="background-image: url('media/index/p2/2.webp');">
+                    <div class="split">
+                        <div>商業演出</div>
+                    </div>
                 </div>
             </div>
             <a href="/contact" class="anchor pointer">聯絡我們</a>
@@ -214,9 +216,8 @@
                     });
                 }, 1000);
             });
+            document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
         }
-        // document.addEventListener("DOMContentLoaded", start);
-        // window.addEventListener("load", init);
         document.addEventListener("DOMContentLoaded", init);
     </script>
 

@@ -124,9 +124,11 @@
 }
 
 #p2 {
-
+    width: 100vw;
+    margin: 8rem auto 0 auto;
     background: var(--main-color);
     background: linear-gradient(180deg, var(--main-color) 0%, #000 100%);
+    color: #fff;
 }
 
 #p2 .anchor,
@@ -135,20 +137,22 @@
     display: flex;
 }
 
-#p2>div {
-    margin: 8rem auto 0 auto;
+#p2 .p2-inner {
     width: 86vw;
-    max-width: 500px;
-    color: #fff;
-    padding-bottom: 80px;
+    max-width: calc(740px + 10vw);
+    margin: 0 auto;
 }
 
-#p2>div>* {
-    margin-bottom: 80px;
+#p2 .imgs {
+    display: flex;
+    justify-content: space-between;
 }
 
-#p2>div>.img {
+#p2 .imgs .img {
     width: 100%;
+    max-width: 370px;
+    margin-bottom: 80px;
+
     height: 110vw;
     max-height: 640px;
     background-position: center;
@@ -157,14 +161,18 @@
     position: relative;
 }
 
-#p2>div>.img>div {
+#p2>div>* {
+    margin-bottom: 80px;
+}
+
+#p2 .img>div {
     position: absolute;
     bottom: 3%;
     left: 5%;
     width: 90%;
 }
 
-#p2>div>.img>div>div {
+#p2 .img>div>div {
     width: 100%;
     text-align: end;
     mix-blend-mode: difference;
