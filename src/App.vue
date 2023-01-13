@@ -26,6 +26,11 @@ export default {
     var styleSheet = document.createElement('style');
     styleSheet.innerText = "@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&family=Zen+Kurenaido&display=swap');";
     document.head.appendChild(styleSheet);
+
+    var script = document.createElement('script');
+    script.type = "module";
+    script.src = "https://cdn.jsdelivr.net/gh/pminn/banner/src/banner.mjs";
+    document.head.appendChild(script);
   }
 }
 </script>
