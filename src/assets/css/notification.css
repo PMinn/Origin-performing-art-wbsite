@@ -1,0 +1,42 @@
+#notification-bar {
+    height: 5vh;
+    width: 90vw;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vh 0;
+    position: fixed;
+    top: 8vh;
+    left: 5vw;
+    z-index: 50;
+    /* backdrop-filter: blur(7px); */
+    border-radius: 5vh;
+    background-color: #2A0F00;
+    box-shadow: 2px 2px 8px #00000050;
+    will-change: transform;
+    transform: translateY(-18vh);
+    transition: transform 1s ease 0s;
+}
+
+#notification-bar.show {
+    will-change: transform;
+    transform: translateY(0);
+}
+
+#notification-bar>img {
+    height: 30px;
+    position: absolute;
+    right: 5vw;
+    top: calc(50% - 15px);
+}
+
+#notification-bar>div {
+    width: calc(75vw - 19px);
+    margin-left: 5vw;
+    height: 5vh;
+    color: #fff;
+    line-height: 5vh;
+    white-space: nowrap;
+    overflow-x: auto;
+}

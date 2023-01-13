@@ -1,0 +1,9 @@
+.split {
+    overflow: hidden;
+}
+
+.split>* {
+    transition: transform 1s cubic-bezier(.4, 0, 0, 1);
+    transform: translateY(100%);
+    will-change: transform;
+}

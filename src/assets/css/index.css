@@ -1,0 +1,171 @@
+#p2 .anchor,
+#p3 .anchor {
+    justify-content: center;
+    font-weight: 900;
+    letter-spacing: 0.15rem;
+    padding: 1.4rem 2.4rem;
+    margin-top: 12rem;
+    margin-bottom: 0;
+}
+
+.content_title {
+    font-size: 2rem;
+}
+
+#p2 {
+    width: 100vw;
+    margin: 8rem auto 0 auto;
+    background: var(--main-color);
+    background: linear-gradient(180deg, var(--main-color) 0%, #000 100%);
+    color: #fff;
+}
+
+#p2 .anchor,
+#p3 .anchor,
+#p4 .anchor {
+    display: flex;
+}
+
+#p2 .p2-inner {
+    width: 86vw;
+    max-width: calc(740px + 10vw);
+    margin: 0 auto;
+}
+
+#p2 .imgs {
+    display: flex;
+    justify-content: space-between;
+}
+
+#p2 .imgs .img {
+    width: 100%;
+    max-width: 370px;
+    margin-bottom: 80px;
+
+    height: 110vw;
+    max-height: 640px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+#p2 .imgs .img img {
+    height: 100%;
+}
+
+#p2>div>* {
+    margin-bottom: 80px;
+}
+
+#p2 .img>div {
+    position: absolute;
+    bottom: 3%;
+    left: 5%;
+    width: 90%;
+}
+
+#p2 .img>div>div {
+    width: 100%;
+    text-align: end;
+    mix-blend-mode: difference;
+}
+
+#p3 {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#p3>div {
+    width: calc(80vw - 600px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#logo-video {
+    width: 600px;
+}
+
+#p3 .content_title {
+    /* width: 86vw; */
+    color: var(--second-color);
+    font-weight: 900;
+    margin: 2vh 0;
+}
+
+#p3 p {
+    width: 100%;
+    line-height: 250%;
+}
+
+#p4 {
+    color: #fff;
+    padding: 8rem 0;
+    width: 100%;
+}
+
+#p4>* {
+    width: 50vw;
+    margin: 5vh auto;
+}
+
+#p4 .anchor.event>div {
+    background-image: url('~@/assets/media/li/p2.jpg');
+}
+
+#p4 .anchor.blog>div {
+    background-image: url('~@/assets/media/li/p1.jpg');
+}
+
+@media only screen and (max-width: 480px) {
+    #p2 .imgs {
+        display: block;
+    }
+
+    #p3 {
+        display: block;
+        padding-bottom: 12rem;
+    }
+
+    #p3>div {
+        width: 86vw;
+    }
+
+    #p3>*:not(#logo-video) {
+        z-index: 48;
+        position: relative;
+    }
+
+    #logo-video {
+        position: -webkit-sticky;
+        position: sticky;
+        top: calc(50vh - 90vw);
+        width: 100%;
+        filter: brightness(0.6);
+        -webkit-filter: brightness(0.6);
+        z-index: 47;
+    }
+
+    #p4>h6 {
+        width: 86vw;
+    }
+
+    #p4>.li {
+        width: 100%;
+    }
+
+    #p4 .anchor.event>div {
+        background-image: url('../media/li/2.jpg');
+    }
+
+    #p4 .anchor.blog>div {
+        background-image: url('../media/li/1.jpg');
+    }
+}

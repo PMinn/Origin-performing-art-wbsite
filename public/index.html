@@ -1,242 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Origin | 起源劇團</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Origin | 起源劇團</title>
 
-    <!-- icon -->
-    <link rel="shortcut icon" href="icon/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
-    <!-- apple icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
-    <link rel="apple-touch-startup-image" href="icon/apple-touch-icon.png">
-    <meta name="apple-mobile-web-app-title" content="Origin">
+  <!-- icon -->
+  <link rel="shortcut icon" href="<%= BASE_URL %>favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="<%= BASE_URL %>favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<%= BASE_URL %>favicon-16x16.png">
+  <!-- apple icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="<%= BASE_URL %>apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="<%= BASE_URL %>apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Origin">
 
-    <!-- SEO -->
-    <meta name="description" content="Origin是一個火舞表演團體,主要表演地區為東台灣">
-
-    <link rel="stylesheet" href="./css/init.css">
-    <link rel="stylesheet" media="only screen and (min-width: 480px)" href="./css/cursor.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" media="only screen and (max-width: 480px)" href="./css/index-mobile.css">
-    <link rel="stylesheet" href="./css/loading.css">
-    <link rel="stylesheet" href="./css/nav.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" media="only screen and (max-width: 480px)" href="./css/footer-mobile.css">
-    <link rel="stylesheet" href="./css/split.css">
-    <link rel="stylesheet" href="./css/li.css">
-    <link rel="stylesheet" href="./css/notification.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
-    <!-- icon https://icons8.com/icon/set/social-media/small -->
+  <!-- SEO -->
+  <meta name="description" content="Origin是一個火舞表演團體,主要表演地區為東台灣">
 </head>
 
 <body>
-    <div id="loading">
-        <div>
-            <div id="logo">
-                <img src="./media/Logo.webp" width="100" height="100" alt="" loading="eager">
-            </div>
-            <div id="circle">
-                <img src="./media/load-circle.webp" width="323" height="323" alt="" loading="eager">
-            </div>
-        </div>
-    </div>
-    <div id="notification-bar">
-        <div class="ZH"></div>
-        <img src="./media/xmark.svg" alt="">
-    </div>
-    <!-- menu last update 2022/11/20 -->
-    <nav>
-        <a id="title" class="ENG pointer" href="/">Origin</a>
-        <div id="menu-icon" class="pointer">
-            <div></div>
-            <div></div>
-        </div>
-    </nav>
-    <div id="menu" class="ZH">
-        <a href="/" class="pointer">首頁</a>
-        <a href="/about" class="pointer">關於我們</a>
-        <a href="/event" class="pointer">活動行程</a>
-        <a href="/blog" class="ENG pointer">BLOG</a>
-        <a href="/contact" class="pointer">聯絡我們</a>
-    </div>
-    <!-- menu end -->
-
-    <section id="image-carousel" class="splide" aria-label="Beautiful Images">
-        <div class="splide__track">
-            <ul class="splide__list">
-                <li class="splide__slide">
-                    <img src="./media/index/p1/1-2.webp" alt="">
-                </li>
-                <li class="splide__slide">
-                    <img src="./media/index/p1/9-2.webp" alt="">
-                </li>
-                <li class="splide__slide">
-                    <img src="./media/index/p1/2-2.webp" alt="">
-                </li>
-                <li class="splide__slide">
-                    <img src="./media/index/p1/7-2.webp" alt="">
-                </li>
-            </ul>
-        </div>
-        <div id="intro">
-            <div class="split">
-                <div class="text ENG">Origin</div>
-            </div>
-            <div class="split">
-                <div class="text ZH">起源劇團</div>
-            </div>
-            <div class="split">
-                <div class="text ZH">我們想將對表演的酷愛與熱忱，藉著令人醉心的歌曲、震撼人心的表演帶給觀眾，將表演令人無法抵擋的歡樂帶上街頭，在觀眾的心中留下一抹深刻的記憶。</div>
-            </div>
-            <div id="timeline-img">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    </section>
-    <div id="p2" class="ZH">
-        <div class="p2-inner">
-            <div class="split">
-                <div class="content_title">演出項目</div>
-            </div>
-            <div class="imgs">
-                <div class="img" style="background-image: url('media/index/p2/1.webp');">
-                    <div class="split">
-                        <div>街頭表演</div>
-                    </div>
-                </div>
-                <div class="img" style="background-image: url('media/index/p2/2.webp');">
-                    <div class="split">
-                        <div>商業演出</div>
-                    </div>
-                </div>
-            </div>
-            <a href="/contact" class="anchor pointer">聯絡我們</a>
-        </div>
-    </div>
-    <div id="p3" class="ZH">
-        <video id="logo-video" src="media/Logo3.mp4" autoplay loop muted playsinline></video>
-        <div>
-            <div class="split">
-                <div class="content_title">跟著<span class="ENG">Origin</span>一起遇火重生</div>
-            </div>
-            <p>你們是否會常常問自己一個問題，我當初做這件事是開心的嗎？</p>
-            <p>最初，也許每一個人心中都是帶著熱情去嘗試新事物，但是隨著時間的流逝，加上高強度壓力的環境壓迫，熱情經常會消逝。跟著<span
-                    class="ENG">Origin</span>一起遇火重生，燃起你心中深埋的熱情！
-            </p>
-            <a href="/about" class="anchor pointer">關於我們</a>
-        </div>
-    </div>
-    <div id="p4">
-        <h6>更多</h6>
-        <a href="/event" class="anchor li event pointer" data-load="false">
-            <div class="ZH" data-load="false" loading="lazy">
-                <div>
-                    活動行程
-                </div>
-            </div>
-        </a>
-        <a href="/blog" class="anchor li blog pointer" data-load="false">
-            <div class="ZH" data-load="false" loading="lazy">
-                <div>
-                    BLOG
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <!-- footer last update 2022/11/20 -->
-    <footer class="ZH">
-        <div class="footer-inner">
-            <div class="footer-inner-left">
-                <div class="hr footer-block-logo">
-                    <img class="footer-logo" src="./media/Logo.webp" alt="">
-                    <a class="anchor"><span class="ENG">Origin</span>&ensp;<span class="ZH">起源劇團</span></a>
-                </div>
-                <div class="hr footer-block-media">
-                    <a href="/facebook" class="ENG anchor pointer">
-                        <img src="./media/facebook2.svg" widyh="24" height="24" alt="">
-                        OriginPerformingArt
-                    </a>
-                    <a href="/instagram" class="ENG anchor pointer">
-                        <img src="./media/instagram.svg" widyh="24" height="24" alt="">
-                        origin_performing_art
-                    </a>
-                </div>
-            </div>
-            <div class="footer-inner-right">
-                <div class="hr footer-block-link">
-                    <a href="/" class="anchor pointer">首頁</a>
-                    <a href="/about" class="anchor pointer">關於我們</a>
-                    <a href="/event" class="anchor pointer">活動行程</a>
-                    <a href="/blog" class="anchor ENG pointer">BLOG</a>
-                    <a href="/contact" class="anchor pointer">聯絡我們</a>
-                </div>
-                <small class="ENG footer-block-copyright">Copyright© 2022 P'MIN. All Rights Reserved.</small>
-            </div>
-        </div>
-    </footer>
-    <!-- footer end -->
-
-    <script type="module">
-        import cursor from './js/cursor.js';
-        import LoadingPage from './js/loading.js';
-        import loadFonts from './js/fonts.js';
-
-        // import app from './js/firebase.js';
-
-        // import notification from './js/firebase-notification.js';
-
-        cursor();
-        loadFonts();
-        const loadingPage = new LoadingPage(true);
-        function init() {
-            import('./js/image-carousel.js').then(module => {
-                module.default();
-            });
-            import('./js/nav.js').then(module => {
-                module.default();
-            });
-            import('./js/split.js').then(splitModule => {
-                setTimeout(() => {
-                    splitModule.default();
-                    document.body.style.overflow = 'auto';
-                    window.scroll(0, 0);
-                    // notification('home');
-                    import('./js/li.js').then(module => {
-                        module.default();
-                    });
-                }, 1000);
-            });
-            document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
-        }
-        document.addEventListener("DOMContentLoaded", init);
-    </script>
-
-    <!-- <script type="module">
-
-        // import { getStorage , ref , getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-storage.js';
-        
-        // const storage = getStorage(app);
-        // const pathReference = ref(storage, 'Logo3.mp4');
-        // getDownloadURL(pathReference)
-        //     .then((url) => {
-        //         var img = document.getElementById('logo-video');
-        //         img.setAttribute('src', url);
-        //     })
-        //     .catch((error) => {
-        //         // Handle any errors
-        //     });
-            
-    </script> -->
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
 </body>
 
 </html>
