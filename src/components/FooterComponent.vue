@@ -37,13 +37,118 @@
 
 <script>
 export default {
-    name: 'FooterComponent',
-    mounted() {
-
-    }
+    name: 'FooterComponent'
 }
 </script>
 
-<style src="@/assets/css/footer.css">
+<style scoped>
+footer {
+    background-color: #1b1b1b;
+    padding: 5vh 0;
+}
 
+.footer-inner {
+    width: 86vw;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: stretch;
+}
+
+.footer-inner-left,
+.footer-inner-right {
+    width: 50%;
+}
+
+.footer-block-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 45px;
+    padding-top: 45px;
+}
+
+.footer-logo {
+    width: 200px;
+}
+
+.footer-block-media {
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+
+.footer-block-media {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-block-media .anchor {
+    display: flex;
+}
+
+.footer-block-logo>*,
+.footer-block-link a,
+.footer-block-media a {
+    margin-bottom: 25px;
+}
+
+.footer-block-link {
+    height: calc(100% - 1px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.footer-block-link a {
+    width: 100%;
+    text-align: center;
+}
+
+
+.anchor>img {
+    margin: 0 5px;
+    width: 24px;
+}
+
+footer small {
+    width: 100%;
+    color: #747474;
+    text-align: center;
+}
+
+.hr {
+    border-bottom: 1px #414141 solid;
+}
+
+@media only screen and (max-width: 480px) {
+    .footer-inner {
+        display: block;
+    }
+
+    .footer-inner-left,
+    .footer-inner-right {
+        width: 100%;
+    }
+
+    .footer-logo {
+        width: 30vw;
+        height: auto;
+    }
+
+    .footer-block-media,
+    .footer-block-link {
+        display: block;
+    }
+
+    .footer-block-link a {
+        display: flex;
+    }
+
+    .footer-block-link {
+        padding-top: 36px;
+        padding-bottom: 36px;
+        margin-bottom: 3vh;
+        height: unset;
+    }
+}
 </style>

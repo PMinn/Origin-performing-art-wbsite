@@ -15,7 +15,7 @@
         <div class="split">
             <div class="text ZH">我們想將對表演的酷愛與熱忱，藉著令人醉心的歌曲、震撼人心的表演帶給觀眾，將表演令人無法抵擋的歡樂帶上街頭，在觀眾的心中留下一抹深刻的記憶。</div>
         </div>
-        <div id="timeline-img" ref="timelineImg">
+        <div id="timeline-img">
             <div v-for="(url, i) in imagesUrl" v-bind:key="url" :class="{ active: (index == i), empty: (index < i) }">
             </div>
         </div>
@@ -26,10 +26,8 @@
 import '@splidejs/vue-splide/css';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import { Intersection } from '@splidejs/splide-extension-intersection';
-import { ref } from 'vue'
 
 const imagesFilename = ['1-2', '9-2', '2-2', '7-2'];
-const timelineImg = ref(null)
 
 export default {
     name: 'HomeSplideComponent',
@@ -64,7 +62,7 @@ export default {
                     autoScroll: false
                 },
                 outView: {
-                    // autoplay: true,
+                    autoplay: true,
                     autoScroll: false
                 }
             },
@@ -75,7 +73,6 @@ export default {
         };
 
         return {
-            timelineImg,
             imagesUrl: imagesFilename.map(url => {
                 var images = require.context('../assets/media/index/p1/', false, /\.jpg$/);
                 return images('./' + url + ".jpg");
@@ -93,20 +90,93 @@ export default {
     components: {
         Splide,
         SplideSlide,
+    },
+    mounted() {
+        document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
     }
 };
 </script>
 
-<style src="@/assets/css/splide.css" scoped>
-
-</style>
-
-<style>
+<style scoped>
 #timeline-img>div.active::before {
     --progress: v-bind(rate);
 }
 
 #timeline-img>div.empty::before {
     --progress: 0;
+}
+
+#image-carousel {
+    height: 100vh;
+    position: relative;
+}
+
+.splide__slide {
+    overflow: hidden;
+}
+
+.splide__slide img {
+    transition: transform 8s linear;
+    transform: scale(1.2);
+    height: 100vh;
+    margin: 0 auto;
+    display: block;
+}
+
+.splide__slide.is-active img {
+    transform: scale(1);
+}
+
+#intro {
+    width: 86vw;
+    position: absolute;
+    bottom: 8vh;
+    left: 7vw;
+    max-width: 500px;
+}
+
+#intro .text {
+    z-index: 52;
+    color: var(--second-color);
+    margin-bottom: 1vh;
+}
+
+#intro>div:nth-child(1) {
+    font-size: 5rem;
+}
+
+#intro>div:nth-child(2) {
+    font-size: 25px;
+}
+
+#intro>div:nth-child(3) {
+    width: 100%;
+}
+
+#timeline-img {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 2vh;
+}
+
+#timeline-img>div {
+    height: 1px;
+    width: 20vw;
+    max-width: 120px;
+    margin: 0 2px;
+    background-color: #fff;
+}
+
+#timeline-img>div::before {
+    display: block;
+    content: '';
+    background-color: var(--second-color);
+    height: 1px;
+    width: 20vw;
+    max-width: 120px;
+    transform-origin: left;
+    transform: scaleX(var(--progress));
 }
 </style>

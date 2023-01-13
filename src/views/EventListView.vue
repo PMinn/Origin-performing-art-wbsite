@@ -12,6 +12,7 @@
 import { ref as storageRef } from 'firebase/storage'
 import { useDatabase, useFirebaseStorage, useStorageFileUrl } from 'vuefire'
 import { ref, query, orderByChild, startAfter, limitToFirst, get } from 'firebase/database'
+import li from '@/assets/js/li.js';
 
 export default {
   name: 'EventListView',
@@ -53,7 +54,6 @@ export default {
               d.oid = key;
               d.img = getImageUrl(d.image);
               this.startIndex = Math.max(this.startIndex, d.sort);
-              console.log(this.startIndex)
               return d;
             })
             data.sort(function (a, b) {
@@ -66,9 +66,7 @@ export default {
             this.lastStartIndex = this.startIndex;
             this.eventList = this.eventList.concat(data);
             this.inSearching = false;
-            import('@/assets/js/li.js').then(module => {
-              module.default();
-            })
+            li();
           } else {
             console.log("No data available");
             window.removeEventListener('scroll', this.handleScroll);
@@ -84,8 +82,29 @@ export default {
 }
 </script>
 
-<style src="@/assets/css/eventList.css" scoped>
+<style  scoped>
+.anchor {
+  margin: 0;
+}
 
+#events {
+  width: 600px;
+  margin: 0 auto;
+}
+
+#events>div {
+  margin: 3vh auto;
+}
+
+@media only screen and (max-width: 480px) {
+  #events {
+    width: 100vw;
+  }
+
+  #events>div {
+    margin: 0;
+  }
+}
 </style>
 <style src="@/assets/css/li.css" scoped>
 

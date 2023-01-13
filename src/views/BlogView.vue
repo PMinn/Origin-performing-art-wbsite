@@ -102,6 +102,7 @@ export default {
       if (docSnap.exists()) {
         var blog = docSnap.data();
         blog.img = getImageUrl(blog.img);
+        document.title = blog.title + ' - blog - Origin | 起源劇團';
         this.blog = blog;
       }
 
@@ -110,6 +111,78 @@ export default {
 }
 </script>
 
-<style src="@/assets/css/blog.css" scoped>
+<style scoped>
+#main {
+  width: 100vw;
+  max-width: 600px;
+  height: 40vh;
+  color: #fff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
 
+.main-text {
+  width: 80%;
+  z-index: 1;
+}
+
+#blog_date,
+#blog_title {
+  margin: 1vh 0;
+}
+
+#blog_date {
+  color: gray;
+}
+
+#main_img {
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#main_img>img {
+  /* height: auto;
+    width: 100%; */
+  filter: brightness(0.8);
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
+}
+
+#content {
+  width: 80vw;
+  max-width: 600px;
+  padding: 2vh 10vw;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 15px;
+  line-height: 28px;
+}
+
+#content img {
+  width: 100%;
+}
+
+#content>* {
+  width: 100%;
+  margin: 3vh 0;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease 0s, transform 1.5s ease 0s;
+}
+
+#content>*.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>

@@ -1,24 +1,5 @@
 <template>
   <div>
-    <!-- <loading></loading> -->
-    <!-- <section id="image-carousel" class="splide" aria-label="Beautiful Images">
-      <div class="splide__track">
-        <ul class="splide__list">
-          <li class="splide__slide">
-            <img src="@/assets/media/index/p1/1-2.jpg" alt="">
-          </li>
-          <li class="splide__slide">
-            <img src="@/assets/media/index/p1/9-2.jpg" alt="">
-          </li>
-          <li class="splide__slide">
-            <img src="@/assets/media/index/p1/2-2.jpg" alt="">
-          </li>
-          <li class="splide__slide">
-            <img src="@/assets/media/index/p1/7-2.jpg" alt="">
-          </li>
-        </ul>
-      </div>
-    </section> -->
     <HomeSplideComponent></HomeSplideComponent>
     <div id="p2" class="ZH">
       <div class="p2-inner">
@@ -39,7 +20,7 @@
             </div>
           </div>
         </div>
-        <a href="/contact" class="anchor pointer">聯絡我們</a>
+        <router-link to="/contact" class="anchor pointer">聯絡我們</router-link>
       </div>
     </div>
     <div id="p3" class="ZH">
@@ -51,64 +32,221 @@
         <p>你們是否會常常問自己一個問題，我當初做這件事是開心的嗎？</p>
         <p>最初，也許每一個人心中都是帶著熱情去嘗試新事物，但是隨著時間的流逝，加上高強度壓力的環境壓迫，熱情經常會消逝。跟著<span class="ENG">Origin</span>一起遇火重生，燃起你心中深埋的熱情！
         </p>
-        <a href="/about" class="anchor pointer">關於我們</a>
+        <router-link to="/about" class="anchor pointer">關於我們</router-link>
       </div>
     </div>
     <div id="p4">
       <h6>更多</h6>
-      <a href="/event" class="anchor li event pointer" data-load="false">
+      <router-link to="/event" class="anchor li event pointer" data-load="false">
         <div class="ZH" data-load="false" loading="lazy">
           <div>
             活動行程
           </div>
         </div>
-      </a>
-      <a href="/blog" class="anchor li blog pointer" data-load="false">
+      </router-link>
+      <router-link to="/blog" class="anchor li blog pointer" data-load="false">
         <div class="ZH" data-load="false" loading="lazy">
           <div>
             BLOG
           </div>
         </div>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-// import LoadingComponent from '@/components/LoadingComponent'
 import HomeSplideComponent from '@/components/HomeSplideComponent';
+import split from '@/assets/js/split.js';
+import li from '@/assets/js/li.js';
 
 export default {
   name: 'HomeView',
   components: {
-    // loading: LoadingComponent
     HomeSplideComponent
   },
-  data() {
-    return {
-    }
-  },
   mounted() {
-    import('@/assets/js/split.js').then(splitModule => {
-      setTimeout(() => {
-        splitModule.default()
-        document.body.style.overflow = 'auto';
-        window.scroll(0, 0);
-        // notification('home')
-        import('@/assets/js/li.js').then(module => {
-          module.default()
-        })
-      }, 1000)
-    })
-
-    document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'))
+    setTimeout(() => {
+      split();
+      li();
+    }, 1000)
   }
 }
 </script>
 
 
-<style src="@/assets/css/index.css" scoped>
+<style scoped>
+#p2 .anchor,
+#p3 .anchor {
+  justify-content: center;
+  font-weight: 900;
+  letter-spacing: 0.15rem;
+  padding: 1.4rem 2.4rem;
+  margin-top: 12rem;
+  margin-bottom: 0;
+}
 
+.content_title {
+  font-size: 2rem;
+}
+
+#p2 {
+  width: 100vw;
+  margin: 8rem auto 0 auto;
+  background: var(--main-color);
+  background: linear-gradient(180deg, var(--main-color) 0%, #000 100%);
+  color: #fff;
+}
+
+#p2 .anchor,
+#p3 .anchor,
+#p4 .anchor {
+  display: flex;
+}
+
+#p2 .p2-inner {
+  width: 86vw;
+  max-width: calc(740px + 10vw);
+  margin: 0 auto;
+}
+
+#p2 .imgs {
+  display: flex;
+  justify-content: space-between;
+}
+
+#p2 .imgs .img {
+  width: 100%;
+  max-width: 370px;
+  margin-bottom: 80px;
+
+  height: 110vw;
+  max-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+#p2 .imgs .img img {
+  height: 100%;
+}
+
+#p2>div>* {
+  margin-bottom: 80px;
+}
+
+#p2 .img>div {
+  position: absolute;
+  bottom: 3%;
+  left: 5%;
+  width: 90%;
+}
+
+#p2 .img>div>div {
+  width: 100%;
+  text-align: end;
+  mix-blend-mode: difference;
+}
+
+#p3 {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+#p3>div {
+  width: calc(80vw - 600px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#logo-video {
+  width: 600px;
+}
+
+#p3 .content_title {
+  /* width: 86vw; */
+  color: var(--second-color);
+  font-weight: 900;
+  margin: 2vh 0;
+}
+
+#p3 p {
+  width: 100%;
+  line-height: 250%;
+}
+
+#p4 {
+  color: #fff;
+  padding: 8rem 0;
+  width: 100%;
+}
+
+#p4>* {
+  width: 50vw;
+  margin: 5vh auto;
+}
+
+#p4 .anchor.event>div {
+  background-image: url('@/assets/media/li/p2.jpg');
+}
+
+#p4 .anchor.blog>div {
+  background-image: url('@/assets/media/li/p1.jpg');
+}
+
+@media only screen and (max-width: 480px) {
+  #p2 .imgs {
+    display: block;
+  }
+
+  #p3 {
+    display: block;
+    padding-bottom: 12rem;
+  }
+
+  #p3>div {
+    width: 86vw;
+  }
+
+  #p3>*:not(#logo-video) {
+    z-index: 48;
+    position: relative;
+  }
+
+  #logo-video {
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(50vh - 90vw);
+    width: 100%;
+    filter: brightness(0.6);
+    -webkit-filter: brightness(0.6);
+    z-index: 47;
+  }
+
+  #p4>h6 {
+    width: 86vw;
+  }
+
+  #p4>.li {
+    width: 100%;
+  }
+
+  #p4 .anchor.event>div {
+    background-image: url('@/assets/media/li/2.jpg');
+  }
+
+  #p4 .anchor.blog>div {
+    background-image: url('@/assets/media/li/1.jpg');
+  }
+}
 </style>
 <style src="@/assets/css/li.css" scoped>
 
