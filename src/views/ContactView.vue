@@ -10,7 +10,7 @@
             </a>
             <a href="/facebook" class="ENG anchor social-link left facebook pointer" target="_blank">
                 <div class="contact-logo">
-                    <img src="@/assets/media/facebook2.svg" alt="">
+                    <img src="@/assets/media/facebook.svg" alt="">
                 </div>
                 <span>OriginPerformingArt</span>
             </a>

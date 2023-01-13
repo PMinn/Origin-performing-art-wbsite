@@ -10,7 +10,7 @@
                     </div>
                     <div class="hr footer-block-media">
                         <a href="/facebook" class="ENG anchor pointer" target="_blank">
-                            <img src="@/assets/media/facebook2.svg" widyh="24" height="24" alt="">
+                            <img src="@/assets/media/facebook.svg" widyh="24" height="24" alt="">
                             OriginPerformingArt
                         </a>
                         <a href="/instagram" class="ENG anchor pointer" target="_blank">

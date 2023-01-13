@@ -8,13 +8,13 @@
         </div>
         <div class="imgs">
           <div class="img">
-            <img src="@/assets/media/index/p2/1.jpg" alt="">
+            <img v-bind:src="p2_1" alt="">
             <div class="split">
               <div>街頭表演</div>
             </div>
           </div>
           <div class="img">
-            <img src="@/assets/media/index/p2/2.jpg" alt="">
+            <img v-bind:src="p2_2" alt="">
             <div class="split">
               <div>商業演出</div>
             </div>
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div id="p3" class="ZH">
-      <video id="logo-video" src="@/assets/media/Logo3.mp4" autoplay loop muted playsinline></video>
+      <video id="logo-video" :src="LogoAnimation" autoplay loop muted playsinline></video>
       <div>
         <div class="split">
           <div class="content_title">跟著<span class="ENG">Origin</span>一起遇火重生</div>
@@ -60,16 +60,40 @@ import HomeSplideComponent from '@/components/HomeSplideComponent';
 import split from '@/assets/js/split.js';
 import li from '@/assets/js/li.js';
 
+import { getStorage, ref as storageRef, getDownloadURL } from 'firebase/storage'
+import { useFirebaseStorage, useStorageFileUrl } from 'vuefire'
+
 export default {
   name: 'HomeView',
   components: {
     HomeSplideComponent
+  },
+  setup() {
+    const storage = useFirebaseStorage();
+    function getImageUrl(originUrl) {
+      const fileRef = storageRef(storage, originUrl)
+      const { url } = useStorageFileUrl(fileRef);
+      return url;
+    }
+    return {
+      p2_1: getImageUrl('index/p2/1.jpg'),
+      p2_2: getImageUrl('index/p2/2.jpg'),
+      LogoAnimation: getImageUrl('index/p3/LogoAnimation.webm')
+    }
   },
   mounted() {
     setTimeout(() => {
       split();
       li();
     }, 1000)
+    const storage = getStorage();
+    if (window.innerWidth <= 500) {
+      getDownloadURL(storageRef(storage, 'index/p4/1.jpg')).then(url => document.querySelector('.anchor.blog>div').style.backgroundImage = `url(${url})`);
+      getDownloadURL(storageRef(storage, 'index/p4/2.jpg')).then(url => document.querySelector('.anchor.event>div').style.backgroundImage = `url(${url})`);
+    } else {
+      getDownloadURL(storageRef(storage, 'index/p4/p1.jpg')).then(url => document.querySelector('.anchor.blog>div').style.backgroundImage = `url(${url})`);
+      getDownloadURL(storageRef(storage, 'index/p4/p2.jpg')).then(url => document.querySelector('.anchor.event>div').style.backgroundImage = `url(${url})`);
+    }
   }
 }
 </script>
@@ -194,14 +218,6 @@ export default {
   margin: 5vh auto;
 }
 
-#p4 .anchor.event>div {
-  background-image: url('@/assets/media/li/p2.jpg');
-}
-
-#p4 .anchor.blog>div {
-  background-image: url('@/assets/media/li/p1.jpg');
-}
-
 @media only screen and (max-width: 480px) {
   #p2 .imgs {
     display: block;
@@ -237,14 +253,6 @@ export default {
 
   #p4>.li {
     width: 100%;
-  }
-
-  #p4 .anchor.event>div {
-    background-image: url('@/assets/media/li/2.jpg');
-  }
-
-  #p4 .anchor.blog>div {
-    background-image: url('@/assets/media/li/1.jpg');
   }
 }
 </style>

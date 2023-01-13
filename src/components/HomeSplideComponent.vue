@@ -1,8 +1,17 @@
 <template>
     <Splide @splide:autoplay:playing="onPlaying" :extensions="extensions" :options="options"
         aria-label="Beautiful Images">
-        <SplideSlide v-for="url in imagesUrl" v-bind:key="url">
-            <img v-bind:src="url" alt="">
+        <SplideSlide>
+            <img v-bind:src="img1" alt="">
+        </SplideSlide>
+        <SplideSlide>
+            <img v-bind:src="img2" alt="">
+        </SplideSlide>
+        <SplideSlide>
+            <img v-bind:src="img3" alt="">
+        </SplideSlide>
+        <SplideSlide>
+            <img v-bind:src="img4" alt="">
         </SplideSlide>
     </Splide>
     <div id="intro">
@@ -16,8 +25,10 @@
             <div class="text ZH">我們想將對表演的酷愛與熱忱，藉著令人醉心的歌曲、震撼人心的表演帶給觀眾，將表演令人無法抵擋的歡樂帶上街頭，在觀眾的心中留下一抹深刻的記憶。</div>
         </div>
         <div id="timeline-img">
-            <div v-for="(url, i) in imagesUrl" v-bind:key="url" :class="{ active: (index == i), empty: (index < i) }">
-            </div>
+            <div :class="{ active: (index == 0), empty: (index < 0) }"></div>
+            <div :class="{ active: (index == 1), empty: (index < 1) }"></div>
+            <div :class="{ active: (index == 2), empty: (index < 2) }"></div>
+            <div :class="{ active: (index == 3), empty: (index < 3) }"></div>
         </div>
     </div>
 </template>
@@ -27,7 +38,9 @@ import '@splidejs/vue-splide/css';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import { Intersection } from '@splidejs/splide-extension-intersection';
 
-const imagesFilename = ['1-2', '9-2', '2-2', '7-2'];
+
+import { ref as storageRef } from 'firebase/storage'
+import { useFirebaseStorage, useStorageFileUrl } from 'vuefire'
 
 export default {
     name: 'HomeSplideComponent',
@@ -72,11 +85,17 @@ export default {
             }
         };
 
+        const storage = useFirebaseStorage();
+        function getImageUrl(originUrl) {
+            const fileRef = storageRef(storage, originUrl)
+            const { url } = useStorageFileUrl(fileRef);
+            return url;
+        }
         return {
-            imagesUrl: imagesFilename.map(url => {
-                var images = require.context('../assets/media/index/p1/', false, /\.jpg$/);
-                return images('./' + url + ".jpg");
-            }),
+            img1: getImageUrl('index/p1/1-2.jpg'),
+            img2: getImageUrl('index/p1/9-2.jpg'),
+            img3: getImageUrl('index/p1/2-2.jpg'),
+            img4: getImageUrl('index/p1/7-2.jpg'),
             extensions: { Intersection },
             options
         }
