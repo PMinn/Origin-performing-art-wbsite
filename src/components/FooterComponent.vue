@@ -9,11 +9,11 @@
                         <a class="anchor"><span class="ENG">Origin</span> <span class="ZH">起源劇團</span></a>
                     </div>
                     <div class="hr footer-block-media">
-                        <a href="/facebook" class="ENG anchor pointer">
+                        <a href="/facebook" class="ENG anchor pointer" target="_blank">
                             <img src="@/assets/media/facebook2.svg" widyh="24" height="24" alt="">
                             OriginPerformingArt
                         </a>
-                        <a href="/instagram" class="ENG anchor pointer">
+                        <a href="/instagram" class="ENG anchor pointer" target="_blank">
                             <img src="@/assets/media/instagram.svg" widyh="24" height="24" alt="">
                             origin_performing_art
                         </a>

@@ -98,12 +98,25 @@ export default {
 
 #inner {
   width: 80vw;
+  max-height: 38vh;
   padding: 0 10vw 5vh 10vw;
   overflow-y: auto;
   color: #fff;
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+#inner::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: var(--main-color);
+  border-radius: 5px;
+}
+
+#inner::-webkit-scrollbar-thumb {
+  background: var(--second-color);
+  border-radius: 5px;
 }
 
 #event_title {

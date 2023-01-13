@@ -29,6 +29,7 @@ export default {
   },
   mounted: function () {
     window.addEventListener('scroll', this.handleScroll);
+    setTimeout(li, 1000);
   },
   unmounted: function () {
     window.removeEventListener('scroll', this.handleScroll);
@@ -66,7 +67,6 @@ export default {
             this.lastStartIndex = this.startIndex;
             this.eventList = this.eventList.concat(data);
             this.inSearching = false;
-            li();
           } else {
             console.log("No data available");
             window.removeEventListener('scroll', this.handleScroll);
@@ -74,7 +74,8 @@ export default {
         })
     },
     handleScroll: function () {
-      if (!this.inSearching && (window.innerHeight + window.pageYOffset >= document.body.offsetHeight)) {
+      li();
+      if (!this.inSearching && (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - window.innerHeight)) {
         this.fetchBlog();
       }
     }
