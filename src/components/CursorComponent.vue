@@ -20,13 +20,19 @@ export default {
         }
     },
     mounted() {
-        // cursor()
-        if (window.innerWidth >= 480) {
-            this.isShow = true;
-            window.addEventListener('mousemove', this.mousemove);
-        }
+        this.checkMouse();
+        window.addEventListener('resize', this.checkMouse);
     },
     methods: {
+        checkMouse() {
+            if (window.innerWidth >= 480) {
+                this.isShow = true;
+                window.addEventListener('mousemove', this.mousemove);
+            } else {
+                this.isShow = true;
+                window.removeEventListener('mousemove', this.mousemove);
+            }
+        },
         mousemove(e) {
             if (document.querySelectorAll('.pointer:hover').length > 0) {
                 this.transform = `scale(1.5)`;

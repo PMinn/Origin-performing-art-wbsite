@@ -1,0 +1,52 @@
+<template>
+    <h1 class="ENG">404 Not Found</h1>
+</template>
+
+<script>
+export default {
+    name: 'NotFoundComponent',
+}
+</script>
+
+<style scoped>
+h1 {
+    width: 100vw;
+    line-height: 100vh;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 0.8rem;
+    font-style: italic;
+    color: var(--second-color);
+    animation: italic 4s infinite;
+}
+
+@keyframes italic {
+    from {
+        -webkit-transform: skewX(0);
+        -moz-transform: skewX(0);
+        -o-transform: skewX(0);
+        transform: skewX(0);
+    }
+
+    20% {
+        -webkit-transform: skewX(-20deg);
+        -moz-transform: skewX(-20deg);
+        -o-transform: skewX(-20deg);
+        transform: skewX(-20deg);
+    }
+
+    90% {
+        -webkit-transform: skewX(-20deg);
+        -moz-transform: skewX(-20deg);
+        -o-transform: skewX(-20deg);
+        transform: skewX(-20deg);
+    }
+
+    to {
+        -webkit-transform: skewX(0);
+        -moz-transform: skewX(0);
+        -o-transform: skewX(0);
+        transform: skewX(0);
+    }
+}
+</style>

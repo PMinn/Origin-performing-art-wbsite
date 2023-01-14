@@ -12,24 +12,9 @@
 </template>
 
 <script>
-// import LoadingPage from '@/assets/js/loading.js'
 export default {
     name: 'LoadingComponent',
-    data() {
-        return {
-            hidden: false
-        }
-    },
-    mounted() {
-        window.addEventListener('load', this.onload);
-    },
-    methods: {
-        onload() {
-            setTimeout(() => {
-                this.hidden = true;
-            }, 1000)
-        }
-    }
+    props: ['hidden']
 }
 </script>
 

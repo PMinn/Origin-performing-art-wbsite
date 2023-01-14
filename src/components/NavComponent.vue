@@ -30,11 +30,6 @@ export default {
             menuDisplay: 'none'
         }
     },
-    mounted() {
-        document.addEventListener('DOMContentLoaded', () => {
-
-        })
-    },
     methods: {
         hidden() {
             this.isOpen = false;

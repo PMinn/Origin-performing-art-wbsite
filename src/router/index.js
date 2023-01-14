@@ -6,6 +6,7 @@ import BlogListView from '../views/BlogListView.vue'
 import BlogView from '../views/BlogView.vue'
 import EventListView from '../views/EventListView.vue'
 import EventView from '../views/EventView.vue'
+import NotFoundView from '../views/NotFoundView.vue'
 
 const routes = [{
   path: '/',
@@ -40,7 +41,7 @@ const routes = [{
     nav: true
   }
 }, {
-  path: '/blog/:id',
+  path: '/blog/:id/:title?',
   name: 'blog',
   component: BlogView,
   meta: {
@@ -56,15 +57,22 @@ const routes = [{
     nav: true
   }
 }, {
-  path: '/event/:id',
+  path: '/event/:id/:title?',
   name: 'event',
   component: EventView,
   meta: {
     title: 'event - Origin | 起源劇團',
     nav: false
   }
+}, {
+  path: '/:pathMatch(.*)*',
+  name: 'NotFound',
+  component: NotFoundView,
+  meta: {
+    title: '404 - Origin | 起源劇團',
+    nav: true
+  }
 }]
-
 const router = createRouter({
   history: createWebHistory(),
   routes,
@@ -73,11 +81,11 @@ const router = createRouter({
   }
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   window.document.title = to.meta.title;
   if (to.meta.nav) window.document.body.classList.add('nav');
   else window.document.body.classList.remove('nav');
-  next()
+  next();
 })
 
 export default router

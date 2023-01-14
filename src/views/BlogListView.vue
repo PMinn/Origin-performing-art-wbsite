@@ -1,7 +1,7 @@
 <template>
   <div id="content">
     <router-link v-for="post in blogList" v-bind:key="post.oid" class="anchor pointer"
-      :to="{ path: '/blog/' + post.id }">
+      :to="{ path: `/blog/${post.id}/${post.title}` }">
       <div class="li">
         <div>
           <img v-bind:src="post.img" data-rendered="false" alt="">

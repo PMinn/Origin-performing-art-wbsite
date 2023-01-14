@@ -1,8 +1,9 @@
 <template>
-  <div id="page">
-    <div id="main">
+  <div>
+    <NotFoundComponent v-show="notFound"></NotFoundComponent>
+    <div id="main" v-show="!notFound">
       <div id="main_img">
-        <img v-bind:src="blog.img" alt="">
+        <img v-show="blog.img" v-bind:src="blog.img" alt="">
       </div>
       <div class="main-text">
         <h6 class="ENG" id="blog_date">{{ `${blog.date.toDate().getFullYear()} / ${blog.date.toDate().getMonth() + 1} /
@@ -21,13 +22,22 @@ import { ref as storageRef } from 'firebase/storage'
 import { useFirestore, useFirebaseStorage, useStorageFileUrl } from 'vuefire'
 import { doc, getDoc } from 'firebase/firestore'
 
+import NotFoundComponent from '@/components/NotFoundComponent'
+
 export default {
   name: 'BlogView',
   beforeMount() {
     this.fetchData();
   },
+  components: {
+    NotFoundComponent
+  },
+  created() {
+    this.$emit('setLoading', true);
+  },
   data() {
     return {
+      notFound: false,
       blog: {
         date: {
           toDate() {
@@ -104,8 +114,10 @@ export default {
         blog.img = getImageUrl(blog.img);
         document.title = blog.title + ' - blog - Origin | 起源劇團';
         this.blog = blog;
+      } else {
+        this.notFound = true;
       }
-
+      setTimeout(() => this.$emit('setLoading', false), 500);
     }
   }
 }

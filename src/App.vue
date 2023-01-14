@@ -1,9 +1,9 @@
 <template>
   <div>
-    <LoadingComponent></LoadingComponent>
+    <LoadingComponent v-bind:hidden="!loading"></LoadingComponent>
     <CursorComponent></CursorComponent>
     <NavComponent></NavComponent>
-    <router-view></router-view>
+    <router-view v-on:setLoading="setLoading"></router-view>
     <FooterComponent></FooterComponent>
   </div>
 </template>
@@ -22,6 +22,11 @@ export default {
     CursorComponent,
     FooterComponent
   },
+  data() {
+    return {
+      loading: false
+    }
+  },
   mounted() {
     var styleSheet = document.createElement('style');
     styleSheet.innerText = "@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&family=Zen+Kurenaido&display=swap');";
@@ -31,6 +36,11 @@ export default {
     script.type = "module";
     script.src = "https://cdn.jsdelivr.net/gh/pminn/banner/src/banner.mjs";
     document.head.appendChild(script);
+  },
+  methods: {
+    setLoading(isLoading) {
+      this.loading = isLoading;
+    }
   }
 }
 </script>

@@ -1,8 +1,11 @@
 <template>
   <div id="content">
     <div v-for="post in eventList" v-bind:key="post.oid">
-      <router-link class="anchor pointer li" data-load="false" :to="{ path: '/event/' + post.id }">
-        <div class="ZH" v-bind:style="{ backgroundImage: 'url(\'' + post.img + '\')' }">{{ post.title }}</div>
+      <router-link class="anchor pointer li" data-load="false" :to="{ path: `/event/${post.id}/${post.title}` }">
+        <div class="ZH"
+          v-bind:style="{ backgroundImage: 'url(\'' + post.img + '\')', display: (post.img ? 'block' : 'none') }">{{
+            post.title
+          }}</div>
       </router-link>
     </div>
   </div>
@@ -68,7 +71,6 @@ export default {
             this.eventList = this.eventList.concat(data);
             this.inSearching = false;
           } else {
-            console.log("No data available");
             window.removeEventListener('scroll', this.handleScroll);
           }
         })

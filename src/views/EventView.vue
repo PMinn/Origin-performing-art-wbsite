@@ -1,20 +1,24 @@
 <template>
-  <div id="outer">
-    <div id="content" v-bind:style="{ backgroundImage: 'url(' + post.img + ')' }"></div>
-    <div id="inner">
-      <h1 id="event_title">{{ post.title }}</h1>
-      <div id="event_detail">
-        <div v-for="list in post.lists" v-bind:key="list">
-          <div class="hr"></div>
-          <a :href="'https://www.google.com/maps/search/?api=1&query=' + list.location.point.latitude + ',' + list.location.point.longitude"
-            class="ZH"><img src="@/assets/media/event/location.svg" alt="location icon"> {{ list.location.zh }}</a>
-          <br>
-          <span class="ENG"><img src="@/assets/media/event/time.svg" alt="time icon"> {{ list.timeString }}</span>
+  <div>
+    <NotFoundComponent v-show="notFound"></NotFoundComponent>
+    <div id="outer" v-show="!notFound">
+      <div id="content" v-bind:style="{ backgroundImage: 'url(' + post.img + ')', display: (post.img ? 'block' : 'none') }">
+      </div>
+      <div id="inner">
+        <h1 id="event_title">{{ post.title }}</h1>
+        <div id="event_detail">
+          <div v-for="list in post.lists" v-bind:key="list">
+            <div class="hr"></div>
+            <a :href="'https://www.google.com/maps/search/?api=1&query=' + list.location.point.latitude + ',' + list.location.point.longitude"
+              class="ZH"><img src="@/assets/media/event/location.svg" alt="location icon"> {{ list.location.zh }}</a>
+            <br>
+            <span class="ENG"><img src="@/assets/media/event/time.svg" alt="time icon"> {{ list.timeString }}</span>
+          </div>
         </div>
       </div>
     </div>
+    <div id="text" class="ZH" v-html="post.html"></div>
   </div>
-  <div id="text" class="ZH" v-html="post.html"></div>
 </template>
 
 <script>
@@ -23,13 +27,22 @@ import { ref as storageRef } from 'firebase/storage'
 import { useFirestore, useFirebaseStorage, useStorageFileUrl } from 'vuefire'
 import { doc, getDoc } from 'firebase/firestore'
 
+import NotFoundComponent from '@/components/NotFoundComponent'
+
 export default {
   name: 'EventView',
+  components: {
+    NotFoundComponent
+  },
   beforeMount() {
     this.fetchData();
   },
+  created() {
+    this.$emit('setLoading', true);
+  },
   data() {
     return {
+      notFound: false,
       post: {
         lists: [],
         title: '',
@@ -74,7 +87,10 @@ export default {
         })
         document.title = post.title + ' - event - Origin | 起源劇團';
         this.post = post;
+      } else {
+        this.notFound = true;
       }
+      setTimeout(() => this.$emit('setLoading', false), 500);
     }
   }
 }
@@ -130,8 +146,6 @@ export default {
   transition: opacity 1s ease 1s, transform 1s ease 1s;
 }
 
-
-
 #event_detail>div>a {
   color: #fff;
   text-decoration: none;
@@ -153,36 +167,5 @@ export default {
   line-height: 180%;
   transform: translateX(-100vw);
   transition: transform 1s ease 0s;
-}
-
-.event-bar {
-  display: flex;
-  height: 20px;
-  margin-top: 1vh;
-}
-
-.event-bar>* {
-  margin-right: 2vw;
-}
-
-.google {
-  background-color: #fff;
-  color: rgb(51, 51, 51);
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 14px;
-  text-decoration: none;
-  height: 20px;
-  width: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 3px;
-  font-family: PingFang SC, Helvetica Neue, Helvetica, STHeitiSC-Light, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-}
-
-.google img {
-  width: 14px;
-  position: relative;
-  top: 3px;
 }
 </style>
