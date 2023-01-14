@@ -29,7 +29,7 @@ export default {
                 this.isShow = true;
                 window.addEventListener('mousemove', this.mousemove);
             } else {
-                this.isShow = true;
+                this.isShow = false;
                 window.removeEventListener('mousemove', this.mousemove);
             }
         },
