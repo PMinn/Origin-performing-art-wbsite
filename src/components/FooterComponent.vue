@@ -26,7 +26,8 @@
                         <router-link to="/blog" class="anchor pointer ENG">BLOG</router-link>
                         <router-link to="/contact" class="anchor pointer">聯絡我們</router-link>
                     </div>
-                    <small class="ENG footer-block-copyright">Copyright© 2022 P'MIN. All Rights Reserved.</small>
+                    <small class="ENG footer-block-copyright">Copyright© 2022 <a href="https://github.com/PMinn"
+                            target="_blank">P'MIN.</a> All Rights Reserved.</small>
                 </div>
             </div>
         </footer>
@@ -102,7 +103,6 @@ footer {
     text-align: center;
 }
 
-
 .anchor>img {
     margin: 0 5px;
     width: 24px;
@@ -110,8 +110,12 @@ footer {
 
 footer small {
     width: 100%;
-    color: #747474;
     text-align: center;
+    color: #747474;
+}
+
+footer small a {
+    color: #747474;
 }
 
 .hr {

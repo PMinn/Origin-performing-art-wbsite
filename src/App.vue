@@ -24,11 +24,14 @@ export default {
   },
   data() {
     return {
-      loading: false
+      loading: true
     }
   },
   mounted() {
     this.init();
+    window.addEventListener('load', () => {
+      setTimeout(() => this.loading = false, 500);
+    });
   },
   methods: {
     setLoading(isLoading) {
