@@ -82,17 +82,26 @@ export default {
     }
   },
   mounted() {
+    this.init();
     setTimeout(() => {
-      split();
-      li();
-    }, 1000)
-    const storage = getStorage();
-    if (window.innerWidth <= 500) {
-      getDownloadURL(storageRef(storage, 'index/p4/1.jpg')).then(url => document.querySelector('.anchor.blog>div').style.backgroundImage = `url(${url})`);
-      getDownloadURL(storageRef(storage, 'index/p4/2.jpg')).then(url => document.querySelector('.anchor.event>div').style.backgroundImage = `url(${url})`);
-    } else {
-      getDownloadURL(storageRef(storage, 'index/p4/p1.jpg')).then(url => document.querySelector('.anchor.blog>div').style.backgroundImage = `url(${url})`);
-      getDownloadURL(storageRef(storage, 'index/p4/p2.jpg')).then(url => document.querySelector('.anchor.event>div').style.backgroundImage = `url(${url})`);
+      split.start();
+      li.start();
+    }, 1000);
+  },
+  unmounted() {
+    split.stop();
+    li.stop();
+  },
+  methods: {
+    init() {
+      const storage = getStorage();
+      if (window.innerWidth <= 500) {
+        getDownloadURL(storageRef(storage, 'index/p4/1.jpg')).then(url => document.querySelector('.anchor.blog>div').style.backgroundImage = `url(${url})`);
+        getDownloadURL(storageRef(storage, 'index/p4/2.jpg')).then(url => document.querySelector('.anchor.event>div').style.backgroundImage = `url(${url})`);
+      } else {
+        getDownloadURL(storageRef(storage, 'index/p4/p1.jpg')).then(url => document.querySelector('.anchor.blog>div').style.backgroundImage = `url(${url})`);
+        getDownloadURL(storageRef(storage, 'index/p4/p2.jpg')).then(url => document.querySelector('.anchor.event>div').style.backgroundImage = `url(${url})`);
+      }
     }
   }
 }

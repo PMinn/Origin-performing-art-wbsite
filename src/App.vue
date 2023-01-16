@@ -28,27 +28,27 @@ export default {
     }
   },
   mounted() {
-    var styleSheet = document.createElement('style');
-    styleSheet.innerText = "@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&family=Zen+Kurenaido&display=swap');";
-    document.head.appendChild(styleSheet);
-
-    var script = document.createElement('script');
-    script.type = "module";
-    script.src = "https://cdn.jsdelivr.net/gh/pminn/banner/src/banner.mjs";
-    document.head.appendChild(script);
+    this.init();
   },
   methods: {
     setLoading(isLoading) {
       this.loading = isLoading;
+    },
+    init() {
+      var script = document.createElement('script');
+      script.type = "module";
+      script.src = "https://cdn.jsdelivr.net/gh/pminn/banner/src/banner.mjs";
+      document.head.appendChild(script);
     }
   }
 }
 </script>
-
 <style src="@/assets/css/init.css">
 
 </style>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&family=Zen+Kurenaido&display=swap');
+
 .ENG {
   font-family: 'Zen Kurenaido', sans-serif;
 }

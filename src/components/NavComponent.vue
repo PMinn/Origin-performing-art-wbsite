@@ -1,8 +1,7 @@
 <template>
     <div>
-        <!-- menu last update 2022/11/20 -->
         <nav>
-            <router-link to="/" id="title" class="ENG pointer">Origin</router-link>
+            <router-link @click="onclickRouter" to="/" id="title" class="ENG pointer">Origin</router-link>
             <div id="menu-icon" v-bind:class="{ pointer: true, open: isMenuOpen }" @click="onclick">
                 <div></div>
                 <div></div>
@@ -15,7 +14,6 @@
             <router-link @click="onclickRouter" to="/blog" class="pointer ENG">BLOG</router-link>
             <router-link @click="onclickRouter" to="/contact" class="pointer">聯絡我們</router-link>
         </div>
-        <!-- menu end -->
     </div>
 </template>
 

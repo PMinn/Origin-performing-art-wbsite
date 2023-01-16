@@ -4,7 +4,7 @@
       <router-link class="anchor pointer li" data-load="false" :to="{ path: `/event/${post.id}/${post.title}` }">
         <div class="ZH"
           v-bind:style="{ backgroundImage: 'url(\'' + post.img + '\')', display: (post.img ? 'block' : 'none') }">{{
-            post.title
+  post.title
           }}</div>
       </router-link>
     </div>
@@ -31,10 +31,11 @@ export default {
     this.fetchBlog();
   },
   mounted: function () {
+    setTimeout(li.start, 1000);
     window.addEventListener('scroll', this.handleScroll);
-    setTimeout(li, 1000);
   },
   unmounted: function () {
+    li.stop();
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
@@ -60,13 +61,8 @@ export default {
               this.startIndex = Math.max(this.startIndex, d.sort);
               return d;
             })
-            data.sort(function (a, b) {
-              return a.sort - b.sort;
-            });
-
-            if (this.lastStartIndex == this.startIndex) {
-              window.removeEventListener('scroll', this.handleScroll);
-            }
+            data.sort((a, b) => a.sort - b.sort);
+            if (this.lastStartIndex == this.startIndex) window.removeEventListener('scroll', this.handleScroll);
             this.lastStartIndex = this.startIndex;
             this.eventList = this.eventList.concat(data);
             this.inSearching = false;
@@ -76,7 +72,6 @@ export default {
         })
     },
     handleScroll: function () {
-      li();
       if (!this.inSearching && (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - window.innerHeight)) {
         this.fetchBlog();
       }

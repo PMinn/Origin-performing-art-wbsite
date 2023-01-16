@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- footer last update 2022/11/20 -->
         <footer class="ZH">
             <div class="footer-inner">
                 <div class="footer-inner-left">
@@ -31,7 +30,6 @@
                 </div>
             </div>
         </footer>
-        <!-- footer end -->
     </div>
 </template>
 

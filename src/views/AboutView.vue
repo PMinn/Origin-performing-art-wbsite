@@ -57,14 +57,20 @@ export default {
         }
     },
     mounted() {
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', this.onscroll)
+    },
+    unmounted() {
+        window.removeEventListener('scroll', this.onscroll)
+    },
+    methods: {
+        onscroll() {
             document.querySelectorAll('.outer_img>img').forEach(img => {
                 var rect = img.getBoundingClientRect();
                 var center = 1 - ((rect.top + rect.height / 2 + document.documentElement.clientHeight / 2) / document.documentElement.clientHeight);
                 var move = document.documentElement.clientWidth * 0.86 * 0.2 / 2 * - center;
                 img.style.transform = `translateY(${move}px)`;
             })
-        })
+        }
     }
 }
 </script>
