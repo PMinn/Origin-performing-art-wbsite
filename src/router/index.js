@@ -6,6 +6,7 @@ import BlogListView from '../views/BlogListView.vue'
 import BlogView from '../views/BlogView.vue'
 import EventListView from '../views/EventListView.vue'
 import EventView from '../views/EventView.vue'
+import AdminView from '../views/admin/AdminView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 
 const routes = [{
@@ -63,6 +64,14 @@ const routes = [{
   meta: {
     title: 'event - Origin | 起源劇團',
     nav: false
+  }
+}, {
+  path: '/admin',
+  name: 'admin',
+  component: AdminView,
+  meta: {
+    title: 'admin - Origin | 起源劇團',
+    nav: true
   }
 }, {
   path: '/:pathMatch(.*)*',
