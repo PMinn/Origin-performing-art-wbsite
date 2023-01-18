@@ -9,7 +9,7 @@
         <h6 class="ENG" id="blog_date">{{ `${blog.date.toDate().getFullYear()} / ${blog.date.toDate().getMonth() + 1} /
         ${blog.date.toDate().getDate()}` }}</h6>
         <h1 class="ZH" id="blog_title">{{ blog.title }}</h1>
-        <div class="hr" style="border-color: rgb(168, 168, 168);"></div>
+        <div class="hr"></div>
       </div>
     </div>
     <div id="content" v-html="blog.html"></div>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { parse } from 'marked'
 import { useRoute } from 'vue-router'
 import { ref as storageRef } from 'firebase/storage'
 import { useFirestore, useFirebaseStorage, useStorageFileUrl } from 'vuefire'
@@ -37,6 +38,7 @@ export default {
   },
   data() {
     return {
+      parse,
       notFound: false,
       blog: {
         date: {
@@ -113,6 +115,7 @@ export default {
         var blog = docSnap.data();
         blog.img = getImageUrl(blog.img);
         document.title = blog.title + ' - blog - Origin | 起源劇團';
+        blog.html = parse(blog.html.replaceAll('\\n', '\n'));
         this.blog = blog;
       } else {
         this.notFound = true;
@@ -134,6 +137,10 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+}
+
+.hr {
+  border-color: #a8a8a8;
 }
 
 .main-text {
@@ -164,8 +171,6 @@ export default {
 }
 
 #main_img>img {
-  /* height: auto;
-    width: 100%; */
   filter: brightness(0.8);
   -webkit-transition: all 0.1s ease 0s;
   transition: all 0.1s ease 0s;
