@@ -12,7 +12,7 @@
         <div class="hr"></div>
       </div>
     </div>
-    <div id="content" v-html="blog.html"></div>
+    <div id="content" v-html="blog.html" style="white-space: pre-line"></div>
   </div>
 </template>
 

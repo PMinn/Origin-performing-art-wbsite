@@ -51,9 +51,15 @@ export default {
                 }, 1000);
             }
         });
-        this.socket.on("getData", data => {
+        this.socket.on("getData", (page, data) => {
+            if (page == 'event') {
+                data = Object.keys(data).map(key => {
+                    var d = data[key];
+                    d.id = key;
+                    return d;
+                }).sort((a, b) => a.sort - b.sort);
+            }
             this.data = data;//JSON.parse();
-            console.log(this.data)
         });
     },
     methods: {
@@ -169,5 +175,18 @@ export default {
 
 .AdminEditorComponent {
     width: 45%;
+    overflow: auto;
+}
+
+.AdminEditorComponent::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #181818;
+    border-radius: 5px;
+}
+
+.AdminEditorComponent::-webkit-scrollbar-thumb {
+    background: var(--second-color);
+    border-radius: 5px;
 }
 </style>

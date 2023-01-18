@@ -2,7 +2,8 @@
   <div>
     <NotFoundComponent v-show="notFound"></NotFoundComponent>
     <div id="outer" v-show="!notFound">
-      <div id="content" v-bind:style="{ backgroundImage: 'url(' + post.img + ')', display: (post.img ? 'block' : 'none') }">
+      <div id="content"
+        v-bind:style="{ backgroundImage: 'url(' + post.img + ')', display: (post.img ? 'block' : 'none') }">
       </div>
       <div id="inner">
         <h1 id="event_title">{{ post.title }}</h1>
@@ -17,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div id="text" class="ZH" v-html="post.html"></div>
+    <div id="text" class="ZH" v-html="post.html" style="white-space: pre-line"></div>
   </div>
 </template>
 
@@ -26,6 +27,7 @@ import { useRoute } from 'vue-router'
 import { ref as storageRef } from 'firebase/storage'
 import { useFirestore, useFirebaseStorage, useStorageFileUrl } from 'vuefire'
 import { doc, getDoc } from 'firebase/firestore'
+import { parse } from 'marked'
 
 import NotFoundComponent from '@/components/NotFoundComponent'
 
@@ -86,6 +88,7 @@ export default {
           return list;
         })
         document.title = post.title + ' - event - Origin | 起源劇團';
+        post.html = parse(post.html.replaceAll('\\n', '\n'));
         this.post = post;
       } else {
         this.notFound = true;
