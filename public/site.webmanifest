@@ -1,6 +1,6 @@
 {
     "short_name": "Origin 起源劇團",
-    "name": "Origin 起源劇團-火舞表演團體",
+    "name": "Origin 起源劇團",
     "icons": [
         {
             "src": "favicon-16x16.png",
@@ -30,6 +30,6 @@
     "start_url": "/",
     "display": "fullscreen",
     "orientation": "portrait-primary",
-    "theme_color": "#eb5604",
+    "theme_color": "#242424",
     "background_color": "#242424"
 }

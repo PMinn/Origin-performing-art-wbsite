@@ -1,33 +1,41 @@
-self.addEventListener("install", (event) => {
-    console.log("installing…");
-    // cache a icon
-    // event.waitUntil(
-    //   caches.open("v1").then((cache) => cache.add("images/icon.png"))
-    // );
+const firebasestorageURLOrigin = 'https://firebasestorage.googleapis.com';
+const firebaseRealtimeURLOrigin = 'https://origin-performing-art-default-rtdb.asia-southeast1.firebasedatabase.app';
+const firebasefirestoreURLOrigin = 'https://firestore.googleapis.com';
+this.addEventListener('install', event => {
+    // waitUntil 確保 SW 在安裝完成後才會去快取這些資源
+    event.waitUntil(
+        caches.open('v1') // 指定快取的版本號
+            .then(cache => {
+                return cache.addAll([]); // 指定要快取的資源 ['/ironman.js', '/ironman.css']
+            })
+    );
+})
+
+this.addEventListener('activate', event => {
+    // do some work
 });
 
-self.addEventListener("activate", (event) => {
-    console.log("ready to handle fetches!");
-    // 可以在這個階段清除舊的快取
-    e.waitUntil(
-        caches.keys().then((keyList) => {
-            Promise.all(
-                keyList.map((key) => {
-                    if (key === cacheName) {
-                        return;
-                    }
-                    caches.delete(key);
+self.addEventListener("fetch", event => {
+    const url = new URL(event.request.url);
+    if (url.origin == firebasestorageURLOrigin || url.origin == firebasefirestoreURLOrigin) {
+        event.respondWith(
+            caches.match(event.request).then(function (response) {
+                return response || fetch(event.request);
+            })
+        );
+    } else if (url.origin == firebaseRealtimeURLOrigin) {
+        self.addEventListener('fetch', function (event) {
+            event.respondWith(
+                fetch(event.request).catch(function () {
+                    return caches.match(event.request);
                 })
             );
-        })
-    );
-});
-
-self.addEventListener("fetch", (event) => {
-    const url = new URL(event.request.url);
-
-    if (url.origin == location.origin && url.pathname == "/images/dog.jpg") {
-        console.log(url);
-        event.respondWith(caches.match("images/icon.png"));
+        });
+    } else {
+        event.respondWith(
+            caches.match(event.request).then(function (response) {
+                return response || fetch(event.request);
+            })
+        );
     }
 });
