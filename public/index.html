@@ -14,11 +14,15 @@
   <!-- apple icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="<%= BASE_URL %>apple-touch-icon.png">
   <link rel="apple-touch-startup-image" href="<%= BASE_URL %>apple-touch-icon.png">
-  <meta name="apple-mobile-web-app-title" content="Origin">
+  <meta name="apple-mobile-web-app-title" content="Origin 起源劇團">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#242424">
 
   <!-- SEO -->
   <meta name="description" content="Origin是一個火舞表演團體,主要表演地區為東台灣">
 
+
+  <link rel="manifest" href="/site.webmanifest">
   <style>
     body.nav {
       padding-top: 7vh;
@@ -28,7 +32,8 @@
 
 <body>
   <noscript>
-    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
   </noscript>
   <div id="app"></div>
 </body>

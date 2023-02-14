@@ -1,1 +1,35 @@
-{"name":"","short_name":"","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+{
+    "short_name": "Origin 起源劇團",
+    "name": "Origin 起源劇團-火舞表演團體",
+    "icons": [
+        {
+            "src": "favicon-16x16.png",
+            "type": "image/png",
+            "sizes": "16x16"
+        },
+        {
+            "src": "favicon-32x32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "favicon.ico",
+            "sizes": "48x48"
+        },
+        {
+            "src": "android-chrome-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "android-chrome-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/",
+    "display": "fullscreen",
+    "orientation": "portrait-primary",
+    "theme_color": "#eb5604",
+    "background_color": "#242424"
+}

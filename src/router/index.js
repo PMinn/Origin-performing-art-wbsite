@@ -8,6 +8,7 @@ import EventListView from '../views/EventListView.vue'
 import EventView from '../views/EventView.vue'
 import AdminView from '../views/admin/AdminView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
+import PWAView from '../views/PWAView.vue'
 
 const routes = [{
   path: '/',
@@ -64,6 +65,14 @@ const routes = [{
   meta: {
     title: 'event - Origin | 起源劇團',
     nav: false
+  }
+}, {
+  path: '/PWA',
+  name: 'PWA',
+  component: PWAView,
+  meta: {
+    title: 'PWA - Origin | 起源劇團',
+    nav: true
   }
 }, {
   path: '/admin',
