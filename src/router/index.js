@@ -12,6 +12,7 @@ import PWAView from '../views/PWAView.vue'
 
 const routes = [{
   path: '/',
+  alias: ['/index.html'],
   name: 'home',
   component: HomeView,
   meta: {
