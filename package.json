@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "node renderSitemap.js && vue-cli-service build",
+    "render": "node renderSitemap.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

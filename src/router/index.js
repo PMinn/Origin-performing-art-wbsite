@@ -92,6 +92,7 @@ const routes = [{
     nav: true
   }
 }]
+
 const router = createRouter({
   history: createWebHistory(),
   routes,
@@ -107,4 +108,4 @@ router.beforeEach(async (to, from, next) => {
   next();
 })
 
-export default router
+export default router;
