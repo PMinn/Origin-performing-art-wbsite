@@ -38,11 +38,19 @@ function mergeData(dataArray) {
         });
 }
 
-function toXML(paths) {
+function pathToXML(path) {
     var now = new Date();
-    return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + paths.map(path => {
-        return `<url><loc>https://origin-performing-art.web.app${encodeURI(path)}</loc><lastmod>${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}</lastmod></url>`;
-    }).join('') + '</urlset>';
+    return `<url><loc>https://origin-performing-art.web.app${encodeURI(path)}</loc><lastmod>${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}</lastmod></url>`;
+}
+
+function toXML(paths) {
+    return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        + pathToXML('/')
+        + pathToXML('/about')
+        + pathToXML('/event')
+        + pathToXML('/blog')
+        + pathToXML('/contact')
+        + paths.map(pathToXML).join('') + '</urlset>';
 }
 
 mergeData([fetchData('blog'), fetchData('event')])
