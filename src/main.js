@@ -18,4 +18,3 @@ app.use(VueFire, {
 }).use(router).use(VueSplide).mount('#app');
 
 app.config.globalProperties.$analytics = firebaseAnalytics;
-console.log(app.config)

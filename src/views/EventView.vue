@@ -23,13 +23,14 @@
 </template>
 
 <script>
-import { useRoute } from 'vue-router'
-import { ref as storageRef } from 'firebase/storage'
-import { useFirestore, useFirebaseStorage, useStorageFileUrl } from 'vuefire'
-import { doc, getDoc } from 'firebase/firestore'
-import { parse } from 'marked'
+import { useRoute } from 'vue-router';
+import { ref as storageRef } from 'firebase/storage';
+import { useFirestore, useFirebaseStorage, useStorageFileUrl } from 'vuefire';
+import { doc, getDoc } from 'firebase/firestore';
+import { logEvent } from "firebase/analytics";
+import { parse } from 'marked';
 
-import NotFoundComponent from '@/components/NotFoundComponent'
+import NotFoundComponent from '@/components/NotFoundComponent';
 
 export default {
   name: 'EventView',
@@ -87,9 +88,13 @@ export default {
           list.timeString = `${start.getMonth() + 1}/${start.getDate()} - ${end.getMonth() + 1}/${end.getDate()}, ${start.getFullYear()} ${start.getHours().toString().padStart(2, '0')}:${start.getMinutes().toString().padStart(2, '0')} - ${end.getHours().toString().padStart(2, '0')}:${end.getMinutes().toString().padStart(2, '0')}`;
           return list;
         })
-        document.title = post.title + ' - event - Origin | 起源劇團';
+        var documentTitle = post.title + ' - event - Origin | 起源劇團';
+        document.title = documentTitle;
         post.html = parse(post.html.replaceAll('\\n', '\n'));
         this.post = post;
+        logEvent(this.$analytics, "screen_view", {
+          screen_name: documentTitle
+        })
       } else {
         this.notFound = true;
       }

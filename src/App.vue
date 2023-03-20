@@ -9,8 +9,6 @@
 </template>
 
 <script type="text/javascript">
-import { version } from "../package.json";
-
 import LoadingComponent from '@/components/LoadingComponent';
 import NavComponent from '@/components/NavComponent';
 import CursorComponent from '@/components/CursorComponent';
@@ -27,16 +25,6 @@ export default {
   data() {
     return {
       loading: true
-    }
-  },
-  metaInfo: {
-    changed(metaInfo) {
-      this.$analytics.setCurrentScreen(metaInfo.title);
-      this.$analytics.logEvent("page_view");
-      this.$analytics.logEvent("screen_view", {
-        screen_name: metaInfo.title,
-        app_version: version
-      });
     }
   },
   mounted() {

@@ -1,14 +1,17 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
-import ContactView from '../views/ContactView.vue'
-import BlogListView from '../views/BlogListView.vue'
-import BlogView from '../views/BlogView.vue'
-import EventListView from '../views/EventListView.vue'
-import EventView from '../views/EventView.vue'
-import AdminView from '../views/admin/AdminView.vue'
-import NotFoundView from '../views/NotFoundView.vue'
-import PWAView from '../views/PWAView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import AboutView from '../views/AboutView.vue';
+import ContactView from '../views/ContactView.vue';
+import BlogListView from '../views/BlogListView.vue';
+import BlogView from '../views/BlogView.vue';
+import EventListView from '../views/EventListView.vue';
+import EventView from '../views/EventView.vue';
+import AdminView from '../views/admin/AdminView.vue';
+import NotFoundView from '../views/NotFoundView.vue';
+import PWAView from '../views/PWAView.vue';
+
+import { logEvent } from "firebase/analytics";
+import { firebaseAnalytics } from "../firebase.js";
 
 const routes = [{
   path: '/',
@@ -17,7 +20,8 @@ const routes = [{
   component: HomeView,
   meta: {
     title: 'Origin | 起源劇團',
-    nav: false
+    nav: false,
+    dynamicPath: false
   }
 }, {
   path: '/about',
@@ -25,7 +29,8 @@ const routes = [{
   component: AboutView,
   meta: {
     title: '關於我們 - Origin | 起源劇團',
-    nav: true
+    nav: true,
+    dynamicPath: false
   }
 }, {
   path: '/contact',
@@ -33,7 +38,8 @@ const routes = [{
   component: ContactView,
   meta: {
     title: '聯絡我們 - Origin | 起源劇團',
-    nav: true
+    nav: true,
+    dynamicPath: false
   }
 }, {
   path: '/blog',
@@ -41,7 +47,8 @@ const routes = [{
   component: BlogListView,
   meta: {
     title: 'blog - Origin | 起源劇團',
-    nav: true
+    nav: true,
+    dynamicPath: false
   }
 }, {
   path: '/blog/:id/:title?',
@@ -49,7 +56,8 @@ const routes = [{
   component: BlogView,
   meta: {
     title: 'blog - Origin | 起源劇團',
-    nav: false
+    nav: false,
+    dynamicPath: true
   }
 }, {
   path: '/event',
@@ -57,7 +65,8 @@ const routes = [{
   component: EventListView,
   meta: {
     title: 'event - Origin | 起源劇團',
-    nav: true
+    nav: true,
+    dynamicPath: false
   }
 }, {
   path: '/event/:id/:title?',
@@ -65,7 +74,8 @@ const routes = [{
   component: EventView,
   meta: {
     title: 'event - Origin | 起源劇團',
-    nav: false
+    nav: false,
+    dynamicPath: true
   }
 }, {
   path: '/PWA',
@@ -73,7 +83,8 @@ const routes = [{
   component: PWAView,
   meta: {
     title: 'PWA - Origin | 起源劇團',
-    nav: true
+    nav: true,
+    dynamicPath: false
   }
 }, {
   path: '/admin',
@@ -81,7 +92,8 @@ const routes = [{
   component: AdminView,
   meta: {
     title: 'admin - Origin | 起源劇團',
-    nav: true
+    nav: true,
+    dynamicPath: false
   }
 }, {
   path: '/:pathMatch(.*)*',
@@ -89,7 +101,8 @@ const routes = [{
   component: NotFoundView,
   meta: {
     title: '404 - Origin | 起源劇團',
-    nav: true
+    nav: true,
+    dynamicPath: false
   }
 }]
 
@@ -105,6 +118,11 @@ router.beforeEach(async (to, from, next) => {
   window.document.title = to.meta.title;
   if (to.meta.nav) window.document.body.classList.add('nav');
   else window.document.body.classList.remove('nav');
+  if (!to.meta.dynamicPath) {
+    logEvent(firebaseAnalytics, "screen_view", {
+      screen_name: to.meta.title
+    })
+  }
   next();
 })
 

@@ -7,7 +7,7 @@
       </div>
       <div class="main-text">
         <h6 class="ENG" id="blog_date">{{ `${blog.date.toDate().getFullYear()} / ${blog.date.toDate().getMonth() + 1} /
-        ${blog.date.toDate().getDate()}` }}</h6>
+                  ${blog.date.toDate().getDate()}` }}</h6>
         <h1 class="ZH" id="blog_title">{{ blog.title }}</h1>
         <div class="hr"></div>
       </div>
@@ -17,13 +17,14 @@
 </template>
 
 <script>
-import { parse } from 'marked'
-import { useRoute } from 'vue-router'
-import { ref as storageRef } from 'firebase/storage'
-import { useFirestore, useFirebaseStorage, useStorageFileUrl } from 'vuefire'
-import { doc, getDoc } from 'firebase/firestore'
+import { parse } from 'marked';
+import { useRoute } from 'vue-router';
+import { ref as storageRef } from 'firebase/storage';
+import { useFirestore, useFirebaseStorage, useStorageFileUrl } from 'vuefire';
+import { doc, getDoc } from 'firebase/firestore';
+import { logEvent } from "firebase/analytics";
 
-import NotFoundComponent from '@/components/NotFoundComponent'
+import NotFoundComponent from '@/components/NotFoundComponent';
 
 export default {
   name: 'BlogView',
@@ -114,9 +115,13 @@ export default {
       if (docSnap.exists()) {
         var blog = docSnap.data();
         blog.img = getImageUrl(blog.img);
-        document.title = blog.title + ' - blog - Origin | 起源劇團';
+        var documentTitle = blog.title + ' - blog - Origin | 起源劇團';
+        document.title = documentTitle;
         blog.html = parse(blog.html.replaceAll('\\n', '\n'));
         this.blog = blog;
+        logEvent(this.$analytics, "screen_view", {
+          screen_name: documentTitle
+        });
       } else {
         this.notFound = true;
       }
