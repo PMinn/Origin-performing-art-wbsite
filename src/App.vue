@@ -31,9 +31,9 @@ export default {
   },
   metaInfo: {
     changed(metaInfo) {
-      firebase.analytics().setCurrentScreen(metaInfo.title);
-      firebase.analytics().logEvent("page_view");
-      firebase.analytics().logEvent("screen_view", {
+      this.$analytics.setCurrentScreen(metaInfo.title);
+      this.$analytics.logEvent("page_view");
+      this.$analytics.logEvent("screen_view", {
         screen_name: metaInfo.title,
         app_version: version
       });

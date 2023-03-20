@@ -11,4 +11,4 @@ export const firebaseApp = initializeApp({
     appId: "1:32164182626:web:f98d68695e8b02c0542f3b",
     measurementId: "G-5BMJEJHT05"
 })
-export const firebaseAnalytics = getAnalytics(app);
+export const firebaseAnalytics = getAnalytics(firebaseApp);
