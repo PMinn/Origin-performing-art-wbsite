@@ -36,18 +36,6 @@
         "destination": "/index.html"
       }
     ],
-    "redirects": [
-      {
-        "source": "/instagram",
-        "destination": "https://www.instagram.com/origin_performing_art/",
-        "type": 301
-      },
-      {
-        "source": "/facebook",
-        "destination": "https://www.facebook.com/OriginPerformingArt/",
-        "type": 301
-      }
-    ],
     "cleanUrls": true
   }
 }

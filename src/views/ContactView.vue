@@ -2,13 +2,13 @@
     <div>
         <h1 class="ZH">聯絡我們</h1>
         <div id="content">
-            <a href="/instagram" class="ENG anchor social-link right instagram pointer" target="_blank">
+            <a href="https://www.instagram.com/origin_performing_art/" class="ENG anchor social-link right instagram pointer" target="_blank">
                 <div class="contact-logo">
                     <img src="@/assets/media/instagram.svg" alt="">
                 </div>
                 <span>@origin_performing_art</span>
             </a>
-            <a href="/facebook" class="ENG anchor social-link left facebook pointer" target="_blank">
+            <a href="https://www.facebook.com/OriginPerformingArt/" class="ENG anchor social-link left facebook pointer" target="_blank">
                 <div class="contact-logo">
                     <img src="@/assets/media/facebook.svg" alt="">
                 </div>
