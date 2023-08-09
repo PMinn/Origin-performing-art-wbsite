@@ -6,15 +6,21 @@ import fontsStyles from '../styles/fonts.module.css';
 export default function NavComponent() {
     const [isOpen, setIsOpen] = useState(false);
     const [isMenuShow, setIsMenuShow] = useState(false);
+
+    function closeMenu() {
+        setIsMenuShow(!isMenuShow);
+        setTimeout(() => setIsOpen(!isOpen), 500);
+    }
+
+    function openMenu() {
+        setIsOpen(!isOpen);
+        setTimeout(() => setIsMenuShow(!isMenuShow), 50);
+    }
+
     function menuIconOnclick() {
         if (isOpen != isMenuShow) return;
-        if (isOpen) {
-            setIsMenuShow(!isMenuShow);
-            setTimeout(() => setIsOpen(!isOpen), 500);
-        } else {
-            setIsOpen(!isOpen);
-            setTimeout(() => setIsMenuShow(!isMenuShow), 50);
-        }
+        if (isOpen) closeMenu();
+        else openMenu();
     }
 
     return (
@@ -30,11 +36,11 @@ export default function NavComponent() {
             </nav>
             <div className={styles.menu + ' ' + (isOpen ? styles.open : '') + ' ' + (isMenuShow ? styles.show : '')}>
                 <div>
-                    <Link href="/" className={fontsStyles.ZH + " pointer"}>首頁</Link>
-                    <Link href="/about" className={fontsStyles.ZH + " pointer"}>關於我們</Link>
-                    <Link href="/event" className={fontsStyles.ZH + " pointer"}>活動行程</Link>
-                    <Link href="/blog" className={fontsStyles.ENG + " pointer"}>BLOG</Link>
-                    <Link href="/contact" className={fontsStyles.ZH + " pointer"}>聯絡我們</Link>
+                    <Link href="/" className={fontsStyles.ZH + " pointer"} onClick={closeMenu}>首頁</Link>
+                    <Link href="/about" className={fontsStyles.ZH + " pointer"} onClick={closeMenu}>關於我們</Link>
+                    <Link href="/event" className={fontsStyles.ZH + " pointer"} onClick={closeMenu}>活動行程</Link>
+                    <Link href="/blog" className={fontsStyles.ENG + " pointer"} onClick={closeMenu}>BLOG</Link>
+                    <Link href="/contact" className={fontsStyles.ZH + " pointer"} onClick={closeMenu}>聯絡我們</Link>
                 </div>
             </div>
         </div>
