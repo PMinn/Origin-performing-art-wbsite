@@ -1,0 +1,48 @@
+.cursor {
+    opacity: 0;
+    display: none;
+}
+
+.cursor.show {
+    opacity: 1;
+    display: block;
+}
+
+.cursor>* {
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 999;
+    transform-origin: center;
+    position: fixed;
+    top: -50px;
+    left: -50px;
+}
+
+.cursor .area {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px #fff solid;
+    transition: transform 0.5s, background-color 0.5s, opacity 0.5s, top 0.1s, left 0.1s;
+    opacity: 0.8;
+    background-color: transparent;
+}
+
+.cursor.hover .area {
+    transform: scale(1.5);
+    opacity: 1;
+    background-color: #ffffff30;
+}
+
+.cursor .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: transform 0.5s, background-color 0.5s, opacity 0.5s, top 0.08s, left 0.08s;
+}
+
+.cursor.hover .dot {
+    transform: scale(1.5);
+    opacity: 1;
+}
