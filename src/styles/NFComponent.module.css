@@ -1,15 +1,4 @@
-<template>
-    <h1 class="ENG">404 Not Found</h1>
-</template>
-
-<script>
-export default {
-    name: 'NotFoundComponent',
-}
-</script>
-
-<style scoped>
-h1 {
+.text {
     width: 100vw;
     line-height: 100vh;
     text-align: center;
@@ -49,4 +38,3 @@ h1 {
         transform: skewX(0);
     }
 }
-</style>
