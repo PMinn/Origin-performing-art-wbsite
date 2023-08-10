@@ -1,0 +1,33 @@
+.container {
+    padding-top: 7vh;
+    padding-bottom: 7vh;
+}
+
+.li>* {
+    display: block;
+    width: 100%;
+    height: 18vh;
+    background-position: center;
+    line-height: 20vh;
+    font-size: 25px;
+    font-weight: 700;
+
+    background-size: 100% auto;
+
+    position: relative;
+    transition: left 1s ease 0s;
+}
+
+.li .title {
+    /* mix-blend-mode: difference; */
+    color: #fff;
+    position: absolute;
+    padding: 0 8vw;
+    width: calc(100% - 16vw);
+}
+
+.li img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
