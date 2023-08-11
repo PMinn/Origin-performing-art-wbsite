@@ -9,12 +9,8 @@
     text-decoration: none;
 }
 
-.footer-inner {
-    /* width: 86vw;
-    margin: 0 auto; */
-
-    /* display: flex;
-    align-items: stretch; */
+.footer .name {
+    letter-spacing: 0.2em;
 }
 
 .footer-inner-left,

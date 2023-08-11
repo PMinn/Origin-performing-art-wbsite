@@ -1,20 +1,69 @@
 .cover {
     height: 100vh;
     width: 100vw;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--primary-color);
+    position: relative;
+    z-index: 0;
+}
+
+.cover h2 {
+    position: absolute;
+    left: 10vw;
+    width: 80vw;
+    font-size: 4vw;
+    z-index: 1;
+}
+
+.cover h2:first-child {
+    top: 15vh;
+    -webkit-writing-mode: vertical-lr;
+    writing-mode: vertical-lr;
+    letter-spacing: 1rem;
+}
+
+.cover h2:last-child {
+    bottom: 15vh;
+    text-align: end;
+}
+
+.cover .round {
+    white-space: nowrap;
+    animation: autoScroll var(--during) infinite linear;
+}
+
+.cover img {
+    width: 20vw;
+    margin: 0 3vw;
+}
+
+@keyframes autoScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .performance-project {
     width: 100vw;
     margin: 8rem auto 0 auto;
     background: var(--main-color);
-    background: linear-gradient(180deg, var(--main-color) 0%, #000 100%);
+    background: linear-gradient(0deg, var(--main-color) 30%, var(--background-color) 100%);
     color: #fff;
+    padding-bottom: 8rem;
 }
 
-.performance-project>div {
-    width: 86vw;
-    max-width: calc(740px + 10vw);
-    margin: 0 auto;
+.btn {
+    background-color: var(--accent1-color);
+    padding: 14px 45px;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
 }
 
 .anchor {
@@ -24,7 +73,6 @@
     padding: 20px;
 }
 
-.performance-project .anchor,
 .about-section .anchor {
     font-weight: 900;
     justify-content: center;
@@ -45,38 +93,29 @@
 }
 
 .performance-project .imgs .img {
-    width: 100%;
-    max-width: 370px;
-    margin-bottom: 80px;
-
-    height: 110vw;
-    max-height: 640px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    width: 500px;
     position: relative;
+    margin-bottom: 80px;
+    display: block;
 }
 
 .performance-project .imgs .img img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-.performance-project>div>* {
-    margin-bottom: 80px;
-}
-
-.performance-project .img>div {
+.performance-project .imgs .img div {
+    mix-blend-mode: difference;
+    text-align: end;
     position: absolute;
     bottom: 3%;
     left: 5%;
     width: 90%;
 }
 
-.performance-project .img>div>div {
-    width: 100%;
-    text-align: end;
-    mix-blend-mode: difference;
+.performance-project>div>* {
+    margin-bottom: 80px;
 }
 
 .about-section {
@@ -104,7 +143,7 @@
 
 .about-section .content-title {
     /* width: 86vw; */
-    color: var(--second-color);
+    color: var(--primary-color);
     font-weight: 900;
     margin: 2vh 0;
 }

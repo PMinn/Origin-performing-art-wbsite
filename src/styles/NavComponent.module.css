@@ -20,7 +20,7 @@
 
 .title,
 .title * {
-    color: var(--second-color);
+    color: var(--primary-color);
     font-size: 20px;
     /* font-family: monospace; */
     text-decoration: none;
@@ -40,7 +40,7 @@
     width: 30px;
     height: 1px;
     border-radius: 5px;
-    background-color: var(--second-color);
+    background-color: var(--primary-color);
     -webkit-transition: all 0.5s ease;
     /* -webkit-transition: -webkit-transform 0.5s ease; */
     transition: all 0.5s ease;
@@ -72,7 +72,7 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: var(--second-color);
+    background-color: var(--primary-color);
     -webkit-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease;
     opacity: 0;

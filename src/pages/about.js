@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 
 import styles from '../styles/about.module.css';
-import fontsStyles from '../styles/fonts.module.css';
+// import fontsStyles from '../styles/fonts.module.css';
 
 // import { fetchImage } from '../../firebaseConfig.js';
 
@@ -59,19 +59,45 @@ export default function About() {
 
   return (
     <main>
-      <Head></Head>
+      <Head>
+        {/* HTML Meta Tags  */}
+        <title>關於我們 - Origin | 起源劇團</title>
+        <meta name='keywords' content='Origin,起源劇團,火舞,藝術,表演' />
+        <meta name='description' content='Origin是一個火舞表演團體,主要表演地區為東台灣' />
+
+        {/* Facebook Meta Tags */}
+        <meta property="og:url" content="https://origin-performing-art.web.app/" />
+        <meta property="og:type" content="website" /> {/* article */}
+        <meta property='og:title' content='關於我們 - Origin | 起源劇團' />
+        <meta property='og:description' content='Origin是一個火舞表演團體,主要表演地區為東台灣' />
+        <meta property="og:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
+        {/*
+          檔案大小：< 8MB
+          檔案尺寸：建議尺寸 1200x630
+          對於圖片的內容 FB 有提供 圖像文字檢查工具 的網站，協助檢測。
+          網址的 url 一定要使用絕對路徑
+        */}
+
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="app" /> {/* summary, summary_large_image, app, player */}
+        <meta property="twitter:domain" content="origin-performing-art.web.app" />
+        <meta property="twitter:url" content="https://origin-performing-art.web.app/" />
+        <meta name="twitter:title" content="關於我們 - Origin | 起源劇團" />
+        <meta name="twitter:description" content="Origin是一個火舞表演團體,主要表演地區為東台灣" />
+        <meta name="twitter:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
+      </Head>
       <div className={styles.panel}>
         <h2 className={styles.title}>成員</h2>
         <div className={styles.content}>
           {
             members.map((member, index) => (
-              <div className={styles['member-card'] + ' ' + fontsStyles.ZH} key={'member_card_' + index}>
+              <div className={styles['member-card']} key={'member_card_' + index}>
                 <div className={styles['outer-img'] + ' outer-img'}>
                   <img src={member.image} />
-                  <h3 className={fontsStyles.ZH}>{member.name}</h3>
+                  <h3>{member.name}</h3>
                 </div>
                 <div>
-                  <Link className={fontsStyles.ENG + " anchor pointer"} href={'https://instagram.com/' + member.instagram}>
+                  <Link className={"anchor pointer"} href={'https://instagram.com/' + member.instagram}>
                     <img src="/media/instagram.svg" />Instagram
                   </Link>
                   <div>{member.intro}</div>

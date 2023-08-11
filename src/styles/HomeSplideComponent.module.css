@@ -34,7 +34,7 @@
 
 .intro .text {
     z-index: 52;
-    color: var(--second-color);
+    color: var(--primary-color);
     margin-bottom: 1vh;
 }
 
@@ -69,7 +69,7 @@
 .timeline-img>div::before {
     display: block;
     content: '';
-    background-color: var(--second-color);
+    background-color: var(--primary-color);
     height: 1px;
     width: 20vw;
     max-width: 120px;

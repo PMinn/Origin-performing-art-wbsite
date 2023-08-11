@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/NavComponent.module.css';
-import fontsStyles from '../styles/fonts.module.css';
+// import fontsStyles from '../styles/fonts.module.css';
 
 export default function NavComponent() {
     const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +26,7 @@ export default function NavComponent() {
     return (
         <div>
             <nav className={styles.nav}>
-                <Link href="/" className={fontsStyles.ENG + ' ' + styles.title + " pointer"}>
+                <Link href="/" className={styles.title + " pointer"}>
                     <h1>Origin</h1>
                 </Link>
                 <div className={styles['menu-icon'] + ' ' + (isMenuShow ? styles.open : '') + ' pointer'} onClick={menuIconOnclick}>
@@ -36,11 +36,11 @@ export default function NavComponent() {
             </nav>
             <div className={styles.menu + ' ' + (isOpen ? styles.open : '') + ' ' + (isMenuShow ? styles.show : '')}>
                 <div>
-                    <Link href="/" className={fontsStyles.ZH + " pointer"} onClick={closeMenu}>首頁</Link>
-                    <Link href="/about" className={fontsStyles.ZH + " pointer"} onClick={closeMenu}>關於我們</Link>
-                    <Link href="/event" className={fontsStyles.ZH + " pointer"} onClick={closeMenu}>活動行程</Link>
-                    <Link href="/blog" className={fontsStyles.ENG + " pointer"} onClick={closeMenu}>BLOG</Link>
-                    <Link href="/contact" className={fontsStyles.ZH + " pointer"} onClick={closeMenu}>聯絡我們</Link>
+                    <Link href="/" className={"pointer"} onClick={closeMenu}>首頁</Link>
+                    <Link href="/about" className={"pointer"} onClick={closeMenu}>關於我們</Link>
+                    <Link href="/event" className={"pointer"} onClick={closeMenu}>活動行程</Link>
+                    <Link href="/blog" className={"pointer"} onClick={closeMenu}>BLOG</Link>
+                    <Link href="/contact" className={"pointer"} onClick={closeMenu}>聯絡我們</Link>
                 </div>
             </div>
         </div>
