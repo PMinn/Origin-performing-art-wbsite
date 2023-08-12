@@ -1,5 +1,7 @@
-.panel {
+.container {
     height: auto;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
 }
 
 .content,
@@ -8,19 +10,15 @@
     width: 86vw;
 }
 
-.title {
-    padding: 7vw 7vw 0 7vw;
-}
-
 .content {
-    padding: 0 7vw 7vw 7vw;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .member-card {
-    width: 86vw;
+    width: 100%;
     max-width: 500px;
     display: flex;
     flex-direction: column;

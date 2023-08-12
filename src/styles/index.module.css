@@ -13,8 +13,9 @@
     position: absolute;
     left: 10vw;
     width: 80vw;
-    font-size: 4vw;
+    font-size: 5rem;
     z-index: 1;
+    margin: 0;
 }
 
 .cover h2:first-child {
@@ -195,8 +196,16 @@
 }
 
 @media only screen and (max-width: 480px) {
+    .cover img {
+        width: 50vw;
+    }
+
     .performance-project .imgs {
-        display: block;
+        flex-direction: column;
+    }
+
+    .performance-project .imgs .img {
+        width: 100%;
     }
 
     .about-section {
@@ -208,9 +217,8 @@
         width: 86vw;
     }
 
-    .about-section>*:not(.logo-video) {
-        z-index: 48;
-        position: relative;
+    .about-section .container {
+        flex-direction: column;
     }
 
     .logo-video {
@@ -221,6 +229,12 @@
         filter: brightness(0.6);
         -webkit-filter: brightness(0.6);
         z-index: 47;
+    }
+
+    .about-section .container>div {
+        width: 100%;
+        z-index: 48;
+        position: relative;
     }
 
     .more-section>h6 {

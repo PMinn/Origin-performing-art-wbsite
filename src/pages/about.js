@@ -86,7 +86,7 @@ export default function About() {
         <meta name="twitter:description" content="Origin是一個火舞表演團體,主要表演地區為東台灣" />
         <meta name="twitter:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
       </Head>
-      <div className={styles.panel}>
+      <div className={styles.container + ' container'}>
         <h2 className={styles.title}>成員</h2>
         <div className={styles.content}>
           {
