@@ -2,12 +2,12 @@ import Link from 'next/link';
 import Head from 'next/head';
 import useSWR from 'swr';
 
-import styles from '@/styles/blogList.module.css';
+import styles from '../../styles/blogList.module.css';
 // import fontsStyles from '@/styles/fonts.module.css';
 
-import { fetchBlogList } from '../../../firebaseConfig.js';
+import { fetchBlogList } from '../../firebaseConfig.js';
 
-import LoadingComponent from '@/components/LoadingComponent';
+import LoadingComponent from '../../components/LoadingComponent';
 
 export default function BlogList() {
     var { data, error, isLoading, isValidating, mutate } = useSWR('/blogList', fetchBlogList);

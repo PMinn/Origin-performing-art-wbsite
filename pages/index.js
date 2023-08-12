@@ -3,12 +3,12 @@ import Link from 'next/link';
 import Head from 'next/head';
 import useSWR from 'swr';
 
-import styles from '@/styles/index.module.css';
+import styles from '../styles/index.module.css';
 // import fontsStyles from '../styles/fonts.module.css';
 
-import { app, fetchImage } from '../../firebaseConfig.js';
+import { app, fetchImage } from '../firebaseConfig.js';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import LoadingComponent from '@/components/LoadingComponent';
+import LoadingComponent from '../components/LoadingComponent';
 
 async function fetchHomeSplideImage() {
   const storage = getStorage(app);

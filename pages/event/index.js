@@ -6,9 +6,9 @@ import useSWR from 'swr';
 import styles from '../../styles/eventList.module.css';
 // import fontsStyles from '../../styles/fonts.module.css';
 
-import { fetchEventList } from '../../../firebaseConfig.js';
+import { fetchEventList } from '../../firebaseConfig.js';
 
-import LoadingComponent from '@/components/LoadingComponent';
+import LoadingComponent from '../../components/LoadingComponent';
 
 export default function EventList() {
     var { data, error, isLoading, isValidating, mutate } = useSWR('/eventList', fetchEventList);

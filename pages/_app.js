@@ -13,19 +13,19 @@ import "aos/dist/aos.css";
 const shipporiMincho = localFont({
   src: [
     {
-      path: '../../font/ShipporiMincho-OTF-Bold.otf',
+      path: '../font/ShipporiMincho-OTF-Bold.otf',
       weight: '700'
     }, {
-      path: '../../font/ShipporiMincho-OTF-ExtraBold.otf',
+      path: '../font/ShipporiMincho-OTF-ExtraBold.otf',
       weight: '800'
     }, {
-      path: '../../font/ShipporiMincho-OTF-Medium.otf',
+      path: '../font/ShipporiMincho-OTF-Medium.otf',
       weight: '500'
     }, {
-      path: '../../font/ShipporiMincho-OTF-Regular.otf',
+      path: '../font/ShipporiMincho-OTF-Regular.otf',
       weight: '400'
     }, {
-      path: '../../font/ShipporiMincho-OTF-SemiBold.otf',
+      path: '../font/ShipporiMincho-OTF-SemiBold.otf',
       weight: '600'
     }
   ],

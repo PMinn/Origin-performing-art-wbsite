@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-import styles from '@/styles/LoadingComponent.module.css';
+import styles from '../styles/LoadingComponent.module.css';
 
 export default function LoadingComponent({ isLoading }) {
 
