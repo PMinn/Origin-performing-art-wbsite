@@ -83,7 +83,7 @@ export default function Index() {
         </section>
         <section className={styles['performance-project']}>
           <div className={styles.container + ' container'}>
-            <h2 className={styles['content-title']} data-aos="fade-up">演出項目</h2>
+            <h2 className={styles['content-title']} data-aos="fade-up" data-aos-duration="1000">演出項目</h2>
             <div className={styles.imgs}>
               <div className={styles.img}>
                 {
@@ -92,7 +92,7 @@ export default function Index() {
                     :
                     <></>
                 }
-                <div data-aos="fade-up">街頭表演</div>
+                <div data-aos="fade-up" data-aos-duration="1000">街頭表演</div>
               </div>
               <div className={styles.img}>
                 {
@@ -101,7 +101,7 @@ export default function Index() {
                     :
                     <></>
                 }
-                <div data-aos="fade-up">商業演出</div>
+                <div data-aos="fade-up" data-aos-duration="1000">商業演出</div>
               </div>
             </div>
             <div className='w-100 d-flex justify-content-center'>
@@ -117,8 +117,8 @@ export default function Index() {
                 :
                 <></>
             }
-            <div>
-              <div className="split">
+            <div data-aos="fade-up" data-aos-duration="1000">
+              <div>
                 <h2 className={styles["content-title"]}>跟著Origin一起遇火重生</h2>
               </div>
               <p>你們是否會常常問自己一個問題，我當初做這件事是開心的嗎？</p>
@@ -132,7 +132,7 @@ export default function Index() {
         </section>
         <section className={styles['more-section']}>
           <div className={styles.container + ' container'}>
-            <h2 className={styles['content-title']} data-aos="fade-up">更多</h2>
+            <h2 className={styles['content-title']}>更多</h2>
             <Link href="/event" className={styles.anchor + " li pointer"} data-aos="fade-right" data-aos-duration="1000">
               <div>
                 活動行程

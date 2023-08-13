@@ -44,17 +44,7 @@ export default function About() {
   }];
 
   useEffect(() => {
-    const imgs = document.querySelectorAll('.outer-img>img');
-    function onscroll() {
-      imgs.forEach(img => {
-        var rect = img.getBoundingClientRect();
-        var center = 1 - ((rect.top + rect.height / 2 + document.documentElement.clientHeight / 2) / document.documentElement.clientHeight);
-        var move = document.documentElement.clientWidth * 0.86 * 0.2 / 2 * - center;
-        img.style.transform = `translateY(${move}px)`;
-      })
-    }
-    document.removeEventListener('scroll', onscroll);
-    document.addEventListener('scroll', onscroll);
+
   }, []);
 
   return (
@@ -88,16 +78,16 @@ export default function About() {
       </Head>
       <div className={styles.container + ' container'}>
         <h2 className={styles.title}>成員</h2>
-        <div className={styles.content}>
+        <div className='row'>
           {
             members.map((member, index) => (
-              <div className={styles['member-card']} key={'member_card_' + index}>
-                <div className={styles['outer-img'] + ' outer-img'}>
+              <div className={'col-6 col-md-4 py-5 px-md-4 px-2 ' + styles['member-card']} data-aos="fade-up" data-aos-duration="1000" key={'member_card_' + index}>
+                <div className={styles['outer-img']}>
                   <img src={member.image} />
-                  <h3>{member.name}</h3>
                 </div>
                 <div>
-                  <Link className={"anchor pointer"} href={'https://instagram.com/' + member.instagram}>
+                  <h3 className='mt-4'>{member.name}</h3>
+                  <Link className={styles['media-link'] + " anchor pointer"} href={'https://instagram.com/' + member.instagram}>
                     <img src="/media/instagram.svg" />Instagram
                   </Link>
                   <div>{member.intro}</div>
