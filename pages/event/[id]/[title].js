@@ -4,13 +4,12 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
-import styles from '../../../styles/event.module.css';
-// import fontsStyles from '../../../styles/fonts.module.css';
+import styles from '@/styles/post.module.css';
 
-import NFComponent from '../../../components/NFComponent.js';
-import LoadingComponent from '../../../components/LoadingComponent.js';
+import NFComponent from '@/components/NFComponent.js';
+import LoadingComponent from '@/components/LoadingComponent.js';
 
-import { fetchEvent } from '../../../firebase.js';
+import { fetchEvent } from '@/firebase.js';
 
 export default function Event() {
     const router = useRouter();
