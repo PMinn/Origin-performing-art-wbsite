@@ -1,18 +1,16 @@
 import { useState } from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
 import useSWR from 'swr';
 
 import styles from '@/styles/list.module.css';
 import btnStyles from '@/styles/btn.module.css';
 
-import { fetchDatabase } from '../../firebase.js';
+import { fetchDatabase } from '@/firebase.js';
 
-import LoadingComponent from '../../components/LoadingComponent';
+import LoadingComponent from '@/components/LoadingComponent';
 import ListPageComponent from '@/components/ListPageComponent';
 
 export default function BlogList() {
-    // const { data, error, isLoading, isValidating, mutate } = useSWR('/blogList', fetchBlogList);
     const { data: maxSort } = useSWR({ url: '/db', path: 'blogs/maxSort' }, async ({ path }) => await fetchDatabase(path));
     const [isLoading, setIsLoading] = useState(true);
     const [pageIndex, setPageIndex] = useState(10);
