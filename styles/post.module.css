@@ -40,12 +40,12 @@
     border-radius: 5px;
 }
 
-.event-detail>div>a {
+.detail>div>a {
     color: #fff;
     text-decoration: none;
 }
 
-.event-detail img {
+.detail img {
     margin-right: 5px;
 }
 
@@ -60,4 +60,8 @@
     margin: 8vh auto;
     line-height: 180%;
     white-space: pre-line;
+}
+
+.date {
+    color: gray;
 }

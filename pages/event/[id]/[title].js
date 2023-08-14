@@ -68,7 +68,7 @@ export default function Event() {
                                                 </div>
                                                 <div className={styles.inner + ' container'}>
                                                     <h2>{data.title}</h2>
-                                                    <div className={styles['event-detail']}>
+                                                    <div className={styles['detail']}>
                                                         {
                                                             data.lists.map((list, index) => {
                                                                 return (

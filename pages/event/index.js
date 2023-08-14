@@ -3,13 +3,13 @@ import Link from 'next/link';
 import Head from 'next/head';
 import useSWR from 'swr';
 
-import styles from '../../styles/eventList.module.css';
+import styles from '@/styles/list.module.css';
 import btnStyles from '@/styles/btn.module.css';
 
 import { fetchDatabase } from '@/firebase.js';
 
-import LoadingComponent from '../../components/LoadingComponent';
-import EventsPageComponent from '../../components/EventsPageComponent';
+import LoadingComponent from '@/components/LoadingComponent';
+import ListPageComponent from '@/components/ListPageComponent';
 
 export default function EventList() {
     const { data: maxSort } = useSWR({ url: '/db', path: 'events/maxSort' }, async ({ path }) => await fetchDatabase(path));
@@ -17,7 +17,7 @@ export default function EventList() {
     const [pageIndex, setPageIndex] = useState(10);
     const pages = [];
     for (let sort = maxSort + 1; sort > maxSort - pageIndex + 1; sort -= 10) {
-        pages.push(<EventsPageComponent before={sort} key={sort}></EventsPageComponent>)
+        pages.push(<ListPageComponent before={sort} type='event' key={sort}></ListPageComponent>)
     }
     return (
         <main onLoad={() => setIsLoading(false)}>
@@ -50,6 +50,7 @@ export default function EventList() {
             </Head>
             <LoadingComponent isLoading={isLoading}></LoadingComponent>
             <div className={styles.container + ' container'}>
+                <h2 className={styles['page-title'] + ' m-5'}>活動行程</h2>
                 {pages}
                 {
                     pageIndex < maxSort ?

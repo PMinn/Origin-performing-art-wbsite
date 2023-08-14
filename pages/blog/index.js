@@ -1,18 +1,27 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import useSWR from 'swr';
 
-import styles from '../../styles/blogList.module.css';
-// import fontsStyles from '@/styles/fonts.module.css';
+import styles from '@/styles/list.module.css';
+import btnStyles from '@/styles/btn.module.css';
 
-import { fetchBlogList } from '../../firebase.js';
+import { fetchDatabase } from '../../firebase.js';
 
 import LoadingComponent from '../../components/LoadingComponent';
+import ListPageComponent from '@/components/ListPageComponent';
 
 export default function BlogList() {
-    const { data, error, isLoading, isValidating, mutate } = useSWR('/blogList', fetchBlogList);
+    // const { data, error, isLoading, isValidating, mutate } = useSWR('/blogList', fetchBlogList);
+    const { data: maxSort } = useSWR({ url: '/db', path: 'blogs/maxSort' }, async ({ path }) => await fetchDatabase(path));
+    const [isLoading, setIsLoading] = useState(true);
+    const [pageIndex, setPageIndex] = useState(10);
+    const pages = [];
+    for (let sort = maxSort + 1; sort > maxSort - pageIndex + 1; sort -= 10) {
+        pages.push(<ListPageComponent before={sort} type='blog' key={sort}></ListPageComponent>)
+    }
     return (
-        <main>
+        <main onLoad={() => setIsLoading(false)}>
             <Head>
                 {/* HTML Meta Tags  */}
                 <title>BLOG - Origin | 起源劇團</title>
@@ -41,22 +50,14 @@ export default function BlogList() {
                 <meta name="twitter:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
             </Head>
             <LoadingComponent isLoading={isLoading}></LoadingComponent>
-            <div className={styles.content}>
+            <div className={styles.container + ' container'}>
+                <h2 className={styles['page-title'] + ' m-5'}>BLOG</h2>
+                {pages}
                 {
-                    data ?
-                        data.map((blog, index) => (
-                            <Link className="anchor pointer" href={`/blog/${blog.id}/${blog.title}`} key={'blog_' + index}>
-                                <div className={styles.li}>
-                                    <div>
-                                        <img src={blog.img} alt="" />
-                                    </div>
-                                    <div className={styles['content-text']}>
-                                        <div z={styles['content-bar']}></div>
-                                        <h4>{blog.title}</h4>
-                                    </div>
-                                </div>
-                            </Link>
-                        ))
+                    pageIndex < maxSort ?
+                        <div className='w-100 d-flex justify-content-center'>
+                            <div className={btnStyles.btn + ' mt-5 pointer'} onClick={() => setPageIndex(pageIndex + 10)}>More</div>
+                        </div>
                         :
                         <></>
                 }

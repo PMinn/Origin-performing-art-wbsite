@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getStorage, ref as storage_ref, getDownloadURL } from "firebase/storage";
 import { getDatabase, ref as database_ref, get, query as database_query, orderByChild, limitToLast, startAt, endBefore, limitToFirst, child, startAfter, orderBy } from "firebase/database";
 import { getFirestore, collection, query as firestore_query, where, getDocs, doc, getDoc } from "firebase/firestore";
-import { type } from "os";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCQ-5t6Uzc9SvuvamD3wiEoHhiY_zMMxrM",
@@ -26,23 +25,6 @@ async function fetchImage(url) {
   return await fetchFileURL(storage, url);
 }
 
-async function fetchBlogList() {
-  const database = getDatabase(app);
-  const storage = getStorage(app);
-  var blogList = [];
-  const order = database_query(database_ref(database, 'blogs'), orderByChild('date'));
-  // const filter = database_query(order, startAt(startIndex), limitToFirst(10));
-  const data = await get(order).then(async snapshot => await snapshot.val());
-  const keys = Object.keys(data);
-  for (let i = 0; i < keys.length; i++) {
-    var d = data[keys[i]];
-    d.oid = keys[i];
-    d.img = await fetchFileURL(storage, d.img);
-    blogList.push(d);
-  }
-  return blogList;
-}
-
 async function fetchBlog({ id }) {
   try {
     const storage = getStorage(app);
@@ -51,7 +33,7 @@ async function fetchBlog({ id }) {
     const docSnap = await getDoc(doc(db, 'blog', id));
     if (docSnap.exists()) {
       var blog = docSnap.data();
-      blog.img = await fetchFileURL(storage, blog.img);
+      blog.image = await fetchFileURL(storage, blog.image);
       blog.html = blog.html.replaceAll('\\n', '\n');
       blog.code = 200;
       return blog;
@@ -68,12 +50,12 @@ async function fetchBlog({ id }) {
   };
 }
 
-async function fetchEventList({ before }) {
+async function fetchPostList({ before, type }) {
   try {
-    var eventList = [];
+    var list = [];
     const database = getDatabase(app);
     const storage = getStorage(app);
-    var order = database_query(database_ref(database, 'events'), orderByChild('sort'));
+    var order = database_query(database_ref(database, type + 's'), orderByChild('sort'));
     var filter = database_query(order, endBefore(before), limitToLast(10));
     const data = await get(filter).then(async snapshot => await snapshot.val());
     const keys = Object.keys(data);
@@ -83,13 +65,13 @@ async function fetchEventList({ before }) {
       var d = data[keys[i]];
       d.oid = keys[i];
       d.image = await fetchFileURL(storage, d.image);
-      eventList.push(d);
+      list.push(d);
     }
-    eventList.sort((a, b) => b.sort - a.sort);
+    list.sort((a, b) => b.sort - a.sort);
   } catch (e) {
     console.log(e)
   }
-  return eventList;
+  return list;
 }
 
 async function fetchEvent({ id }) {
@@ -138,4 +120,4 @@ async function fetchStorageMutipleByPaths(paths) {
   return await Promise.all(paths.map(async path => await fetchFileURL(storage, path)));
 }
 
-export { app, fetchImage, fetchBlogList, fetchBlog, fetchEventList, fetchEvent, fetchDatabase, fetchStorageMutipleByPaths };
+export { fetchImage, fetchBlog, fetchPostList, fetchEvent, fetchDatabase, fetchStorageMutipleByPaths };
