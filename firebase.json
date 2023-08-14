@@ -23,16 +23,12 @@
     ],
     "rewrites": [
       {
-        "source": "/event{,/**}",
-        "destination": "/event.html"
+        "source": "/event/**",
+        "destination": "/event/[id]/[title].html"
       },
       {
-        "source": "/blog{,/**}",
-        "destination": "/blog.html"
-      },
-      {
-        "source": "/**",
-        "destination": "/index.html"
+        "source": "/blog/**",
+        "destination": "/blog/[id]/[title].html"
       }
     ],
     "cleanUrls": true
