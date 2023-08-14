@@ -10,11 +10,11 @@ import styles from '../../../styles/blog.module.css';
 import NFComponent from '../../../components/NFComponent.js';
 import LoadingComponent from '../../../components/LoadingComponent.js';
 
-import { fetchBlog } from '../../../firebaseConfig.js';
+import { fetchBlog } from '../../../firebase.js';
 
 export default function Blog() {
     const router = useRouter();
-    var { data, error, isLoading, isValidating, mutate } = useSWR({ url: '/blog', id: router.query.id }, fetchBlog);
+    const { data, error, isLoading, isValidating, mutate } = useSWR({ url: '/blog', id: router.query.id }, fetchBlog);
 
     useEffect(() => {
         function scrollChangeImageSizeAnimation() {

@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import Head from 'next/head';
+import useSWR from 'swr';
 
 // import fontsStyles from '../styles/fonts.module.css';
 import styles from '../styles/contact.module.css';
+import { fetchDatabase } from '@/firebase.js';
 
 export default function Contact() {
+    const { data, error, isLoading, isValidating, mutate } = useSWR({ url: '/db', path: 'settings/' }, async ({ path }) => await fetchDatabase(path));
     return (
         <main>
             <Head>
@@ -40,13 +43,13 @@ export default function Contact() {
                     <div className={styles["contact-logo"]}>
                         <img src="/media/instagram.svg" alt="" />
                     </div>
-                    <span>@origin_performing_art</span>
+                    <span>@{data?.instagram}</span>
                 </Link>
                 <Link href="https://www.facebook.com/OriginPerformingArt/" className={styles['social-link'] + ' ' + styles.facebook + ' anchor pointer'} target="_blank">
-                    <div class={styles["contact-logo"]}>
+                    <div className={styles["contact-logo"]}>
                         <img src="/media/facebook.svg" alt="" />
                     </div>
-                    <span>OriginPerformingArt</span>
+                    <span>{data?.facebook}</span>
                 </Link>
             </div>
         </main>

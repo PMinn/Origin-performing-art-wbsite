@@ -1,24 +1,26 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import useSWR from 'swr';
 
 import styles from '../../styles/eventList.module.css';
-// import fontsStyles from '../../styles/fonts.module.css';
+import btnStyles from '@/styles/btn.module.css';
 
-import { fetchEventList } from '../../firebaseConfig.js';
+import { fetchDatabase } from '@/firebase.js';
 
 import LoadingComponent from '../../components/LoadingComponent';
+import EventsPageComponent from '../../components/EventsPageComponent';
 
 export default function EventList() {
-    var { data, error, isLoading, isValidating, mutate } = useSWR('/eventList', fetchEventList);
-
-    useEffect(() => {
-
-    }, []);
-
+    const { data: maxSort } = useSWR({ url: '/db', path: 'events/maxSort' }, async ({ path }) => await fetchDatabase(path));
+    const [isLoading, setIsLoading] = useState(true);
+    const [pageIndex, setPageIndex] = useState(10);
+    const pages = [];
+    for (let sort = maxSort + 1; sort > maxSort - pageIndex + 1; sort -= 10) {
+        pages.push(<EventsPageComponent before={sort} key={sort}></EventsPageComponent>)
+    }
     return (
-        <main>
+        <main onLoad={() => setIsLoading(false)}>
             <Head>
                 {/* HTML Meta Tags  */}
                 <title>活動行程 - Origin | 起源劇團</title>
@@ -48,16 +50,12 @@ export default function EventList() {
             </Head>
             <LoadingComponent isLoading={isLoading}></LoadingComponent>
             <div className={styles.container + ' container'}>
+                {pages}
                 {
-                    data ?
-                        data.map((post, index) => (
-                            <div key={'event_' + index} className={styles.li + ' anchor pointer'} data-aos="fade-right" data-aos-duration="1000">
-                                <Link href={`/event/${post.id}/${post.title}`}>
-                                    <div className={styles.title}>{post.title}</div>
-                                    <img src={post.image} />
-                                </Link>
-                            </div>
-                        ))
+                    pageIndex < maxSort ?
+                        <div className='w-100 d-flex justify-content-center'>
+                            <div className={btnStyles.btn + ' mt-5 pointer'} onClick={() => setPageIndex(pageIndex + 10)}>More</div>
+                        </div>
                         :
                         <></>
                 }

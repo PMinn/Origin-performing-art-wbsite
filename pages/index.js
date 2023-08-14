@@ -4,9 +4,11 @@ import Head from 'next/head';
 import useSWR from 'swr';
 
 import styles from '../styles/index.module.css';
+import btnStyles from '@/styles/btn.module.css';
+
 // import fontsStyles from '../styles/fonts.module.css';
 
-import { app, fetchImage } from '../firebaseConfig.js';
+import { app, fetchImage } from '../firebase.js';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import LoadingComponent from '../components/LoadingComponent';
 
@@ -63,15 +65,17 @@ export default function Index() {
               (
                 <>
                   <div className={styles.round} style={{ '--during': 10 * homeSplide.length + 's' }}>
-                    {homeSplide.map((url, index) => {
-                      return (<img src={url} key={'cover_1_' + index} />)
-                    })
+                    {
+                      homeSplide.map((url, index) => {
+                        return (<img src={url} key={'cover_1_' + index} />)
+                      })
                     }
                   </div>
                   <div className={styles.round} style={{ '--during': 10 * homeSplide.length + 's' }}>
-                    {homeSplide.map((url, index) => {
-                      return (<img src={url} key={'cover_2_' + index} />)
-                    })
+                    {
+                      homeSplide.map((url, index) => {
+                        return (<img src={url} key={'cover_2_' + index} />)
+                      })
                     }
                   </div>
                 </>
@@ -105,7 +109,7 @@ export default function Index() {
               </div>
             </div>
             <div className='w-100 d-flex justify-content-center'>
-              <Link href="/contact" className={styles.btn + " pointer"}>聯絡我們</Link>
+              <Link href="/contact" className={btnStyles.btn + " pointer"}>聯絡我們</Link>
             </div>
           </div>
         </section>
@@ -125,7 +129,7 @@ export default function Index() {
               <p>最初，也許每一個人心中都是帶著熱情去嘗試新事物，但是隨著時間的流逝，加上高強度壓力的環境壓迫，熱情經常會消逝。跟著Origin一起遇火重生，燃起你心中深埋的熱情！
               </p>
               <div className='w-100 d-flex justify-content-center'>
-                <Link href="/about" className={styles.btn + " pointer"}>關於我們</Link>
+                <Link href="/about" className={btnStyles.btn + " pointer"}>關於我們</Link>
               </div>
             </div>
           </div>

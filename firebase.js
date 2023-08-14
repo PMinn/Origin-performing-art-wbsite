@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getStorage, ref as storage_ref, getDownloadURL } from "firebase/storage";
-import { getDatabase, ref as database_ref, get, query as database_query, orderByChild, startAt, limitToFirst } from "firebase/database";
+import { getDatabase, ref as database_ref, get, query as database_query, orderByChild, limitToLast, startAt, endBefore, limitToFirst, child, startAfter, orderBy } from "firebase/database";
 import { getFirestore, collection, query as firestore_query, where, getDocs, doc, getDoc } from "firebase/firestore";
+import { type } from "os";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCQ-5t6Uzc9SvuvamD3wiEoHhiY_zMMxrM",
@@ -67,22 +68,24 @@ async function fetchBlog({ id }) {
   };
 }
 
-async function fetchEventList() {
+async function fetchEventList({ before }) {
   try {
     var eventList = [];
     const database = getDatabase(app);
     const storage = getStorage(app);
     var order = database_query(database_ref(database, 'events'), orderByChild('sort'));
-    // var filter = query(order, startAfter(this.startIndex), limitToFirst(10));
-    const data = await get(order).then(async snapshot => await snapshot.val());
+    var filter = database_query(order, endBefore(before), limitToLast(10));
+    const data = await get(filter).then(async snapshot => await snapshot.val());
     const keys = Object.keys(data);
+    console.log(data)
     for (let i = 0; i < keys.length; i++) {
+      if (typeof data[keys[i]] != 'object') continue; // 避免處理maxSort
       var d = data[keys[i]];
       d.oid = keys[i];
       d.image = await fetchFileURL(storage, d.image);
       eventList.push(d);
     }
-    eventList.sort((a, b) => a.sort - b.sort);
+    eventList.sort((a, b) => b.sort - a.sort);
   } catch (e) {
     console.log(e)
   }
@@ -120,4 +123,19 @@ async function fetchEvent({ id }) {
   };
 }
 
-export { app, fetchImage, fetchBlogList, fetchBlog, fetchEventList, fetchEvent };
+async function fetchDatabase(path) {
+  const database = getDatabase(app);
+  return await get(child(database_ref(database), path)).then(snapshot => snapshot.val());
+}
+
+// async function fetchStorageByPath(path) {
+//   const storage = getStorage(app);
+//   return await fetchFileURL(storage, path);
+// }
+
+async function fetchStorageMutipleByPaths(paths) {
+  const storage = getStorage(app);
+  return await Promise.all(paths.map(async path => await fetchFileURL(storage, path)));
+}
+
+export { app, fetchImage, fetchBlogList, fetchBlog, fetchEventList, fetchEvent, fetchDatabase, fetchStorageMutipleByPaths };

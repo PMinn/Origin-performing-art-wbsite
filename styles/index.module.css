@@ -59,14 +59,6 @@
     padding-bottom: 8rem;
 }
 
-.btn {
-    background-color: var(--accent1-color);
-    padding: 14px 45px;
-    display: inline-block;
-    color: #fff;
-    text-decoration: none;
-}
-
 .anchor {
     display: flex;
     color: #fff;

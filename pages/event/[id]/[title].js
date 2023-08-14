@@ -10,11 +10,11 @@ import styles from '../../../styles/event.module.css';
 import NFComponent from '../../../components/NFComponent.js';
 import LoadingComponent from '../../../components/LoadingComponent.js';
 
-import { fetchEvent } from '../../../firebaseConfig.js';
+import { fetchEvent } from '../../../firebase.js';
 
 export default function Event() {
     const router = useRouter();
-    var { data, error, isLoading, isValidating, mutate } = useSWR({ url: '/event', id: router.query.id }, fetchEvent);
+    const { data, error, isLoading, isValidating, mutate } = useSWR({ url: '/event', id: router.query.id }, fetchEvent);
 
     useEffect(() => {
 
