@@ -3,20 +3,16 @@ import Link from 'next/link';
 import Head from 'next/head';
 import useSWR from 'swr';
 
-import styles from '../styles/index.module.css';
+import styles from '@/styles/index.module.css';
 import btnStyles from '@/styles/btn.module.css';
 
-// import fontsStyles from '../styles/fonts.module.css';
-
-import { app, fetchImage } from '../firebase.js';
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import LoadingComponent from '../components/LoadingComponent';
+import { fetchImage, fetchDatabase, fetchStorageMutipleByPaths } from '@/firebase.js';
+import LoadingComponent from '@/components/LoadingComponent';
 
 async function fetchHomeSplideImage() {
-  const storage = getStorage(app);
-  const urls = ['index/p1/1-2.jpg', 'index/p1/9-2.jpg', 'index/p1/2-2.jpg', 'index/p1/7-2.jpg'];
-  var downloadURL = urls.map(async url => await getDownloadURL(ref(storage, url)));
-  return await Promise.all(downloadURL);
+  const urls = await fetchDatabase('/homeSplide');
+  const images = await fetchStorageMutipleByPaths(urls);
+  return images;
 }
 
 export default function Index() {
