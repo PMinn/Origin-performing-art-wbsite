@@ -18,7 +18,7 @@ export default function ListPageComponent({ before, type }) {
                                 <div className={styles.text}>
                                     <div className={styles.title}>{post.title}</div>
                                     {
-                                        post.date ?
+                                        type == "blog" ?
                                             <div className={styles.date}>{`${new Date(post.date).getFullYear()} / ${new Date(post.date).getMonth() + 1} / ${new Date(post.date).getDate()}`}</div>
                                             :
                                             <></>
