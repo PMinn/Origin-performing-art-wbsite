@@ -50,37 +50,35 @@ export default function Blog() {
             </Head>
             <LoadingComponent isLoading={isLoading}></LoadingComponent>
             {
-                !isLoading ?
+                !isLoading &&
+                    !error ?
                     (
-                        !error ?
+                        data.code == 200 ?
                             (
-                                data.code == 200 ?
-                                    (
-                                        <>
-                                            <div className={styles.outer}>
-                                                <div className={styles.content}>
-                                                    <img src={data.image} alt="" />
-                                                </div>
-                                                <div className={styles.inner + ' container'}>
-                                                    <h2>{data.title}</h2>
-                                                    <h6 className={styles.date}>{`${data.date.toDate().getFullYear()} / ${data.date.toDate().getMonth() + 1} / ${data.date.toDate().getDate()}`}</h6>
-                                                </div>
-                                            </div>
-                                            <div className={styles.text + ' container'}>{data.html}</div>
-                                        </>
-                                    ) : (
-                                        data.code == 404 ?
-                                            (
-                                                <NFComponent></NFComponent>
-                                            ) : (
-                                                <script>alert("error: " + {error})</script>
-                                            )
-                                    )
+                                <>
+                                    <div className={styles.outer}>
+                                        <div className={styles.content}>
+                                            <img src={data.image} alt="" />
+                                        </div>
+                                        <div className={styles.inner + ' container'}>
+                                            <h2>{data.title}</h2>
+                                            <h6 className={styles.date}>{`${data.date.toDate().getFullYear()} / ${data.date.toDate().getMonth() + 1} / ${data.date.toDate().getDate()}`}</h6>
+                                        </div>
+                                    </div>
+                                    <div className={styles.text+ ' container my-5'} dangerouslySetInnerHTML={{
+                                        __html: data.html
+                                    }}></div>
+                                </>
                             ) : (
-                                <script>alert("error: "+{error})</script>
+                                data.code == 404 ?
+                                    (
+                                        <NFComponent></NFComponent>
+                                    ) : (
+                                        <>error: {error}</>
+                                    )
                             )
                     ) : (
-                        <></>
+                        <>error: {error}</>
                     )
             }
         </main >

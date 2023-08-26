@@ -15,10 +15,6 @@ export default function Event() {
     const router = useRouter();
     const { data, error, isLoading, isValidating, mutate } = useSWR({ url: '/event', id: router.query.id }, fetchEvent);
 
-    useEffect(() => {
-
-    }, []);
-
     return (
         <main>
             <Head>
@@ -54,51 +50,46 @@ export default function Event() {
             </Head>
             <LoadingComponent isLoading={isLoading}></LoadingComponent>
             {
-                !isLoading ?
+                !isLoading &&
+                    !error ?
                     (
-                        !error ?
+                        data.code == 200 ?
                             (
-                                data.code == 200 ?
-                                    (
-                                        <>
-                                            <div className={styles.outer}>
-                                                <div className={styles.content}>
-                                                    <img src={data.image} alt="" />
-                                                </div>
-                                                <div className={styles.inner + ' container'}>
-                                                    <h2>{data.title}</h2>
-                                                    <div className={styles['detail']}>
-                                                        {
-                                                            data.lists.map((list, index) => {
-                                                                return (
-                                                                    <div>
-                                                                        <div className={styles.hr}></div>
-                                                                        <div><img src="/media/event/location.svg" alt="location icon" /> {list.location.zh}</div>
-                                                                        <span><img src="/media/event/time.svg" alt="time icon" /> {list.timeString}</span>
-                                                                    </div>
-                                                                )
-                                                            })
-                                                        }
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className={styles.text + ' container'}>{data.html}</div>
-                                        </>
-                                    ) : (
-                                        data.code == 404 ?
-                                            (
-                                                <NFComponent></NFComponent>
-                                            ) : (
-                                                <script>alert("error: " + {error})</script>
-                                            )
-                                    )
+                                <>
+                                    <div className={styles.outer}>
+                                        <div className={styles.content}>
+                                            <img src={data.image} alt="" />
+                                        </div>
+                                        <div className={styles.inner + ' container'}>
+                                            <h2>{data.title}</h2>
+                                            {/* <div className={styles['detail']}>
+                                                {
+                                                    data.lists.map((list, index) => {
+                                                        return (
+                                                            <div>
+                                                                <div className={styles.hr}></div>
+                                                                <div><img src="/media/event/location.svg" alt="location icon" /> {list.location.zh}</div>
+                                                                <span><img src="/media/event/time.svg" alt="time icon" /> {list.timeString}</span>
+                                                            </div>
+                                                        )
+                                                    })
+                                                }
+                                            </div> */}
+                                        </div>
+                                    </div>
+                                    <div className={styles.text + ' container my-5'} dangerouslySetInnerHTML={{
+                                        __html: data.html
+                                    }}></div>
+                                </>
                             ) : (
-                                <script>alert("error: "+{error})</script>
+                                data.code == 404 ?
+                                    (
+                                        <NFComponent></NFComponent>
+                                    ) : (
+                                        <>error: {error}</>
+                                    )
                             )
-                    ) : (
-                        <></>
-                    )
+                    ) : <>error: {error}</>
             }
 
         </main >

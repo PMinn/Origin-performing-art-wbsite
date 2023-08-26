@@ -34,7 +34,7 @@ async function fetchBlog({ id }) {
     if (docSnap.exists()) {
       var blog = docSnap.data();
       blog.image = await fetchFileURL(storage, blog.image);
-      blog.html = blog.html.replaceAll('\\n', '\n');
+      // blog.html = blog.html.replaceAll('\\n', '\n');
       blog.code = 200;
       return blog;
     }
@@ -83,13 +83,13 @@ async function fetchEvent({ id }) {
     if (docSnap.exists()) {
       var event = docSnap.data();
       event.image = await fetchFileURL(storage, event.image);
-      event.html = event.html.replaceAll('\\n', '\n');
-      event.lists = event.lists.map(list => {
-        var start = list.start.toDate();
-        var end = list.end.toDate();
-        list.timeString = `${start.getMonth() + 1}/${start.getDate()} - ${end.getMonth() + 1}/${end.getDate()}, ${start.getFullYear()} ${start.getHours().toString().padStart(2, '0')}:${start.getMinutes().toString().padStart(2, '0')} - ${end.getHours().toString().padStart(2, '0')}:${end.getMinutes().toString().padStart(2, '0')}`;
-        return list;
-      })
+      // event.html = event.html.replaceAll('\\n', '\n');
+      // event.lists = event.lists.map(list => {
+      //   var start = list.start.toDate();
+      //   var end = list.end.toDate();
+      //   list.timeString = `${start.getMonth() + 1}/${start.getDate()} - ${end.getMonth() + 1}/${end.getDate()}, ${start.getFullYear()} ${start.getHours().toString().padStart(2, '0')}:${start.getMinutes().toString().padStart(2, '0')} - ${end.getHours().toString().padStart(2, '0')}:${end.getMinutes().toString().padStart(2, '0')}`;
+      //   return list;
+      // })
       event.code = 200;
       return event;
     }
