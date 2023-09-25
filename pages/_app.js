@@ -40,11 +40,11 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <div className={shipporiMincho.className}>
       <Head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon_package/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon_package/favicon-16x16.png" />
-        <link rel="manifest" href="/favicon_package/site.webmanifest" />
-        <link rel="mask-icon" href="/favicon_package/safari-pinned-tab.svg" color="#eb5604" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png?v=1.0" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon_package/favicon-32x32.png?v=1.0" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon_package/favicon-16x16.png?v=1.0" />
+        <link rel="manifest" href="/favicon_package/site.webmanifest?v=1.0" />
+        <link rel="mask-icon" href="/favicon_package/safari-pinned-tab.svg?v=1.0" color="#eb5604" />
         <meta name="apple-mobile-web-app-title" content="Origin" />
         <meta name="application-name" content="Origin" />
         <meta name="msapplication-TileColor" content="#000000" />

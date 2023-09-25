@@ -64,3 +64,9 @@ export default function EventList() {
         </main>
     )
 }
+
+// export async function getStaticProps(context) {
+//     return {
+//         props: {} // 會被當作 props 傳入頁面元件中
+//     }
+// }
