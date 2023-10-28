@@ -9,7 +9,6 @@ import { useSettings } from '@/components/Settings.js';
 
 export default function FooterComponent() {
     const { facebook, instagram } = useSettings();
-    // const { data, error, isLoading, isValidating, mutate } = useSWR({ url: '/db', path: 'settings/' }, async ({ path }) => await fetchDatabase(path));
 
     return (
         <footer className={styles.footer}>
@@ -17,7 +16,7 @@ export default function FooterComponent() {
                 <div className={styles.hr + " row"}>
                     <div className={styles["footer-inner-left"] + " col-8"}>
                         <div className={styles.hr + ' ' + styles["footer-block-logo"]}>
-                            <img className={styles["footer-logo"]} src="/media/Logo.png" alt="" />
+                            <img className={styles["footer-logo"]} src="/media/Logo.png" alt="Origin 起源劇團 logo" />
                             <a className={styles.anchor + ' ' + styles.name}>Origin 起源劇團</a>
                         </div>
                         <div className={styles["footer-block-media"]} >

@@ -1,16 +1,18 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import useSWR from 'swr';
+import { useState } from 'react';
 
 // import fontsStyles from '../styles/fonts.module.css';
 import styles from '../styles/contact.module.css';
-import { fetchDatabase } from '@/firebase.js';
 import Layout from '@/components/Layout';
+import { useSettings } from '@/components/Settings.js';
 
 export default function Contact({ title, description }) {
-    const { data, error, isLoading, isValidating, mutate } = useSWR({ url: '/db', path: 'settings/' }, async ({ path }) => await fetchDatabase(path));
+    const { facebook, instagram } = useSettings();
+    const [isLoading, setIsLoading] = useState(true);
+
     return (
-        <Layout>
+        <>
             <Head>
                 {/* HTML Meta Tags  */}
                 <title>{title}</title>
@@ -23,12 +25,6 @@ export default function Contact({ title, description }) {
                 <meta property='og:title' content={title} />
                 <meta property='og:description' content={description} />
                 <meta property="og:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
-                {/*
-                    檔案大小：< 8MB
-                    檔案尺寸：建議尺寸 1200x630
-                    對於圖片的內容 FB 有提供 圖像文字檢查工具 的網站，協助檢測。
-                    網址的 url 一定要使用絕對路徑
-                */}
 
                 {/* Twitter Meta Tags */}
                 <meta name="twitter:card" content="app" /> {/* summary, summary_large_image, app, player */}
@@ -38,22 +34,22 @@ export default function Contact({ title, description }) {
                 <meta name="twitter:description" content={description} />
                 <meta name="twitter:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
             </Head>
-            <h2 className={styles.title} >聯絡我們</h2>
+            <h2 className={styles.title}>聯絡我們</h2>
             <div className={styles.content}>
-                <Link href={"https://www.instagram.com/" + data?.instagram} className={styles['social-link'] + ' ' + styles.instagram + ' anchor pointer'} target="_blank">
+                <Link href={"https://www.instagram.com/" + instagram} className={styles['social-link'] + ' ' + styles.instagram + ' anchor pointer'} target="_blank">
                     <div className={styles["contact-logo"]}>
                         <img src="/media/instagram.svg" alt="instagram" />
                     </div>
-                    <span>@{data?.instagram}</span>
+                    <span>@{instagram}</span>
                 </Link>
-                <Link href={"https://www.facebook.com/" + data?.facebook} className={styles['social-link'] + ' ' + styles.facebook + ' anchor pointer'} target="_blank">
+                <Link href={"https://www.facebook.com/" + facebook} className={styles['social-link'] + ' ' + styles.facebook + ' anchor pointer'} target="_blank">
                     <div className={styles["contact-logo"]}>
                         <img src="/media/facebook.svg" alt="facebook" />
                     </div>
-                    <span>{data?.facebook}</span>
+                    <span>{facebook}</span>
                 </Link>
             </div>
-        </Layout>
+        </>
     )
 }
 
