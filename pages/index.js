@@ -137,7 +137,7 @@ export default function Index({ title, description, data }) {
         <section className={styles['more-section']}>
           <div className={styles.container + ' container'}>
             <h2 className={styles['content-title']}>更多</h2>
-            <Link href="/event" className={styles.anchor + " li pointer"} data-aos="fade-right" data-aos-duration="1000">
+            <Link href="/event/list/1" className={styles.anchor + " li pointer"} data-aos="fade-right" data-aos-duration="1000">
               <div>
                 活動行程
               </div>
@@ -148,7 +148,7 @@ export default function Index({ title, description, data }) {
                   <></>
               }
             </Link>
-            <Link href="/blog" className={styles.anchor + " li pointer"} data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+            <Link href="/blog/list/1" className={styles.anchor + " li pointer"} data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
               <div>
                 BLOG
               </div>
