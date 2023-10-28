@@ -15,14 +15,14 @@ async function fetchHomeSplideImage() {
   return images;
 }
 
-export default function Index({ title, description }) {
-  const [isLoading, setIsLoading] = useState(true);
-  const { data: homeSplide, error: homeSplideError } = useSWR('/fetchHomeSplideImage', fetchHomeSplideImage);
+export default function Index({ title, description, data }) {
+  const { data: homeSplide, error: homeSplideError } = useSWR('/fetchHomeSplideImage', () => fetchHomeSplideImage(data.homeSplide));
   const { data: performanceProject1, error: performanceProject1Error } = useSWR('index/p2/1.jpg', fetchImage);
   const { data: performanceProject2, error: performanceProject2Error } = useSWR('index/p2/2.jpg', fetchImage);
   const { data: LogoAnimation, error: LogoAnimationError } = useSWR('index/p3/LogoAnimation.webm', fetchImage);
   const { data: moreSectionEvent, error: moreSectionEventError } = useSWR('index/p4/p1.jpg', fetchImage);
   const { data: moreSectionBlog, error: moreSectionBlogError } = useSWR('index/p4/p2.jpg', fetchImage);
+
   return (
     <Layout>
       <Head>
@@ -37,19 +37,13 @@ export default function Index({ title, description }) {
         <meta property='og:title' content={title} />
         <meta property='og:description' content={description} />
         <meta property="og:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
-        {/*
-          檔案大小：< 8MB
-          檔案尺寸：建議尺寸 1200x630
-          對於圖片的內容 FB 有提供 圖像文字檢查工具 的網站，協助檢測。
-          網址的 url 一定要使用絕對路徑
-        */}
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="app" /> {/* summary, summary_large_image, app, player */}
         <meta property="twitter:domain" content="origin-performing-art.web.app" />
         <meta property="twitter:url" content="https://origin-performing-art.web.app/" />
         <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content="Origin是一個火舞表演團體,主要表演地區為東台灣" />
+        <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
       </Head>
       <div>
@@ -172,11 +166,15 @@ export default function Index({ title, description }) {
   )
 }
 
-export function getStaticProps() {
+export async function getStaticProps() {
+  const urls = await fetchDatabase('/homeSplide');
   return {
     props: {
       title: 'Origin 起源劇團',
-      description: '我們因著火舞而相遇，有了共同努力的目標，我們想將對表演的酷愛與熱忱，與其令人無法抵擋的歡樂帶上街頭，在觀眾的心中留下一抹深刻的記憶。演出項目：街頭表演、商業演出。'
+      description: '我們因著火舞而相遇，有了共同努力的目標，我們想將對表演的酷愛與熱忱，與其令人無法抵擋的歡樂帶上街頭，在觀眾的心中留下一抹深刻的記憶。演出項目：街頭表演、商業演出。',
+      data: {
+        homeSplide: urls
+      }
     }
   }
 }

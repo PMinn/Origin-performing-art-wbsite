@@ -114,6 +114,8 @@
     bottom: 3%;
     left: 5%;
     width: 90%;
+    font-size: 150%;
+    font-weight: 900;
 }
 
 .performance-project>div>* {

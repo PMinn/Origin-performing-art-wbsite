@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getStorage, ref as storage_ref, getDownloadURL } from "firebase/storage";
-import { getDatabase, ref as database_ref, get, query as database_query, orderByChild, limitToLast, startAt, endBefore, limitToFirst, child, startAfter, orderBy } from "firebase/database";
+import { getDatabase, ref as database_ref, get, query as database_query, orderByChild, limitToLast, startAt, endBefore, limitToFirst, child, startAfter } from "firebase/database";
 import { getFirestore, collection, query as firestore_query, where, getDocs, doc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
