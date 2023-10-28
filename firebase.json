@@ -21,6 +21,18 @@
         ]
       }
     ],
+    "redirects": [
+      {
+        "source": "/blog",
+        "destination": "/blog/list/1",
+        "type": 301
+      },
+      {
+        "source": "/event",
+        "destination": "/event/list/1",
+        "type": 301
+      }
+    ],
     "rewrites": [
       {
         "source": "/event/**",
