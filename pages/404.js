@@ -1,10 +1,11 @@
 import NFComponent from '../components/NFComponent.js';
 
 import Head from 'next/head';
+import Layout from '@/components/Layout';
 
 export default function NotFound({ title, description }) {
   return (
-    <main>
+    <Layout>
       <Head>
         {/* HTML Meta Tags  */}
         <title>{title}</title>
@@ -33,7 +34,7 @@ export default function NotFound({ title, description }) {
         <meta name="twitter:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
       </Head>
       <NFComponent></NFComponent>
-    </main>
+    </Layout>
   )
 }
 

@@ -7,19 +7,18 @@ import btnStyles from '@/styles/btn.module.css';
 
 import { fetchDatabase } from '@/firebase.js';
 
-import LoadingComponent from '@/components/LoadingComponent';
 import ListPageComponent from '@/components/ListPageComponent';
+import Layout from '@/components/Layout';
 
 export default function EventList({ title, description }) {
     const { data: maxSort } = useSWR({ url: '/db', path: 'events/maxSort' }, async ({ path }) => await fetchDatabase(path));
-    const [isLoading, setIsLoading] = useState(true);
     const [pageIndex, setPageIndex] = useState(10);
     const pages = [];
     for (let sort = maxSort + 1; sort > maxSort - pageIndex + 1; sort -= 10) {
         pages.push(<ListPageComponent before={sort} type='event' key={sort}></ListPageComponent>)
     }
     return (
-        <main onLoad={() => setIsLoading(false)}>
+        <Layout>
             <Head>
                 {/* HTML Meta Tags  */}
                 <title>{title}</title>
@@ -47,7 +46,6 @@ export default function EventList({ title, description }) {
                 <meta name="twitter:description" content={description} />
                 <meta name="twitter:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
             </Head>
-            <LoadingComponent isLoading={isLoading}></LoadingComponent>
             <div className={styles.container + ' container'}>
                 <h2 className={styles['page-title'] + ' m-5'}>活動行程</h2>
                 {pages}
@@ -61,7 +59,7 @@ export default function EventList({ title, description }) {
                 }
             </div>
 
-        </main>
+        </Layout>
     )
 }
 

@@ -7,7 +7,7 @@ import useSWR from 'swr';
 import styles from '@/styles/post.module.css';
 
 import NFComponent from '@/components/NFComponent.js';
-import LoadingComponent from '@/components/LoadingComponent.js';
+import Layout from '@/components/Layout';
 
 import { fetchBlog } from '@/firebase.js';
 
@@ -16,7 +16,7 @@ export default function Blog() {
     const { data, error, isLoading, isValidating, mutate } = useSWR({ url: '/blog', id: router.query.id }, fetchBlog);
 
     return (
-        <main>
+        <Layout loading={isLoading}>
             <Head>
                 <meta name='keywords' content='Origin,起源劇團,火舞,藝術,表演' />
                 <meta name='description' content='Origin是一個火舞表演團體,主要表演地區為東台灣' />
@@ -35,20 +35,19 @@ export default function Blog() {
                             !error ?
                                 (
                                     data.code == 200 ?
-                                        <title>{data.title + ' - BLOG - Origin | 起源劇團'}</title>
+                                        <title>{data.title + ' | BLOG | Origin 起源劇團'}</title>
                                         : (
                                             data.code == 404 ?
                                                 <></>
                                                 :
-                                                <title>BLOG - Origin | 起源劇團</title>
+                                                <title>BLOG | Origin 起源劇團</title>
                                         )
                                 ) :
-                                <title>BLOG - Origin | 起源劇團</title>
+                                <title>BLOG | Origin 起源劇團</title>
                         ) :
-                        <title>BLOG - Origin | 起源劇團</title>
+                        <title>BLOG | Origin 起源劇團</title>
                 }
             </Head>
-            <LoadingComponent isLoading={isLoading}></LoadingComponent>
             {
                 !isLoading &&
                     !error ?
@@ -65,7 +64,7 @@ export default function Blog() {
                                             <h6 className={styles.date}>{`${data.date.toDate().getFullYear()} / ${data.date.toDate().getMonth() + 1} / ${data.date.toDate().getDate()}`}</h6>
                                         </div>
                                     </div>
-                                    <div className={styles.text+ ' container my-5'} dangerouslySetInnerHTML={{
+                                    <div className={styles.text + ' container my-5'} dangerouslySetInnerHTML={{
                                         __html: data.html
                                     }}></div>
                                 </>
@@ -81,6 +80,6 @@ export default function Blog() {
                         <>error: {error}</>
                     )
             }
-        </main >
+        </Layout>
     )
 }

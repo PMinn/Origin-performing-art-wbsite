@@ -5,13 +5,14 @@ import useSWR from 'swr';
 import styles from '../styles/about.module.css';
 
 import { fetchDatabase, fetchStorageMutipleByPaths } from '@/firebase.js';
+import Layout from '@/components/Layout';
 
 export default function About({ title, description }) {
   const { data } = useSWR({ url: '/db', path: 'members' }, async ({ path }) => await fetchDatabase(path));
   const { data: images } = useSWR(data ? { url: '/storage', path: 'members' } : null, data ? async () => await fetchStorageMutipleByPaths(data.map(member => member.image)) : null);
 
   return (
-    <main>
+    <Layout>
       <Head>
         {/* HTML Meta Tags  */}
         <title>{title}</title>
@@ -67,7 +68,7 @@ export default function About({ title, description }) {
           }
         </div>
       </div>
-    </main>
+    </Layout>
   )
 }
 

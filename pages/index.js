@@ -7,7 +7,7 @@ import styles from '@/styles/index.module.css';
 import btnStyles from '@/styles/btn.module.css';
 
 import { fetchImage, fetchDatabase, fetchStorageMutipleByPaths } from '@/firebase.js';
-import LoadingComponent from '@/components/LoadingComponent';
+import Layout from '@/components/Layout';
 
 async function fetchHomeSplideImage() {
   const urls = await fetchDatabase('/homeSplide');
@@ -24,7 +24,7 @@ export default function Index({ title, description }) {
   const { data: moreSectionEvent, error: moreSectionEventError } = useSWR('index/p4/p1.jpg', fetchImage);
   const { data: moreSectionBlog, error: moreSectionBlogError } = useSWR('index/p4/p2.jpg', fetchImage);
   return (
-    <main onLoad={() => setIsLoading(false)}>
+    <Layout>
       <Head>
         {/* HTML Meta Tags  */}
         <title>{title}</title>
@@ -52,7 +52,6 @@ export default function Index({ title, description }) {
         <meta name="twitter:description" content="Origin是一個火舞表演團體,主要表演地區為東台灣" />
         <meta name="twitter:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
       </Head>
-      <LoadingComponent isLoading={isLoading}></LoadingComponent>
       <div>
         <section className={styles['cover']}>
           <h2>起源劇團</h2>
@@ -169,7 +168,7 @@ export default function Index({ title, description }) {
           </div>
         </section>
       </div>
-    </main>
+    </Layout>
   )
 }
 

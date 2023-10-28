@@ -7,7 +7,7 @@ import useSWR from 'swr';
 import styles from '@/styles/post.module.css';
 
 import NFComponent from '@/components/NFComponent.js';
-import LoadingComponent from '@/components/LoadingComponent.js';
+import Layout from '@/components/Layout';
 
 import { fetchEvent } from '@/firebase.js';
 
@@ -16,7 +16,7 @@ export default function Event() {
     const { data, error, isLoading, isValidating, mutate } = useSWR({ url: '/event', id: router.query.id }, fetchEvent);
 
     return (
-        <main>
+        <Layout loading={isLoading}>
             <Head>
                 <meta name='keywords' content='Origin,起源劇團,火舞,藝術,表演' />
                 <meta name='description' content='Origin是一個火舞表演團體,主要表演地區為東台灣' />
@@ -48,7 +48,6 @@ export default function Event() {
                         <title>活動行程 | Origin 起源劇團</title>
                 }
             </Head>
-            <LoadingComponent isLoading={isLoading}></LoadingComponent>
             {
                 !isLoading &&
                     !error ?
@@ -92,6 +91,6 @@ export default function Event() {
                     ) : <>error: {error}</>
             }
 
-        </main >
+        </Layout >
     )
 }

@@ -5,11 +5,12 @@ import useSWR from 'swr';
 // import fontsStyles from '../styles/fonts.module.css';
 import styles from '../styles/contact.module.css';
 import { fetchDatabase } from '@/firebase.js';
+import Layout from '@/components/Layout';
 
 export default function Contact({ title, description }) {
     const { data, error, isLoading, isValidating, mutate } = useSWR({ url: '/db', path: 'settings/' }, async ({ path }) => await fetchDatabase(path));
     return (
-        <main>
+        <Layout>
             <Head>
                 {/* HTML Meta Tags  */}
                 <title>{title}</title>
@@ -52,7 +53,7 @@ export default function Contact({ title, description }) {
                     <span>{data?.facebook}</span>
                 </Link>
             </div>
-        </main>
+        </Layout>
     )
 }
 
