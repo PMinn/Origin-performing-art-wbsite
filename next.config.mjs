@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 import * as fs from 'fs';
-import { fetchDatabase } from './firebase.js';
+import { fetchDatabase, fetchBlogs } from './firebase.js';
 
 const nextConfig = {
     async redirects() {
@@ -10,6 +10,10 @@ const nextConfig = {
         fs.mkdirSync('./temp/', { recursive: true });
         const settings = await fetchDatabase('settings/');
         fs.writeFileSync('./temp/settings.json', JSON.stringify(settings));
+
+        var blogs = await fetchBlogs();
+        // blogs = Object.keys(blogs).map(key => ({ ...blogs[key], id: key }));
+        fs.writeFileSync('./temp/blogs.json', JSON.stringify(blogs));
         return [];
     },
 }

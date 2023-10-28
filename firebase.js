@@ -50,6 +50,38 @@ async function fetchBlog({ id }) {
   };
 }
 
+async function fetchBlogs() {
+  try {
+    const db = getFirestore(app);
+
+    const querySnapshot = await getDocs(collection(db, "blog"));
+    var data = {};
+    // for (let i = 0; i < querySnapshot.length; i++) {
+    //   let doc = querySnapshot[i];
+    //   console.log(doc)
+    //   data[doc.id] = await doc.data();
+    // }
+    await querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      // console.log(doc.id, " => ", doc.data());
+      var d = doc.data();
+      d.date = d.date.toDate();
+      data[doc.id] = d;
+    });
+
+    return data;
+  } catch (e) {
+    console.error(e)
+    return {
+      error: e,
+      code: 500
+    };
+  }
+  return {
+    code: 404,
+    error: 'No such document!'
+  };
+}
 async function fetchPostList({ before, type }) {
   try {
     var list = [];
@@ -120,4 +152,4 @@ async function fetchStorageMutipleByPaths(paths) {
   return await Promise.all(paths.map(async path => await fetchFileURL(storage, path)));
 }
 
-export { fetchImage, fetchBlog, fetchPostList, fetchEvent, fetchDatabase, fetchStorageMutipleByPaths };
+export { fetchImage, fetchBlog, fetchPostList, fetchEvent, fetchDatabase, fetchStorageMutipleByPaths, fetchBlogs };
