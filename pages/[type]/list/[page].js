@@ -12,10 +12,13 @@ import ListPageComponent from '@/components/ListPageComponent';
 import Layout from '@/components/Layout';
 import { useRouter } from 'next/router';
 import blogs from '@/temp/blogs.json';
+import events from '@/temp/events.json';
 
+const numberPerPage = 10; // 一頁顯示幾筆資料
 var blogKeys = Object.keys(blogs);
+var eventKeys = Object.keys(events);
 
-export default function BlogList({ data, title, description, type, page }) {
+export default function BlogList({ data, title, description, type, page, headline }) {
     const { data: images, isLoading } = useSWR({ url: '/list', type, page }, async () => {
         var images = data.map(d => d.image);
         for (let i = 0; i < images.length; i++) {
@@ -23,14 +26,6 @@ export default function BlogList({ data, title, description, type, page }) {
         }
         return images;
     });
-    // const { page } = params;
-    // const { data: maxSort } = useSWR({ url: '/db', path: 'blogs/maxSort' }, async ({ path }) => await fetchDatabase(path));
-    // const [isLoading, setIsLoading] = useState(true);
-    // const [pageIndex, setPageIndex] = useState(10);
-    // const pages = [];
-    // for (let sort = maxSort + 1; sort > maxSort - pageIndex + 1; sort -= 10) {
-    //     pages.push(<ListPageComponent before={sort} type='blog' key={sort}></ListPageComponent>)
-    // }
     return (
         <Layout loading={isLoading}>
             <Head>
@@ -55,7 +50,7 @@ export default function BlogList({ data, title, description, type, page }) {
                 <meta name="twitter:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
             </Head>
             <div className={styles.container + ' container'}>
-                <h2 className={styles['page-title'] + ' m-5'}>BLOG</h2>
+                <h2 className={styles['page-title'] + ' m-5'}>{headline}</h2>
                 {
                     data && data.map((post, index) => (
                         <div className={styles.li + ' anchor pointer'} data-aos="fade-right" data-aos-duration="1000" key={type + '_' + index}>
@@ -91,12 +86,25 @@ export default function BlogList({ data, title, description, type, page }) {
 export async function getStaticProps({ params }) {
     const { page, type } = params;
     const index = parseInt(page) - 1;
-    const blogKeysSlice = blogKeys.slice(index * 10, (index + 1) * 10);
-    const data = blogKeysSlice.map(key => ({ ...blogs[key], id: key }));
+    var data, title, description, headline;
+    if (type == 'blog') {
+        title = 'BLOG | Origin 起源劇團';
+        description = 'BLOG';
+        headline = 'BLOG';
+        const blogKeysSlice = blogKeys.slice(index * numberPerPage, (index + 1) * numberPerPage);
+        data = blogKeysSlice.map(key => ({ ...blogs[key], id: key }));
+    } else {
+        title = '活動行程 | Origin 起源劇團';
+        description = '活動行程';
+        headline = '活動行程';
+        const eventKeysSlice = eventKeys.slice(index * numberPerPage, (index + 1) * numberPerPage);
+        data = eventKeysSlice.map(key => ({ ...events[key], id: key }));
+    }
     return {
         props: {
+            headline,
             data,
-            title: 'BLOG | Origin 起源劇團',
+            title,
             description: 'BLOG',
             type,
             page
@@ -106,7 +114,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    const paths = Array.from({ length: Math.ceil(blogKeys.length / 10) }).map((_, index) => {
+    const blogPaths = Array.from({ length: Math.ceil(blogKeys.length / numberPerPage) }).map((_, index) => {
         return {
             params: {
                 type: 'blog',
@@ -114,8 +122,16 @@ export async function getStaticPaths() {
             }
         }
     })
+    const eventPaths = Array.from({ length: Math.ceil(eventKeys.length / numberPerPage) }).map((_, index) => {
+        return {
+            params: {
+                type: 'event',
+                page: (index + 1).toString(),
+            }
+        }
+    })
     return {
-        paths: paths,
+        paths: blogPaths.concat(eventPaths),
         fallback: false, // false or "blocking"
     }
 }
