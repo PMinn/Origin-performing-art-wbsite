@@ -27,8 +27,12 @@
         "destination": "/event/[id]/[title].html"
       },
       {
-        "source": "/blog/**",
-        "destination": "/blog/[id]/[title].html"
+        "source": "/blog/post/**",
+        "destination": "/blog/post/[id]/[title].html"
+      },
+      {
+        "source": "/blog/list/**",
+        "destination": "/blog/list/[page].html"
       }
     ],
     "cleanUrls": true
