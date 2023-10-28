@@ -38,8 +38,8 @@ export default function NavComponent() {
                 <div>
                     <Link href="/" className={"pointer"} onClick={closeMenu}>首頁</Link>
                     <Link href="/about" className={"pointer"} onClick={closeMenu}>關於我們</Link>
-                    <Link href="/event" className={"pointer"} onClick={closeMenu}>活動行程</Link>
-                    <Link href="/blog" className={"pointer"} onClick={closeMenu}>BLOG</Link>
+                    <Link href="/event/list/1" className={"pointer"} onClick={closeMenu}>活動行程</Link>
+                    <Link href="/blog/list/1" className={"pointer"} onClick={closeMenu}>BLOG</Link>
                     <Link href="/contact" className={"pointer"} onClick={closeMenu}>聯絡我們</Link>
                 </div>
             </div>

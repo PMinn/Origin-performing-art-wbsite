@@ -27,6 +27,10 @@
         "destination": "/event/[id]/[title].html"
       },
       {
+        "source": "/blog/event/**",
+        "destination": "/blog/event/[page].html"
+      },
+      {
         "source": "/blog/post/**",
         "destination": "/blog/post/[id]/[title].html"
       },
