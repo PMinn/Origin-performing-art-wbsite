@@ -50,6 +50,15 @@
     }
 }
 
+.intro {
+    width: 100vw;
+    margin: 8rem auto 0 auto;
+    color: #fff;
+    padding-bottom: 8rem;
+    line-height: 4em;
+    text-align: center;
+}
+
 .performance-project {
     width: 100vw;
     margin: 8rem auto 0 auto;

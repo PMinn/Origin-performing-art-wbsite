@@ -35,17 +35,17 @@ export default function Event() {
                             !error ?
                                 (
                                     data.code == 200 ?
-                                        <title>{data.title + ' - 活動行程 - Origin | 起源劇團'}</title>
+                                        <title>{data.title + ' | 活動行程 | Origin 起源劇團'}</title>
                                         : (
                                             data.code == 404 ?
                                                 <></>
                                                 :
-                                                <title>活動行程 - Origin | 起源劇團</title>
+                                                <title>活動行程 | Origin 起源劇團</title>
                                         )
                                 ) :
-                                <title>活動行程 - Origin | 起源劇團</title>
+                                <title>活動行程 | Origin 起源劇團</title>
                         ) :
-                        <title>活動行程 - Origin | 起源劇團</title>
+                        <title>活動行程 | Origin 起源劇團</title>
                 }
             </Head>
             <LoadingComponent isLoading={isLoading}></LoadingComponent>
