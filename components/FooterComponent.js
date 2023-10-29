@@ -34,8 +34,8 @@ export default function FooterComponent() {
                         <div className={styles["footer-block-link"]}>
                             <Link href="/" className={styles.anchor + ' pointer'}>首頁</Link>
                             <Link href="/about" className={styles.anchor + ' pointer'}>關於我們</Link>
-                            <Link href="/event" className={styles.anchor + ' pointer'}>活動行程</Link>
-                            <Link href="/blog" className={styles.anchor + ' pointer'}>BLOG</Link>
+                            <Link href="/event/list/1" className={styles.anchor + ' pointer'}>活動行程</Link>
+                            <Link href="/blog/list/1" className={styles.anchor + ' pointer'}>BLOG</Link>
                             <Link href="/contact" className={styles.anchor + ' pointer'}>聯絡我們</Link>
                         </div>
                     </div>
