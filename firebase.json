@@ -31,6 +31,16 @@
         "source": "/event",
         "destination": "/event/list/1",
         "type": 301
+      },
+      {
+        "source": "/blog/:post*",
+        "destination": "/blog/post/:post",
+        "type": 301
+      },
+      {
+        "source": "/event/:post*",
+        "destination": "/event/post/:post",
+        "type": 301
       }
     ],
     "rewrites": [
