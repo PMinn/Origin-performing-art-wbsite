@@ -5,3 +5,27 @@
     color: #fff;
     text-decoration: none;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.pagination .btn {
+    background-color: transparent;
+    padding: 0;
+    padding: 14px 0;
+    width: calc(1em + 28px);
+    text-align: center;
+    margin: 0 0.5rem;
+}
+
+.pagination .btn.active {
+    background-color: var(--accent1-color);
+    padding: 0;
+    padding: 14px 0;
+    width: calc(1em + 28px);
+    text-align: center;
+}

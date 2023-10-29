@@ -15,10 +15,12 @@ import blogs from '@/temp/blogs.json';
 import events from '@/temp/events.json';
 
 const numberPerPage = 10; // 一頁顯示幾筆資料
-var blogKeys = Object.keys(blogs);
-var eventKeys = Object.keys(events);
+const blogKeys = Object.keys(blogs);
+const eventKeys = Object.keys(events);
+const blogPageLength = Math.ceil(blogKeys.length / numberPerPage);
+const eventPageLength = Math.ceil(eventKeys.length / numberPerPage);
 
-export default function BlogList({ data, title, description, type, page, headline }) {
+export default function BlogList({ data, title, description, type, page, headline, pageLength }) {
     const { data: images, isLoading } = useSWR({ url: '/list', type, page }, async () => {
         var images = data.map(d => d.image);
         for (let i = 0; i < images.length; i++) {
@@ -69,6 +71,13 @@ export default function BlogList({ data, title, description, type, page, headlin
                         </div>
                     ))
                 }
+                <div className={btnStyles.pagination}>
+                    {
+                        Array.from({ length: pageLength }).map((_, index) => {
+                            return <Link href={`/${type}/list/${index + 1}`} className={btnStyles.btn + (page == index + 1 ? " " + btnStyles.active : "") + " pointer"}>{index + 1}</Link>
+                        })
+                    }
+                </div>
                 {/* {pages}
                 {
                     pageIndex < maxSort ?
@@ -86,19 +95,21 @@ export default function BlogList({ data, title, description, type, page, headlin
 export async function getStaticProps({ params }) {
     const { page, type } = params;
     const index = parseInt(page) - 1;
-    var data, title, description, headline;
+    var data, title, description, headline, pageLength;
     if (type == 'blog') {
         title = 'BLOG | Origin 起源劇團';
         description = 'BLOG';
         headline = 'BLOG';
         const blogKeysSlice = blogKeys.slice(index * numberPerPage, (index + 1) * numberPerPage);
         data = blogKeysSlice.map(key => ({ ...blogs[key], id: key }));
+        pageLength = blogPageLength;
     } else {
         title = '活動行程 | Origin 起源劇團';
         description = '活動行程';
         headline = '活動行程';
         const eventKeysSlice = eventKeys.slice(index * numberPerPage, (index + 1) * numberPerPage);
         data = eventKeysSlice.map(key => ({ ...events[key], id: key }));
+        pageLength = eventPageLength;
     }
     return {
         props: {
@@ -107,14 +118,15 @@ export async function getStaticProps({ params }) {
             title,
             description: 'BLOG',
             type,
-            page
+            page,
+            pageLength
         },
         // revalidate: 1
     };
 }
 
 export async function getStaticPaths() {
-    const blogPaths = Array.from({ length: Math.ceil(blogKeys.length / numberPerPage) }).map((_, index) => {
+    const blogPaths = Array.from({ length: blogPageLength }).map((_, index) => {
         return {
             params: {
                 type: 'blog',
@@ -122,7 +134,7 @@ export async function getStaticPaths() {
             }
         }
     })
-    const eventPaths = Array.from({ length: Math.ceil(eventKeys.length / numberPerPage) }).map((_, index) => {
+    const eventPaths = Array.from({ length: eventPageLength }).map((_, index) => {
         return {
             params: {
                 type: 'event',
