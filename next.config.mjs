@@ -18,6 +18,9 @@ const nextConfig = {
         fs.writeFileSync('./temp/blogs.json', JSON.stringify(blogs));
 
         var events = await fetchAllData("event");
+        Object.keys(events).forEach(key => {
+            events[key].date = events[key].date.toDate();
+        })
         fs.writeFileSync('./temp/events.json', JSON.stringify(events));
         return [];
     },

@@ -100,23 +100,29 @@ export async function getStaticProps({ params }) {
         title = 'BLOG | Origin 起源劇團';
         description = 'BLOG';
         headline = 'BLOG';
-        const blogKeysSlice = blogKeys.slice(index * numberPerPage, (index + 1) * numberPerPage);
-        data = blogKeysSlice.map(key => ({ ...blogs[key], id: key }));
+        data = blogKeys.map(key => {
+            blogs[key].date = new Date(blogs[key].date).getTime();
+            return { ...blogs[key], id: key }
+        });
         pageLength = blogPageLength;
     } else {
         title = '活動行程 | Origin 起源劇團';
         description = '活動行程';
         headline = '活動行程';
-        const eventKeysSlice = eventKeys.slice(index * numberPerPage, (index + 1) * numberPerPage);
-        data = eventKeysSlice.map(key => ({ ...events[key], id: key }));
+        data = eventKeys.map(key => {
+            events[key].date = new Date(events[key].date).getTime();
+            return { ...events[key], id: key };
+        });
         pageLength = eventPageLength;
     }
+    data.sort((a, b) => b.date - a.date);
+    data = data.slice(index * numberPerPage, (index + 1) * numberPerPage);
     return {
         props: {
             headline,
             data,
             title,
-            description: 'BLOG',
+            description,
             type,
             page,
             pageLength
