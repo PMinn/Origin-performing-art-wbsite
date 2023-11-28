@@ -86,7 +86,7 @@ export default function BlogList({ data, title, description, type, page, headlin
                         </div>
                         :
                         <></>
-                } */}
+                } */} 
             </div>
         </Layout>
     )
