@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://origin-performing-art.web.app/sitemap.xml
