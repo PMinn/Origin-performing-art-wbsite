@@ -8,7 +8,6 @@ import NavComponent from '@/components/NavComponent';
 import FooterComponent from '@/components/FooterComponent';
 import Settings from '@/components/Settings.js';
 import settings from '@/temp/settings.json';
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 

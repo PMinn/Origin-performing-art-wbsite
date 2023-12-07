@@ -3,12 +3,9 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-
 import styles from '@/styles/post.module.css';
-
 import NFComponent from '@/components/NFComponent.js';
 import Layout from '@/components/Layout';
-
 import { fetchBlog, fetchImage } from '@/firebase.js';
 import blogs from '@/temp/blogs.json';
 import events from '@/temp/events.json';

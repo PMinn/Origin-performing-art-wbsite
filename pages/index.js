@@ -2,21 +2,20 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import useSWR from 'swr';
-
 import styles from '@/styles/index.module.css';
 import btnStyles from '@/styles/btn.module.css';
-
 import { fetchImage, fetchDatabase, fetchStorageMutipleByPaths } from '@/firebase.js';
 import Layout from '@/components/Layout';
+import data from '@/temp/home.json';
 
-async function fetchHomeSplideImage() {
-  const urls = await fetchDatabase('/homeSplide');
-  const images = await fetchStorageMutipleByPaths(urls);
-  return images;
-}
+// async function fetchHomeSplideImage() {
+//   const urls = await fetchDatabase('/data.homeSplide');
+//   const images = await fetchStorageMutipleByPaths(urls);
+//   return images;
+// }
 
-export default function Index({ title, description, data }) {
-  const { data: homeSplide, error: homeSplideError } = useSWR('/fetchHomeSplideImage', () => fetchHomeSplideImage(data.homeSplide));
+export default function Index({ title, description }) {
+  // const { data: data.homeSplide, error: homeSplideError } = useSWR('/fetchHomeSplideImage', () => fetchHomeSplideImage(data.data.homeSplide));
   const { data: performanceProject1, error: performanceProject1Error } = useSWR('index/p2/1.jpg', fetchImage);
   const { data: performanceProject2, error: performanceProject2Error } = useSWR('index/p2/2.jpg', fetchImage);
   const { data: LogoAnimation, error: LogoAnimationError } = useSWR('index/p3/LogoAnimation.webm', fetchImage);
@@ -50,19 +49,19 @@ export default function Index({ title, description, data }) {
         <section className={styles['cover']}>
           <h2>起源劇團</h2>
           {
-            homeSplide ?
+            data.homeSplide ?
               (
                 <>
-                  <div className={styles.round} style={{ '--during': 10 * homeSplide.length + 's' }}>
+                  <div className={styles.round} style={{ '--during': 10 * data.homeSplide.length + 's' }}>
                     {
-                      homeSplide.map((url, index) => {
+                      data.homeSplide.map((url, index) => {
                         return (<img src={url} key={'cover_1_' + index} />)
                       })
                     }
                   </div>
-                  <div className={styles.round} style={{ '--during': 10 * homeSplide.length + 's' }}>
+                  <div className={styles.round} style={{ '--during': 10 * data.homeSplide.length + 's' }}>
                     {
-                      homeSplide.map((url, index) => {
+                      data.homeSplide.map((url, index) => {
                         return (<img src={url} key={'cover_2_' + index} />)
                       })
                     }
@@ -167,14 +166,10 @@ export default function Index({ title, description, data }) {
 }
 
 export async function getStaticProps() {
-  const urls = await fetchDatabase('/homeSplide');
   return {
     props: {
       title: 'Origin 起源劇團',
       description: '我們因著火舞而相遇，有了共同努力的目標，我們想將對表演的酷愛與熱忱，與其令人無法抵擋的歡樂帶上街頭，在觀眾的心中留下一抹深刻的記憶。演出項目：街頭表演、商業演出。',
-      data: {
-        homeSplide: urls
-      }
     }
   }
 }
