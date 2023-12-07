@@ -6,7 +6,7 @@ import styles from '@/styles/index.module.css';
 import btnStyles from '@/styles/btn.module.css';
 import { fetchImage, fetchDatabase, fetchStorageMutipleByPaths } from '@/firebase.js';
 import Layout from '@/components/Layout';
-import data from '@/temp/home.json';
+// import data from '@/temp/home.json';
 
 // async function fetchHomeSplideImage() {
 //   const urls = await fetchDatabase('/data.homeSplide');
@@ -14,14 +14,14 @@ import data from '@/temp/home.json';
 //   return images;
 // }
 
-export default function Index({ title, description }) {
+export default function Index({ title, description, images }) {
   // const { data: data.homeSplide, error: homeSplideError } = useSWR('/fetchHomeSplideImage', () => fetchHomeSplideImage(data.data.homeSplide));
-  const { data: performanceProject1, error: performanceProject1Error } = useSWR('index/p2/1.jpg', fetchImage);
-  const { data: performanceProject2, error: performanceProject2Error } = useSWR('index/p2/2.jpg', fetchImage);
-  const { data: LogoAnimation, error: LogoAnimationError } = useSWR('index/p3/LogoAnimation.webm', fetchImage);
-  const { data: moreSectionEvent, error: moreSectionEventError } = useSWR('index/p4/p1.jpg', fetchImage);
-  const { data: moreSectionBlog, error: moreSectionBlogError } = useSWR('index/p4/p2.jpg', fetchImage);
-
+  // const { data: performanceProject1, error: performanceProject1Error } = useSWR('index/p2/1.jpg', fetchImage);
+  // const { data: performanceProject2, error: performanceProject2Error } = useSWR('index/p2/2.jpg', fetchImage);
+  // const { data: LogoAnimation, error: LogoAnimationError } = useSWR('index/p3/LogoAnimation.webm', fetchImage);
+  // const { data: moreSectionEvent, error: moreSectionEventError } = useSWR('index/p4/p1.jpg', fetchImage);
+  // const { data: moreSectionBlog, error: moreSectionBlogError } = useSWR('index/p4/p2.jpg', fetchImage);
+  // console.log(images)
   return (
     <Layout>
       <Head>
@@ -49,19 +49,19 @@ export default function Index({ title, description }) {
         <section className={styles['cover']}>
           <h2>起源劇團</h2>
           {
-            data.homeSplide ?
+            images.homeSplide ?
               (
                 <>
-                  <div className={styles.round} style={{ '--during': 10 * data.homeSplide.length + 's' }}>
+                  <div className={styles.round} style={{ '--during': 10 * images.homeSplide.length + 's' }}>
                     {
-                      data.homeSplide.map((url, index) => {
+                      images.homeSplide.map((url, index) => {
                         return (<img src={url} key={'cover_1_' + index} />)
                       })
                     }
                   </div>
-                  <div className={styles.round} style={{ '--during': 10 * data.homeSplide.length + 's' }}>
+                  <div className={styles.round} style={{ '--during': 10 * images.homeSplide.length + 's' }}>
                     {
-                      data.homeSplide.map((url, index) => {
+                      images.homeSplide.map((url, index) => {
                         return (<img src={url} key={'cover_2_' + index} />)
                       })
                     }
@@ -90,8 +90,8 @@ export default function Index({ title, description }) {
             <div className={styles.imgs}>
               <div className={styles.img}>
                 {
-                  performanceProject1 ?
-                    <img src={performanceProject1} alt="街頭表演" />
+                  images.project[0] ?
+                    <img src={images.project[0]} alt="街頭表演" />
                     :
                     <></>
                 }
@@ -99,8 +99,8 @@ export default function Index({ title, description }) {
               </div>
               <div className={styles.img}>
                 {
-                  performanceProject2 ?
-                    <img src={performanceProject2} alt="商業演出" />
+                  images.project[1] ?
+                    <img src={images.project[1]} alt="商業演出" />
                     :
                     <></>
                 }
@@ -115,8 +115,8 @@ export default function Index({ title, description }) {
         <section className={styles['about-section']}>
           <div className={styles.container + ' container'}>
             {
-              LogoAnimation ?
-                <video className={styles["logo-video"]} src={LogoAnimation} autoPlay loop muted playsInline></video>
+              images.logo ?
+                <video className={styles["logo-video"]} src={images.logo} autoPlay loop muted playsInline></video>
                 :
                 <></>
             }
@@ -141,8 +141,8 @@ export default function Index({ title, description }) {
                 活動行程
               </div>
               {
-                moreSectionEvent ?
-                  <img src={moreSectionEvent} alt="" />
+                images.moreSection[0] ?
+                  <img src={images.moreSection[0]} alt="" />
                   :
                   <></>
               }
@@ -152,8 +152,8 @@ export default function Index({ title, description }) {
                 BLOG
               </div>
               {
-                moreSectionBlog ?
-                  <img src={moreSectionBlog} alt="" />
+                images.moreSection[1] ?
+                  <img src={images.moreSection[1]} alt="" />
                   :
                   <></>
               }
@@ -166,10 +166,25 @@ export default function Index({ title, description }) {
 }
 
 export async function getStaticProps() {
+  const urls = await fetchDatabase('/homeSplide');
+  const homeSplide = await fetchStorageMutipleByPaths(urls);
+  const images = {
+    homeSplide,
+    project: [fetchImage('index/p2/1.jpg'), fetchImage('index/p2/2.jpg')],
+    logo: fetchImage('index/p3/LogoAnimation.webm'),
+    moreSection: [fetchImage('index/p4/p1.jpg'), fetchImage('index/p4/p2.jpg')]
+  };
+  await Promise.all([...images.project, images.logo, ...images.moreSection])
+    .then((values) => {
+      images.project = values.slice(0, 2);
+      images.logo = values[2];
+      images.moreSection = values.slice(3, 5);
+    })
   return {
     props: {
       title: 'Origin 起源劇團',
       description: '我們因著火舞而相遇，有了共同努力的目標，我們想將對表演的酷愛與熱忱，與其令人無法抵擋的歡樂帶上街頭，在觀眾的心中留下一抹深刻的記憶。演出項目：街頭表演、商業演出。',
+      images
     }
   }
 }
