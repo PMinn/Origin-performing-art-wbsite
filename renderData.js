@@ -2,6 +2,8 @@ import * as fs from 'fs';
 import { fetchDatabase, fetchAllData, fetchStorageMutipleByPaths } from './firebase.js';
 
 export default async function renderData() {
+    fs.mkdirSync('./temp/', { recursive: true });
+    
     // 首頁
     const urls = await fetchDatabase('/homeSplide');
     const images = await fetchStorageMutipleByPaths(urls);
@@ -10,7 +12,6 @@ export default async function renderData() {
     }));
 
     // 通用設定
-    fs.mkdirSync('./temp/', { recursive: true });
     const settings = await fetchDatabase('settings/');
     fs.writeFileSync('./temp/settings.json', JSON.stringify(settings));
 
