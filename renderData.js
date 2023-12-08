@@ -3,13 +3,6 @@ import { fetchDatabase, fetchAllData, fetchStorageMutipleByPaths } from './fireb
 
 export default async function renderData() {
     fs.mkdirSync('./temp/', { recursive: true });
-    
-    // 首頁
-    // const urls = await fetchDatabase('/homeSplide');
-    // const images = await fetchStorageMutipleByPaths(urls);
-    // fs.writeFileSync('./temp/home.json', JSON.stringify({
-    //     homeSplide: images
-    // }));
 
     // 通用設定
     const settings = await fetchDatabase('settings/');

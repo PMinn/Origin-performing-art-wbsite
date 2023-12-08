@@ -1,27 +1,11 @@
-import { useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import useSWR from 'swr';
 import styles from '@/styles/index.module.css';
 import btnStyles from '@/styles/btn.module.css';
 import { fetchImage, fetchDatabase, fetchStorageMutipleByPaths } from '@/firebase.js';
 import Layout from '@/components/Layout';
-// import data from '@/temp/home.json';
-
-// async function fetchHomeSplideImage() {
-//   const urls = await fetchDatabase('/data.homeSplide');
-//   const images = await fetchStorageMutipleByPaths(urls);
-//   return images;
-// }
 
 export default function Index({ title, description, images }) {
-  // const { data: data.homeSplide, error: homeSplideError } = useSWR('/fetchHomeSplideImage', () => fetchHomeSplideImage(data.data.homeSplide));
-  // const { data: performanceProject1, error: performanceProject1Error } = useSWR('index/p2/1.jpg', fetchImage);
-  // const { data: performanceProject2, error: performanceProject2Error } = useSWR('index/p2/2.jpg', fetchImage);
-  // const { data: LogoAnimation, error: LogoAnimationError } = useSWR('index/p3/LogoAnimation.webm', fetchImage);
-  // const { data: moreSectionEvent, error: moreSectionEventError } = useSWR('index/p4/p1.jpg', fetchImage);
-  // const { data: moreSectionBlog, error: moreSectionBlogError } = useSWR('index/p4/p2.jpg', fetchImage);
-  // console.log(images)
   return (
     <Layout>
       <Head>

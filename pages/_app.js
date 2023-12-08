@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/globals.css';
 import Head from 'next/head';
-import localFont from 'next/font/local';
+// import localFont from 'next/font/local';
 import { useEffect, useState } from "react";
 import CursorComponent from '@/components/CursorComponent';
 import NavComponent from '@/components/NavComponent';
@@ -11,28 +11,30 @@ import settings from '@/temp/settings.json';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const shipporiMincho = localFont({
-  src: [
-    {
-      path: '../font/ShipporiMincho-OTF-Bold.otf',
-      weight: '700'
-    }, {
-      path: '../font/ShipporiMincho-OTF-ExtraBold.otf',
-      weight: '800'
-    }, {
-      path: '../font/ShipporiMincho-OTF-Medium.otf',
-      weight: '500'
-    }, {
-      path: '../font/ShipporiMincho-OTF-Regular.otf',
-      weight: '400'
-    }, {
-      path: '../font/ShipporiMincho-OTF-SemiBold.otf',
-      weight: '600'
-    }
-  ],
-})
+// const shipporiMincho = localFont({
+//   src: [
+//     {
+//       path: '../font/ShipporiMincho-OTF-Bold.otf',
+//       weight: '700'
+//     }, {
+//       path: '../font/ShipporiMincho-OTF-ExtraBold.otf',
+//       weight: '800'
+//     }, {
+//       path: '../font/ShipporiMincho-OTF-Medium.otf',
+//       weight: '500'
+//     }, {
+//       path: '../font/ShipporiMincho-OTF-Regular.otf',
+//       weight: '400'
+//     }, {
+//       path: '../font/ShipporiMincho-OTF-SemiBold.otf',
+//       weight: '600'
+//     }
+//   ],
+// })
 
-export default function MyApp({ Component, pageProps }) {
+// className={shipporiMincho.className}
+
+export default function ({ Component, pageProps }) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.bundle.min.js");
     AOS.init();
@@ -40,8 +42,13 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Settings value={settings}>
-      <div className={shipporiMincho.className}>
+      <div style={{ fontFamily: "'Noto Serif TC', serif;" }}>
         <Head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&display=swap" rel="stylesheet" />
+
+
           <link rel="icon" type="image/svg" href="/favicon_package/icon.svg" />
           <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon_package/favicon-32x32.png" />
@@ -68,6 +75,6 @@ export default function MyApp({ Component, pageProps }) {
         <Component {...pageProps}></Component>
         <FooterComponent></FooterComponent>
       </div>
-    </Settings>
+    </Settings >
   )
 }
