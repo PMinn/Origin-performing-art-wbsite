@@ -4,7 +4,7 @@ import useSWR from 'swr';
 
 import styles from '../styles/about.module.css';
 
-import { fetchDatabase, fetchStorageMutipleByPaths } from '@/firebase.js';
+import { fetchDatabase, fetchStorageMultipleByPaths } from '@/firebase.js';
 import Layout from '@/components/Layout';
 
 export default function About({ title, description, data }) {

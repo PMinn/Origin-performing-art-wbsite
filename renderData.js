@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { fetchDatabase, fetchAllData, fetchStorageMutipleByPaths } from './firebase.js';
+import { fetchDatabase, fetchAllData, fetchStorageMultipleByPaths } from './firebase.js';
 
 export default async function renderData() {
     fs.mkdirSync('./temp/', { recursive: true });
