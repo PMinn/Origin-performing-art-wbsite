@@ -16,7 +16,7 @@ export default function FooterComponent() {
                 <div className={styles.hr + " row"}>
                     <div className={styles["footer-inner-left"] + " col-8"}>
                         <div className={styles.hr + ' ' + styles["footer-block-logo"]}>
-                            <img className={styles["footer-logo"]} src="/media/Logo.png" alt="Origin 起源劇團 logo" />
+                            <img className={styles["footer-logo"]} src="/media/Logo.png" alt="Origin 起源劇團 logo" loading="lazy" />
                             <div className={styles.anchor + ' ' + styles.name}>Origin 起源劇團</div>
                         </div>
                         <div className={styles["footer-block-media"]} >
