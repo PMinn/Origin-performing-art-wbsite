@@ -8,7 +8,7 @@ import { fetchDatabase, fetchStorageMultipleByPaths } from '@/firebase.js';
 import Layout from '@/components/Layout';
 
 export default function About({ title, description, data }) {
-  const { data: images } = useSWR({ url: '/storage', path: 'members' }, async () => await fetchStorageMutipleByPaths(data.members.map(member => member.image)));
+  const { data: images } = useSWR({ url: '/storage', path: 'members' }, async () => await fetchStorageMultipleByPaths(data.members.map(member => member.image)));
 
   return (
     <Layout>
