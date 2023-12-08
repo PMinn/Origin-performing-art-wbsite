@@ -138,9 +138,9 @@ async function fetchDatabase(path) {
 //   return await fetchFileURL(storage, path);
 // }
 
-async function fetchStorageMutipleByPaths(paths) {
+async function fetchStorageMultipleByPaths(paths) {
   const storage = getStorage(app);
   return await Promise.all(paths.map(async path => await fetchFileURL(storage, path)));
 }
 
-export { fetchImage, fetchBlog, fetchPostList, fetchEvent, fetchDatabase, fetchStorageMutipleByPaths, fetchAllData };
+export { fetchImage, fetchBlog, fetchPostList, fetchEvent, fetchDatabase, fetchStorageMultipleByPaths, fetchAllData };

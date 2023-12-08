@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import styles from '@/styles/index.module.css';
 import btnStyles from '@/styles/btn.module.css';
-import { fetchImage, fetchDatabase, fetchStorageMutipleByPaths } from '@/firebase.js';
+import { fetchImage, fetchDatabase, fetchStorageMultipleByPaths } from '@/firebase.js';
 import Layout from '@/components/Layout';
 
 export default function Index({ title, description, images }) {
@@ -38,16 +38,12 @@ export default function Index({ title, description, images }) {
                 <>
                   <div className={styles.round} style={{ '--during': 10 * images.homeSplide.length + 's' }}>
                     {
-                      images.homeSplide.map((url, index) => {
-                        return (<img src={url} key={'cover_1_' + index} />)
-                      })
+                      images.homeSplide.map((url, index) => <img src={url} alt={"首頁圖片輪播" + index} key={'cover_1_' + index} />)
                     }
                   </div>
                   <div className={styles.round} style={{ '--during': 10 * images.homeSplide.length + 's' }}>
                     {
-                      images.homeSplide.map((url, index) => {
-                        return (<img src={url} key={'cover_2_' + index} />)
-                      })
+                      images.homeSplide.map((url, index) => <img src={url} alt={"首頁圖片輪播" + index} key={'cover_2_' + index} />)
                     }
                   </div>
                 </>
@@ -151,7 +147,7 @@ export default function Index({ title, description, images }) {
 
 export async function getStaticProps() {
   const urls = await fetchDatabase('/homeSplide');
-  const homeSplide = await fetchStorageMutipleByPaths(urls);
+  const homeSplide = await fetchStorageMultipleByPaths(urls);
   const images = {
     homeSplide,
     project: [fetchImage('index/p2/1.jpg'), fetchImage('index/p2/2.jpg')],

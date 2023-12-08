@@ -17,7 +17,7 @@ export default function FooterComponent() {
                     <div className={styles["footer-inner-left"] + " col-8"}>
                         <div className={styles.hr + ' ' + styles["footer-block-logo"]}>
                             <img className={styles["footer-logo"]} src="/media/Logo.png" alt="Origin 起源劇團 logo" />
-                            <a className={styles.anchor + ' ' + styles.name}>Origin 起源劇團</a>
+                            <div className={styles.anchor + ' ' + styles.name}>Origin 起源劇團</div>
                         </div>
                         <div className={styles["footer-block-media"]} >
                             <Link href={'https://www.facebook.com/' + facebook} className={styles.anchor + ' pointer'} target="_blank">
