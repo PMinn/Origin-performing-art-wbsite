@@ -49,7 +49,7 @@ export default function Blog({ data, title, description, type, id }) {
                             {data.date && <h6 className={styles.date}>{`${data.date.getFullYear()} / ${data.date.getMonth() + 1} / ${data.date.getDate()}`}</h6>}
                         </div>
                     </div>
-                    <div className={styles.text + ' container my-5'} dangerouslySetInnerHTML={{
+                    <div className={styles.text + ' container my-5 edit'} dangerouslySetInnerHTML={{
                         __html: data.html
                     }}></div>
                 </>

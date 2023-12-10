@@ -27,3 +27,8 @@ html {
 *::-webkit-scrollbar {
     display: none;
 }
+
+.edit a:not(.btn) {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
