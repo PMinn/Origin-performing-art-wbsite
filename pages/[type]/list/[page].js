@@ -66,7 +66,7 @@ export default function BlogList({ data, title, description, type, page, headlin
                                             <></>
                                     }
                                 </div>
-                                {images && <img src={images[index]} />}
+                                {images && <img src={images[index]} alt={post.title + '橫幅'} />}
                             </Link>
                         </div>
                     ))
@@ -86,7 +86,7 @@ export default function BlogList({ data, title, description, type, page, headlin
                         </div>
                         :
                         <></>
-                } */} 
+                } */}
             </div>
         </Layout>
     )
