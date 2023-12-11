@@ -1,10 +1,5 @@
-import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/FooterComponent.module.css';
-// import fontsStyles from '../styles/fonts.module.css';
-import useSWR from 'swr';
-
-import { fetchDatabase } from '@/firebase.js';
 import { useSettings } from '@/components/Settings.js';
 
 export default function FooterComponent() {
@@ -16,7 +11,7 @@ export default function FooterComponent() {
                 <div className={styles.hr + " row"}>
                     <div className={styles["footer-inner-left"] + " col-8"}>
                         <div className={styles.hr + ' ' + styles["footer-block-logo"]}>
-                            <img className={styles["footer-logo"]} src="/media/Logo.png" alt="Origin 起源劇團 logo" loading="lazy" />
+                            <img className={styles["footer-logo"]} src="/media/Logo.webp" alt="Origin 起源劇團 logo" loading="lazy" width={300} height={300}/>
                             <div className={styles.anchor + ' ' + styles.name}>Origin 起源劇團</div>
                         </div>
                         <div className={styles["footer-block-media"]} >
