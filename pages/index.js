@@ -152,7 +152,7 @@ export async function getStaticProps() {
     homeSplide,
     project: [fetchImage('index/p2/1.jpg'), fetchImage('index/p2/2.jpg')],
     logo: fetchImage('index/p3/LogoAnimation.webm'),
-    moreSection: [fetchImage('index/p4/p1.jpg'), fetchImage('index/p4/p2.jpg')]
+    moreSection: [fetchImage('index/p4/p1.webp'), fetchImage('index/p4/p2.webp')]
   };
   await Promise.all([...images.project, images.logo, ...images.moreSection])
     .then((values) => {
