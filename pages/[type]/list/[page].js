@@ -1,16 +1,11 @@
-import { useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import useSWR from 'swr';
 
 import styles from '@/styles/list.module.css';
 import btnStyles from '@/styles/btn.module.css';
 
-import { fetchDatabase, fetchPostListAll, fetchImage } from '@/firebase.js';
 
-import ListPageComponent from '@/components/ListPageComponent';
 import Layout from '@/components/Layout';
-import { useRouter } from 'next/router';
 import blogs from '@/temp/blogs.json';
 import events from '@/temp/events.json';
 
@@ -21,15 +16,8 @@ const blogPageLength = Math.ceil(blogKeys.length / numberPerPage);
 const eventPageLength = Math.ceil(eventKeys.length / numberPerPage);
 
 export default function BlogList({ data, title, description, type, page, headline, pageLength }) {
-    const { data: images, isLoading } = useSWR({ url: '/list', type, page }, async () => {
-        var images = data.map(d => d.image);
-        for (let i = 0; i < images.length; i++) {
-            images[i] = await fetchImage(images[i]);
-        }
-        return images;
-    });
     return (
-        <Layout loading={isLoading}>
+        <Layout loading={false}>
             <Head>
                 {/* HTML Meta Tags  */}
                 <title>{title}</title>
@@ -66,7 +54,7 @@ export default function BlogList({ data, title, description, type, page, headlin
                                             <></>
                                     }
                                 </div>
-                                {images && <img src={images[index]} alt={post.title + '橫幅'} />}
+                                {post.image && <img src={post.image} alt={post.title + '橫幅'} />}
                             </Link>
                         </div>
                     ))

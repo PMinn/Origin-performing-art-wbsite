@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { fetchDatabase, fetchAllData } from './firebase.js';
+import { fetchDatabase, fetchAllData, fetchImage } from './firebase.js';
 
 export default async function renderData() {
     fs.mkdirSync('./temp/', { recursive: true });
@@ -10,15 +10,23 @@ export default async function renderData() {
 
     // blog
     var blogs = await fetchAllData("blog");
-    Object.keys(blogs).forEach(key => {
-        blogs[key].date = blogs[key].date.toDate();
-    })
+    var blogKeys = Object.keys(blogs);
+    for (let i = 0; i < blogKeys.length; i++) {
+        blogs[blogKeys[i]].date = blogs[blogKeys[i]].date.toDate();
+        try {
+            blogs[blogKeys[i]].image = await fetchImage(blogs[blogKeys[i]].image);
+        } catch { }
+    }
     fs.writeFileSync('./temp/blogs.json', JSON.stringify(blogs));
 
     // 活動行程
     var events = await fetchAllData("event");
-    Object.keys(events).forEach(key => {
-        events[key].date = events[key].date.toDate();
-    })
+    var eventKeys = Object.keys(events);
+    for(let i = 0; i < eventKeys.length; i++) {
+        events[eventKeys[i]].date = events[eventKeys[i]].date.toDate();
+        try {
+            events[eventKeys[i]].image = await fetchImage(events[eventKeys[i]].image);
+        } catch { }
+    }
     fs.writeFileSync('./temp/events.json', JSON.stringify(events));
 }
