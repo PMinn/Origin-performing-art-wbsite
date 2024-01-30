@@ -25,7 +25,7 @@ export default function CursorComponent() {
         }
 
         function checkMouse() {
-            if (window.innerWidth >= 480) {
+            if (window.innerWidth >= 992) {
                 setIsShow(true);
                 window.addEventListener('mousemove', mousemove);
             } else {

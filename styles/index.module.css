@@ -142,7 +142,8 @@
 }
 
 .logo-video {
-    width: 600px;
+    width: 50%;
+    max-width: 600px;
 }
 
 .about-section .content-title {
@@ -196,6 +197,13 @@
     left: 0;
     object-fit: cover;
     z-index: 0;
+}
+
+@media only screen and (max-width: 992px) {
+    .about-section .container>div {
+        width: 50%;
+        margin-left: 5%;
+    }
 }
 
 @media only screen and (max-width: 480px) {
