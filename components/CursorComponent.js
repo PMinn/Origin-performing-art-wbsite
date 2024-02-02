@@ -9,7 +9,7 @@ export default function CursorComponent() {
         const dot = document.querySelector('.cursor .dot');
         const area = document.querySelector('.cursor .area');
         function mousemove(e) {
-            if (document.querySelectorAll('.pointer:hover').length > 0) {
+            if (document.querySelectorAll('.pointer:hover, .edit a:hover').length > 0) {
                 dot.style.top = `${e.clientY - 5}px`;
                 dot.style.left = `${e.clientX - 5}px`;
                 area.style.top = `${e.clientY - 25}px`;

@@ -32,3 +32,7 @@ html {
     color: var(--primary-color);
     text-decoration: underline;
 }
+
+.edit img {
+    max-width: 100%;
+}
