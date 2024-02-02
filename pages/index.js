@@ -93,7 +93,7 @@ export default function Index({ title, description, images }) {
           </div>
         </section>
         <section className={styles['about-section']}>
-          <div className={styles.container + ' container'}>
+          <div className={styles.container + ' md:container'}>
             {
               images.logo ?
                 <video className={styles["logo-video"]} src={images.logo} autoPlay loop muted playsInline></video>

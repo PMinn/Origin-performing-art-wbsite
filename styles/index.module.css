@@ -217,6 +217,7 @@
 
     .performance-project .imgs .img {
         width: 100%;
+        aspect-ratio: 1/1.4;
     }
 
     .about-section {
@@ -236,7 +237,7 @@
         position: -webkit-sticky;
         position: sticky;
         top: calc(50vh - 90vw);
-        width: 100%;
+        width: 100svw;
         filter: brightness(0.6);
         -webkit-filter: brightness(0.6);
         z-index: 47;
