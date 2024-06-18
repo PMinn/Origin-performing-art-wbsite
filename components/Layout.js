@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import LoadingComponent from '@/components/LoadingComponent';
 
-export default function Layout({ children, loading }) {
+export default function Layout({ children, style = {}, loading }) {
     const [isLoading, setIsLoading] = useState(true);
     return (
         <>
@@ -9,7 +9,7 @@ export default function Layout({ children, loading }) {
                 <LoadingComponent isLoading={typeof loading == 'undefined' ? isLoading : loading}></LoadingComponent>
                 {children}
             </main> */}
-            <main>{children}</main>
+            <main style={style}>{children}</main>
         </>
     )
 }

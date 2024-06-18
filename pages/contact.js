@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 // import fontsStyles from '../styles/fonts.module.css';
 import styles from '../styles/contact.module.css';
-import Layout from '@/components/Layout';
 import { useSettings } from '@/components/Settings.js';
 
 export default function Contact({ title, description }) {
@@ -34,20 +33,22 @@ export default function Contact({ title, description }) {
                 <meta name="twitter:description" content={description} />
                 <meta name="twitter:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
             </Head>
-            <h2 className={styles.title}>聯絡我們</h2>
-            <div className={styles.content}>
-                <Link href={"https://www.instagram.com/" + instagram} className={styles['social-link'] + ' ' + styles.instagram + ' anchor pointer'} target="_blank">
-                    <div className={styles["contact-logo"]}>
-                        <img src="/media/instagram.svg" alt="instagram" />
-                    </div>
-                    <span>@{instagram}</span>
-                </Link>
-                <Link href={"https://www.facebook.com/" + facebook} className={styles['social-link'] + ' ' + styles.facebook + ' anchor pointer'} target="_blank">
-                    <div className={styles["contact-logo"]}>
-                        <img src="/media/facebook.svg" alt="facebook" />
-                    </div>
-                    <span>{facebook}</span>
-                </Link>
+            <div className='container w-[90%] mx-auto py-[7vh]'>
+                <h2 className="text-3xl">聯絡我們</h2>
+                <div className="block md:flex justify-evenly mt-5">
+                    <Link href={"https://www.instagram.com/" + instagram} className={styles['social-link'] + ' pointer'} target="_blank">
+                        <div className={styles["contact-logo"]}>
+                            <img src="/media/instagram.svg" alt="instagram" />
+                        </div>
+                        <span className="md:before:content-['instagram\a\a']">@{instagram}</span>
+                    </Link>
+                    <Link href={"https://www.facebook.com/" + facebook} className={styles['social-link'] + ' pointer'} target="_blank">
+                        <div className={styles["contact-logo"]}>
+                            <img src="/media/facebook.svg" alt="facebook" />
+                        </div>
+                        <span className="md:before:content-['facebook\a\a']">{facebook}</span>
+                    </Link>
+                </div>
             </div>
         </>
     )

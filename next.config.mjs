@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-import renderData from './renderData.js';
+import renderData from './renderData.cjs';
 
 const nextConfig = {
     async redirects() {

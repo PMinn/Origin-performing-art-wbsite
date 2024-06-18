@@ -26,15 +26,15 @@ export default function NavComponent() {
     return (
         <div>
             <nav className={styles.nav}>
-                <Link href="/" className={styles.title + " pointer"}>
+                <Link href="/" className="pointer text-primary text-lg">
                     <h1>Origin</h1>
                 </Link>
                 <div className={styles['menu-icon'] + ' ' + (isMenuShow ? styles.open : '') + ' pointer'} onClick={menuIconOnclick}>
-                    <div></div>
-                    <div></div>
+                    <div className="bg-primary"></div>
+                    <div className="bg-primary"></div>
                 </div>
             </nav>
-            <div className={styles.menu + ' ' + (isOpen ? styles.open : '') + ' ' + (isMenuShow ? styles.show : '')}>
+            <div className={styles.menu + ' bg-primary ' + (isOpen ? styles.open : '') + ' ' + (isMenuShow ? styles.show : '')}>
                 <div>
                     <Link href="/" className={"pointer"} onClick={closeMenu}>首頁</Link>
                     <Link href="/about" className={"pointer"} onClick={closeMenu}>關於我們</Link>

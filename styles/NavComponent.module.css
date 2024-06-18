@@ -1,11 +1,6 @@
-.nav,
-.nav * {
-    box-sizing: unset;
-}
-
 .nav {
     height: 5vh;
-    width: 90vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,55 +10,37 @@
     z-index: 50;
     /* backdrop-filter: blur(7px); */
     mix-blend-mode: difference;
-    box-sizing: unset;
-}
-
-.title,
-.title * {
-    color: var(--primary-color);
-    font-size: 20px;
-    /* font-family: monospace; */
-    text-decoration: none;
-    height: 20px;
-    line-height: 20px;
 }
 
 .menu-icon {
-    height: 2vh;
-    width: 2vh;
     display: flex;
     flex-direction: column;
-    padding: 1.5vh;
+    justify-content: center;
+    gap: 10px;
+    height: 30px;
+    width: 30px;
 }
 
 .menu-icon>div {
     width: 30px;
     height: 1px;
     border-radius: 5px;
-    background-color: var(--primary-color);
     -webkit-transition: all 0.5s ease;
     /* -webkit-transition: -webkit-transform 0.5s ease; */
     transition: all 0.5s ease;
-}
-
-.menu-icon>div:nth-child(1) {
-    transform: rotateZ(0) translateY(calc(50% - 5px));
-    -webkit-transform: rotateZ(0) translateY(calc(50% - 5px));
+    transform-origin: center;
+    transform: rotateZ(0);
+    -webkit-transform: rotateZ(0);
 }
 
 .menu-icon.open>div:nth-child(1) {
-    transform: rotateZ(45deg) translateY(50%);
-    -webkit-transform: rotateZ(45deg) translateY(50%);
-}
-
-.menu-icon>div:nth-child(2) {
-    transform: rotateZ(0) translateY(calc(50% + 5px));
-    -webkit-transform: rotateZ(0) translateY(calc(50% + 5px));
+    transform: rotateZ(45deg) translateY(7px);
+    -webkit-transform: rotateZ(45deg) translateY(7px);
 }
 
 .menu-icon.open>div:nth-child(2) {
-    transform: rotateZ(-45deg) translateY(50%);
-    -webkit-transform: rotateZ(-45deg) translateY(50%);
+    transform: rotateZ(-45deg) translateY(-7px);
+    -webkit-transform: rotateZ(-45deg) translateY(-7px);
 }
 
 .menu {
@@ -72,7 +49,6 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: var(--primary-color);
     -webkit-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease;
     opacity: 0;

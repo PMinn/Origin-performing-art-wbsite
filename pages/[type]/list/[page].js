@@ -1,10 +1,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
 
-import styles from '@/styles/list.module.css';
-import btnStyles from '@/styles/btn.module.css';
-
-
 import Layout from '@/components/Layout';
 import blogs from '@/temp/blogs.json';
 import events from '@/temp/events.json';
@@ -39,30 +35,28 @@ export default function BlogList({ data, title, description, type, page, headlin
                 <meta name="twitter:description" content={description} />
                 <meta name="twitter:image" content="https://origin-performing-art.web.app/favicon_package/android-chrome-512x512.png" />
             </Head>
-            <div className={styles.container + ' container'}>
-                <h2 className={styles['page-title'] + ' m-5'}>{headline}</h2>
+            <div className="container mx-auto py-[7vh]">
+                <h2 className="text-3xl m-5">{headline}</h2>
                 {
                     data && data.map((post, index) => (
-                        <div className={styles.li + ' anchor pointer'} data-aos="fade-right" data-aos-duration="1000" key={type + '_' + index}>
-                            <Link href={`/${type}/post/${post.id}/${post.title}`}>
-                                <div className={styles.text}>
-                                    <div className={styles.title}>{post.title}</div>
+                        <div className="pointer" data-aos="fade-right" data-aos-duration="1000" key={type + '_' + index}>
+                            <Link className="block w-full h-[18vh]" href={`/${type}/post/${post.id}/${post.title}`}>
+                                <div className="absolute px-[8vw] w-full h-full flex flex-col justify-center">
+                                    <div className="text-2xl">{post.title}</div>
                                     {
-                                        type == "blog" ?
-                                            <div className={styles.date}>{`${new Date(post.date).getFullYear()} / ${new Date(post.date).getMonth() + 1} / ${new Date(post.date).getDate()}`}</div>
-                                            :
-                                            <></>
+                                        type == "blog" &&
+                                        <div>{`${new Date(post.date).getFullYear()} / ${new Date(post.date).getMonth() + 1} / ${new Date(post.date).getDate()}`}</div>
                                     }
                                 </div>
-                                {post.image && <img src={post.image} alt={post.title + '橫幅'} />}
+                                {post.image && <img className="object-cover w-full h-full" src={post.image} alt={post.title + '橫幅'} />}
                             </Link>
                         </div>
                     ))
                 }
-                <div className={btnStyles.pagination}>
+                <div className="flex justify-center items-center mt-4 gap-1">
                     {
                         Array.from({ length: pageLength }).map((_, index) => {
-                            return <Link href={`/${type}/list/${index + 1}`} className={btnStyles.btn + (page == index + 1 ? " " + btnStyles.active : "") + " pointer"}>{index + 1}</Link>
+                            return <Link href={`/${type}/list/${index + 1}`} className={"min-w-[44px] min-h-[44px] px-6 py-3 flex justify-center items-center pointer " + (page == index + 1 ? "bg-primary" : "")}>{index + 1}</Link>
                         })
                     }
                 </div>

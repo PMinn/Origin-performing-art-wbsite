@@ -2,7 +2,7 @@
   "hosting": {
     "public": "out",
     "ignore": [
-      "firebase.json",
+      "firebase.mjson",
       "**/.*",
       "**/node_modules/**"
     ],

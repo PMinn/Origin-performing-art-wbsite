@@ -2,7 +2,7 @@ import Head from 'next/head';
 import useSWR from 'swr';
 import styles from '@/styles/post.module.css';
 import Layout from '@/components/Layout';
-import { fetchImage } from '@/firebase.js';
+import { fetchImage } from '@/firebase.mjs';
 import blogs from '@/temp/blogs.json';
 import events from '@/temp/events.json';
 
@@ -34,16 +34,16 @@ export default function ({ data, title, description, type, id }) {
             </Head>
             {
                 <>
-                    <div className={styles.outer}>
+                    <div className="h-[50vh] relative flex justify-center">
                         <div className={styles.content}>
-                            {image && <img src={image} alt="" />}
+                            {image && <img className="object-cover w-full h-full" src={image} alt="" />}
                         </div>
-                        <div className={styles.inner + ' container'}>
-                            <h2>{data.title}</h2>
-                            {data.date && <h6 className={styles.date}>{`${data.date.getFullYear()} / ${data.date.getMonth() + 1} / ${data.date.getDate()}`}</h6>}
+                        <div className="container w-[90%] mx-auto absolute bottom-[5vh]">
+                            <h2 className="text-3xl mb-2">{data.title}</h2>
+                            {data.date && <h6 className="text-gray-500">{`${data.date.getFullYear()} / ${data.date.getMonth() + 1} / ${data.date.getDate()}`}</h6>}
                         </div>
                     </div>
-                    <div className={styles.text + ' container my-5 edit'} dangerouslySetInnerHTML={{
+                    <div className="container w-[90%] mx-auto py-10 edit" dangerouslySetInnerHTML={{
                         __html: data.html
                     }}></div>
                 </>

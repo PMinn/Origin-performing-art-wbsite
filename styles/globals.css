@@ -1,36 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-    --background-color: #121212;
-    --main-color: #2F2D2D;
+    /* --primary */
+    /* --secondary */
+    /* --tertiary */
+    /* --quaternary */
+    /* --quinary */
+    /* --senary */
+    /* --septenary */
+    /* --octonary */
+    /* --nonary */
+    /* --denary */
     --primary-color: #eb5604;
-    --accent1-color: #B7482F;
-    --accent2-color: #D8B796;
 }
 
 body,
 html {
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
 }
 
 * {
     cursor: none;
 }
 
-.anchor {
-    line-height: 16px;
-    font-size: 16px;
-    color: #fff;
-    text-decoration: none;
-}
-
 *::-webkit-scrollbar {
     display: none;
 }
 
-.edit a:not(.btn) {
+.edit a:not(.btn),
+.anchor--primary {
     color: var(--primary-color);
-    text-decoration: underline;
+    text-decoration: underline ;
 }
 
 .edit img {
