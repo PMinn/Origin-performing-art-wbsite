@@ -1,0 +1,108 @@
+nav {
+    font-size: 1.25vw;
+    font-weight: 700;
+    color: var(--color-primary);
+    box-sizing: border-box;
+    padding: 10.9vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 999;
+    letter-spacing: 0.25rem;
+}
+
+nav:not(#cover_text) {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+nav#cover_text {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+nav .zh {
+    letter-spacing: 0.5rem;
+}
+
+nav a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+#menu_icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#menu_icon>div {
+    width: 30px;
+    height: 1px;
+    border-radius: 5px;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    transform-origin: center;
+    transform: rotateZ(0);
+    -webkit-transform: rotateZ(0);
+    background-color: var(--color-primary);
+}
+
+#menu_icon.open>div:nth-child(1) {
+    transform: rotateZ(45deg) translateY(7px);
+    -webkit-transform: rotateZ(45deg) translateY(7px);
+}
+
+#menu_icon.open>div:nth-child(2) {
+    transform: rotateZ(-45deg) translateY(-7px);
+    -webkit-transform: rotateZ(-45deg) translateY(-7px);
+}
+
+#menu_icon.open>div {
+    background-color: #000;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    -webkit-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+    z-index: 49;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.menu>div {
+    height: 36vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menu>div>* {
+    color: #000;
+    font-size: 1.2vw;
+    text-decoration: none;
+}
