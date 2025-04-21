@@ -179,6 +179,10 @@ table {
     --grey-color-950: #121212;
 }
 
+html {
+    font-size: 0.83vw;
+}
+
 body,
 html {
     margin: 0;
