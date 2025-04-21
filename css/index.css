@@ -45,24 +45,24 @@
 }
 
 #s1 h2 {
-    font-size: 2.6vw;
+    font-size: 2.25rem;
     font-weight: 700;
     color: var(--color-secondary-100);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.365em;
 }
 
 #s1 .text-outer {
     position: absolute;
-    left: 52.8%;
+    right: 11.63%;
     top: 36.2%;
 }
 
 #s1 .text-outer p {
-    margin-top: 8%;
-    font-size: 1.25vw;
+    margin-top: 10%;
+    font-size: 1.175rem;
     color: var(--color-tertiary-200);
-    line-height: 1.6em;
-    letter-spacing: 0.25em;
+    line-height: 1.7em;
+    letter-spacing: 0.45em;
 }
 
 /* s2 */
@@ -88,29 +88,24 @@
 #s2 .text-outer {
     position: absolute;
     left: 8.8%;
-    top: 40.4%;
+    top: 12.4%;
     z-index: 1;
 }
 
 #s2 .text-outer h2 {
-    font-size: 2.6vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-secondary-100);
     letter-spacing: 0.25em;
 }
 
-#s2 .text-outer>ul {
-    font-weight: 700;
-    color: var(--color-secondary);
-    line-height: 1.6em;
-    letter-spacing: 0.25em;
-}
-
 #s2 .text-outer>ul>li {
     margin-top: 15%;
-    font-size: 1.25vw;
+    font-size: 1.73rem;
     line-height: 200%;
     letter-spacing: 0.25em;
+    font-weight: 700;
+    color: var(--color-secondary);
 }
 
 #s2 .text-outer>ul>li::before {
@@ -119,7 +114,7 @@
 
 #s2 .text-outer>ul>li>div {
     color: #fff;
-    padding-left: 2vw;
+    padding-left: 2em;
     font-weight: 400;
     font-size: 80%;
 }
@@ -152,25 +147,20 @@
 }
 
 #s3 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-secondary);
     letter-spacing: 0.25em;
     padding-left: 0.2em;
 }
 
-#s3 .text-outer>ul {
-    font-weight: 700;
-    color: var(--color-tertiary);
-    line-height: 1.6em;
-    letter-spacing: 0.25em;
-}
-
 #s3 .text-outer>ul>li {
     margin-top: 10%;
-    font-size: 1.5vw;
+    font-size: 1.73rem;
     line-height: 150%;
     letter-spacing: 0.25em;
+    color: var(--color-tertiary);
+    font-weight: 700;
 }
 
 #s3 .text-outer>ul>li::before {
@@ -224,9 +214,11 @@
 /* #panel_1 */
 #panel_1 img {
     position: absolute;
-    right: -1.5%;
+    left: 16.74%;
     height: 100%;
-    width: auto;
+    width: 83.26%;
+    object-fit: cover;
+    object-position: center;
     z-index: 0;
 }
 
@@ -237,13 +229,13 @@
     flex-direction: column;
     justify-content: space-between;
     color: var(--color-primary);
-    font-size: 1.5vw;
+    font-size: 1.36rem;
     line-height: 1.6em;
     letter-spacing: 0.25em;
 }
 
 #panel_1 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-secondary);
     letter-spacing: 0.25em;
@@ -268,13 +260,13 @@
     flex-direction: column;
     justify-content: space-between;
     color: var(--color-secondary-100);
-    font-size: 1.5vw;
+    font-size: 1.36rem;
     line-height: 1.8em;
     letter-spacing: 0.25em;
 }
 
 #panel_2 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-secondary-50);
     letter-spacing: 0.25em;
@@ -300,13 +292,13 @@
     flex-direction: column;
     justify-content: space-between;
     color: var(--color-secondary-50);
-    font-size: 1.5vw;
+    font-size: 1.36rem;
     line-height: 1.8em;
     letter-spacing: 0.25em;
 }
 
 #panel_3 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-secondary-50);
     letter-spacing: 0.25em;
@@ -332,14 +324,14 @@
     flex-direction: column;
     justify-content: space-between;
     color: var(--color-tertiary-300);
-    font-size: 1.2vw;
+    font-size: 1.36rem;
     line-height: 1.8em;
     letter-spacing: 0.25em;
     text-align: end;
 }
 
 #panel_4 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-tertiary-200);
     letter-spacing: 0.25em;
@@ -385,7 +377,7 @@
 }
 
 #s6 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-tertiary-200);
     letter-spacing: 0.5em;
@@ -393,7 +385,7 @@
 }
 
 #s6 .text-outer p {
-    font-size: 1vw;
+    font-size: 1.36rem;
     color: var(--color-tertiary-200);
     line-height: 1.6em;
     letter-spacing: 0.25em;
@@ -407,7 +399,7 @@
 }
 
 #s6 .text-outer h3 {
-    font-size: 1.5vw;
+    font-size: 1.69rem;
     color: var(--color-primary);
     letter-spacing: 0.1em;
     margin-right: 2em;
@@ -458,7 +450,7 @@
 }
 
 #s7 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-tertiary-200);
     letter-spacing: 0.25em;
@@ -467,7 +459,7 @@
 }
 
 #s7 .text-outer p {
-    font-size: 1vw;
+    font-size: 1.36rem;
     color: var(--color-tertiary-200);
     line-height: 1.6em;
     letter-spacing: 0.25em;
@@ -480,7 +472,7 @@
 }
 
 #s7 .text-outer h3 {
-    font-size: 1.5vw;
+    font-size: 1.69rem;
     color: var(--color-tertiary);
     letter-spacing: 0.1em;
     text-align: end;
@@ -525,7 +517,7 @@
 }
 
 #s8 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.25em;
@@ -534,7 +526,7 @@
 }
 
 #s8 .text-outer p {
-    font-size: 1vw;
+    font-size: 1.36rem;
     color: #fff;
     line-height: 1.6em;
     letter-spacing: 0.25em;
@@ -551,7 +543,7 @@
 }
 
 #s8 .text-outer h3 {
-    font-size: 1.5vw;
+    font-size: 1.69rem;
     color: var(--color-secondary-100);
     letter-spacing: 0.1em;
     margin-top: 9vh;
@@ -599,7 +591,7 @@
 }
 
 #s9 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.5em;
@@ -607,7 +599,7 @@
 }
 
 #s9 .text-outer p {
-    font-size: 1vw;
+    font-size: 1.36rem;
     color: var(--color-tertiary-300);
     line-height: 1.6em;
     letter-spacing: 0.25em;
@@ -621,7 +613,7 @@
 }
 
 #s9 .text-outer h3 {
-    font-size: 1.5vw;
+    font-size: 1.69rem;
     color: var(--color-primary);
     letter-spacing: 0.1em;
     width: 100%;
@@ -669,7 +661,7 @@
 }
 
 #s10 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-secondary-100);
     letter-spacing: 0.5em;
@@ -677,7 +669,7 @@
 }
 
 #s10 .text-outer p {
-    font-size: 1vw;
+    font-size: 1.36rem;
     color: var(--color-tertiary-300);
     line-height: 1.6em;
     letter-spacing: 0.25em;
@@ -691,7 +683,7 @@
 }
 
 #s10 .text-outer h3 {
-    font-size: 1.2vw;
+    font-size: 1.69rem;
     color: var(--color-primary);
     letter-spacing: 0.1em;
     width: 100%;
@@ -732,7 +724,7 @@
 }
 
 #s11 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.5em;
@@ -741,7 +733,7 @@
 }
 
 #s11 .text-outer p {
-    font-size: 1vw;
+    font-size: 1.36rem;
     color: #fff;
     line-height: 1.6em;
     letter-spacing: 0.25em;
@@ -755,7 +747,7 @@
 }
 
 #s11 .text-outer h3 {
-    font-size: 1.25vw;
+    font-size: 1.69rem;
     color: var(--color-tertiary-200);
     letter-spacing: 0.2em;
     margin-left: auto;
@@ -779,12 +771,11 @@
 }
 
 #s12 .img-outer img {
-    height: 124.23%;
+    width: 124.23%;
     position: absolute;
-    right: 0;
-    top: -16%;
+    left: -16%;
+    top: -40%;
     z-index: 0;
-    opacity: 0.4;
 }
 
 #s12 .text-outer {
@@ -800,7 +791,7 @@
 
 #s12 .text-outer p {
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 1.69rem;
     color: var(--color-secondary-100);
     letter-spacing: 0.365em;
     line-height: 1.75em;

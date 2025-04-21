@@ -1,9 +1,9 @@
 nav {
-    font-size: 1.25vw;
+    font-size: 1.53rem;
     font-weight: 700;
     color: var(--color-primary);
     box-sizing: border-box;
-    padding: 10.9vh;
+    padding: 9.07vh 10vw;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -103,6 +103,6 @@ nav a {
 
 .menu>div>* {
     color: #000;
-    font-size: 1.2vw;
+    font-size: 1.53rem;
     text-decoration: none;
 }

@@ -42,7 +42,7 @@
     padding: 10% 10.2%;
     z-index: 1;
     color: var(--color-tertiary-50);
-    font-size: 1.25vw;
+    font-size: 1.36rem;
     line-height: 1.6em;
     letter-spacing: 0.25em;
     display: flex;
@@ -59,14 +59,14 @@
 }
 
 #s4 h2 {
-    font-size: 2.6vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-secondary-300);
     letter-spacing: 0.1em;
 }
 
 #s4 h3 {
-    font-size: 1.5vw;
+    font-size: 1.69rem;
     font-weight: 700;
     color: var(--color-tertiary-200);
     letter-spacing: 0.1em;
@@ -104,7 +104,7 @@
     z-index: 1;
     box-sizing: border-box;
     color: var(--color-tertiary-50);
-    font-size: 1.25vw;
+    font-size: 1.36rem;
     line-height: 1.6em;
     letter-spacing: 0.25em;
     display: flex;
@@ -112,7 +112,6 @@
     justify-content: space-between;
     align-items: flex-start;
 }
-
 
 #s5 .text-outer>div {
     width: 100%;
@@ -122,7 +121,7 @@
 }
 
 #s5 h2 {
-    font-size: 2.6vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-secondary-300);
     letter-spacing: 0.1em;
@@ -130,7 +129,7 @@
 }
 
 #s5 h3 {
-    font-size: 1.5vw;
+    font-size: 1.69rem;
     font-weight: 700;
     color: var(--color-tertiary-200);
     letter-spacing: 0.1em;
@@ -194,13 +193,13 @@
     flex-direction: column;
     justify-content: space-between;
     color: var(--color-tertiary-300);
-    font-size: 1.2vw;
+    font-size: 1.36rem;
     line-height: 1.8em;
     letter-spacing: 0.25em;
 }
 
 #panel_5 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-tertiary-200);
     letter-spacing: 0.25em;
@@ -225,13 +224,13 @@
     flex-direction: column;
     justify-content: space-between;
     color: var(--color-tertiary-300);
-    font-size: 1.2vw;
+    font-size: 1.36rem;
     line-height: 1.8em;
     letter-spacing: 0.25em;
 }
 
 #panel_6 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-tertiary-200);
     letter-spacing: 0.25em;
@@ -256,13 +255,13 @@
     flex-direction: column;
     justify-content: space-between;
     color: var(--color-tertiary-300);
-    font-size: 1.2vw;
+    font-size: 1.36rem;
     line-height: 1.8em;
     letter-spacing: 0.25em;
 }
 
 #panel_7 .text-outer h2 {
-    font-size: 2.8vw;
+    font-size: 3.44rem;
     font-weight: 700;
     color: var(--color-tertiary-200);
     letter-spacing: 0.25em;

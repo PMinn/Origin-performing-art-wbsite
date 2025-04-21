@@ -7,7 +7,6 @@ footer {
     justify-content: space-between;
     align-items: flex-end;
     color: #fff;
-    font-size: 1vw;
     line-height: 1em;
 }
 
@@ -32,6 +31,10 @@ footer>div:first-child img {
     text-decoration: none;
 }
 
+.footer-links>a svg {
+    width: 1.5rem;
+}
+
 footer>div:last-child {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -41,4 +44,5 @@ footer>div:last-child {
 
 footer>div:last-child img {
     width: 8vw;
+    max-width: 150px;
 }

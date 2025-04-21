@@ -150,6 +150,7 @@ window.addEventListener("load", () => {
         onUpdate: (self) => {
             let offset = self.progress - 0.65;
             document.querySelector("#s12 .text-outer").style.transform = `translateY(${offset * 50}vh)`;
+            document.querySelector("#s12 .img-outer img").style.opacity = (1 - self.progress);
         },
     });
 
