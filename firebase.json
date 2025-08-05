@@ -1,26 +1,10 @@
 {
   "hosting": {
-    "public": "/",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "headers": [
-      {
-        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|eot|otf|ttf|ttc|woff|woff2)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "max-age=31536000"
-          },
-          {
-            "key": "X-Robots-Tag",
-            "value": "noindex"
-          }
-        ]
-      }
-    ],
-    "cleanUrls": true
+    ]
   }
 }

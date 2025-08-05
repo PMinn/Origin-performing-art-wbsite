@@ -2,13 +2,5 @@
   "name": "origin-performing-art",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev -p 3001",
-    "build": "next build && next export",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "firebase": "^10.1.0"
-  }
+  "scripts": {}
 }
