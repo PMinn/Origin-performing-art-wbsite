@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Origin 起源劇團</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg" href="/favicon_package/icon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_package/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_package/favicon-16x16.png" />
+    <link rel="manifest" href="/favicon_package/site.webmanifest" />
+    <link rel="mask-icon" href="/favicon_package/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="apple-mobile-web-app-title" content="Origin 起源劇團" />
+    <meta name="application-name" content="Origin 起源劇團" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-TileImage" content="/favicon_package/mstile-144x144.png" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/png" sizes="36x36" href="/favicon_package/android-chrome-36x36.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon_package/android-chrome-48x48.png" />
+    <link rel="icon" type="image/png" sizes="72x72" href="/favicon_package/android-chrome-72x72.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon_package/android-chrome-96x96.png" />
+    <link rel="icon" type="image/png" sizes="144x144" href="/favicon_package/android-chrome-144x144.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon_package/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="256x256" href="/favicon_package/android-chrome-256x256.png" />
+    <link rel="icon" type="image/png" sizes="384x384" href="/favicon_package/android-chrome-384x384.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon_package/android-chrome-512x512.png" />
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="/css/init.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <header id="cover">
+        <img id="cover_img" src="/media/temp/cover_logo.webp" alt="">
+        <nav id="cover_text">
+            <h1><a href="/index.html">Origin <span class="zh">起源劇團</span></a></h1>
+            <div id="menu_icon" onclick="toggleMenu()">
+                <div className="bg-primary"></div>
+                <div className="bg-primary"></div>
+            </div>
+        </nav>
+        <div class="menu" id="menu">
+            <div>
+                <a href="/index.html">首頁</a>
+                <a href="/experience.html">演出經歷</a>
+            </div>
+        </div>
+    </header>
+    <section id="s1">
+        <img src="/media/temp/1.webp" alt="">
+        <div class="text-outer">
+            <h2>起源於花蓮，依山傍水而生</h2>
+            <p>
+                源自花蓮的街頭表演團體，<br>
+                火舞是我們的畫筆，<br>
+                彩繪著笑容與熱愛，<br>
+                每一個山海之間，<br>
+                都有屬於自己獨一無二的存在。<br>
+                <br>
+                因為火舞我們相遇，<br>
+                願您能在屬於Origin熾熱的波濤之中，<br>
+                覓得獨一無二的感動。
+            </p>
+        </div>
+    </section>
+    <section id="s2">
+        <div class="text-outer">
+            <h2>表演項目</h2>
+            <ul>
+                <li>
+                    火舞演出<br>
+                    <div>火棍、火球、火流星、火立方等火元素表演.</div>
+                </li>
+                <li>
+                    光舞演出<br>
+                    <div>LED棍球、雷射秀、光線等光舞藝術.</div>
+                </li>
+                <li>
+                    特技演出<br>
+                    <div>雜耍poi 、立方體等道具雜耍.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="img-outer">
+            <img src="/media/temp/2.webp" alt="">
+        </div>
+    </section>
+    <section id="s3">
+        <div class="img-outer">
+            <img src="/media/temp/3.webp" alt="">
+        </div>
+        <div class="text-outer">
+            <h2>表演類型</h2>
+            <ul>
+                <li>
+                    街頭演出<br>
+                    <div>著重與街頭觀眾互動，<br>
+                        通常以1-4人輪替演出為主，演出總時長較長</div>
+                </li>
+                <li>
+                    火舞商演<br>
+                    <div>著重大場面大特效演出，<br>
+                        以3人以上團舞為主，演出時長5-15分鐘</div>
+                </li>
+                <li>
+                    特色商演<br>
+                    <div>配合店家特色/節慶/活動演出<br>
+                        演出人數不拘，以完全客製化火舞表演為原則</div>
+                </li>
+                <li>
+                    LED光舞演出<br>
+                    <div>以光束道具及雷射<br>
+                        呈現視覺特效，適合於室內演出</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="panels">
+        <div id="panels-container" style="width: 400%;">
+            <article id="panel_1" class="panel full-screen red">
+                <div class="text-outer">
+                    <h2>火舞商演</h2>
+                    <p>
+                        著重大場面大特效演出，<br>
+                        以3人以上團舞為主，演出時長5-15分鐘
+                    </p>
+                </div>
+                <img src="/media/temp/4.webp" alt="">
+            </article>
+            <article id="panel_2" class="panel full-screen orange">
+                <img src="/media/temp/5.webp" alt="">
+                <div class="text-outer">
+                    <h2>特色商演</h2>
+                    <p>
+                        配合店家特色/節慶/活動演出<br>
+                        演出人數不拘，以完全客製化火舞表演為原則
+                    </p>
+                </div>
+            </article>
+            <article id="panel_3" class="panel full-screen purple">
+                <div class="text-outer">
+                    <h2>LED光舞演出</h2>
+                    <p>
+                        以光束道具及雷射<br>
+                        呈現視覺特效，適合於室內演出
+                    </p>
+                </div>
+                <img src="/media/temp/6.webp" alt="">
+            </article>
+            <article id="panel_4" class="panel full-screen green">
+                <img src="/media/temp/7.webp" alt="">
+                <div class="text-outer">
+                    <h2>街頭演出</h2>
+                    <p>
+                        著重與街頭觀眾互動，<br>
+                        通常以1-4人輪替演出為主，演出總時長較長
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section id="s6">
+        <div class="img-outer">
+            <img src="/media/temp/17.webp" alt="">
+        </div>
+        <div class="text-outer">
+            <div>
+                <h2>專業</h2>
+                <h3>特殊技藝，精湛吸睛</h3>
+            </div>
+            <hr>
+            <p>細節的追求，完美的瞬間</p>
+        </div>
+    </section>
+    <section id="s7">
+        <div class="img-outer">
+            <img src="/media/temp/13.webp" alt="">
+        </div>
+        <div class="text-outer">
+            <img src="/media/temp/14.webp" alt="">
+            <div>
+                <h2>吟詠</h2>
+                <hr>
+                <p>我們用火與身體，吟詠每一段無聲的故事</p>
+                <h3>客製化舞碼編排</h3>
+                <img src="/media/temp/15.webp" alt="">
+            </div>
+        </div>
+    </section>
+    <section id="s8">
+        <div class="img-outer">
+            <img src="/media/temp/16.webp" alt="">
+        </div>
+        <div class="text-outer">
+            <h2>極致</h2>
+            <hr>
+            <p>在火與舞之間，呈現極致的可能</p>
+            <div>
+                <h3>最高標準自我要求，<br>
+                    全力以赴呈現每個畫面</h3>
+            </div>
+        </div>
+    </section>
+    <section id="s9">
+        <div class="img-outer">
+            <img src="/media/temp/18.webp" alt="">
+        </div>
+        <div class="text-outer">
+            <div>
+                <h2>震撼</h2>
+            </div>
+            <hr>
+            <p>目光凝聚，震撼人心</p>
+            <h3>大場面營造、活動氣氛帶動</h3>
+        </div>
+    </section>
+    <section id="s10">
+        <div class="img-outer">
+            <img src="/media/temp/19.webp" alt="">
+        </div>
+        <div class="text-outer">
+            <div>
+                <h2>真摯</h2>
+            </div>
+            <hr>
+            <p>動作的真摯，心靈的共鳴</p>
+            <h3>不只表演，更是心與心的對話</h3>
+        </div>
+    </section>
+    <section id="s11">
+        <div class="img-outer">
+            <img src="/media/temp/20.webp" alt="">
+        </div>
+        <div class="text-outer">
+            <h2>交流</h2>
+            <hr>
+            <p>觀眾不只是觀眾，而是故事的一部份</p>
+            <h3>互動式表演結合光舞特技<br>
+                更為溫馨、歡樂且安全<br>
+                室內演出最佳選擇
+            </h3>
+        </div>
+    </section>
+    <section id="s12">
+        <div class="img-outer">
+            <img src="/media/temp/21.webp" alt="">
+        </div>
+        <div class="text-outer">
+            <p>因為火舞，我們相遇<br>
+                期待與您一起在火焰中，覓得感動...
+            </p>
+        </div>
+    </section>
+    <footer>
+        <div>
+            <img src="/media/temp/cover_logo.webp" alt="">
+            <div class="footer-links">
+                <a href="tel:0905217487">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z">
+                        </path>
+                    </svg>
+                    0905217487
+                </a>
+                <a href="mailto:originperforming@gmail.com">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z">
+                        </path>
+                    </svg>
+                    originperforming@gmail.com
+                </a>
+                <a href="https://www.instagram.com/origin_performing_art/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z">
+                        </path>
+                    </svg>
+                    https://www.instagram.com/origin_performing_art/
+                </a>
+                <a href="https://www.facebook.com/OriginPerformingArt" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z">
+                        </path>
+                    </svg>
+                    https://www.facebook.com/OriginPerformingArt
+                </a>
+            </div>
+        </div>
+        <div>
+            <img src="/media/temp/qr_ig.png" alt="">
+            <img src="/media/temp/qr_fb.png" alt="">
+            <img src="/media/temp/qr_yt.png" alt="">
+            <span>Instagram</span>
+            <span>Facebook</span>
+            <span>Youtube</span>
+        </div>
+    </footer>
+    <script src="/js/nav.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>

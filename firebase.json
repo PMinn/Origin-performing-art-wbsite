@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "out",
+    "public": "/",
     "ignore": [
       "firebase.mjson",
       "**/.*",
@@ -19,36 +19,6 @@
             "value": "noindex"
           }
         ]
-      }
-    ],
-    "redirects": [
-      {
-        "source": "/blog",
-        "destination": "/blog/list/1",
-        "type": 301
-      },
-      {
-        "source": "/event",
-        "destination": "/event/list/1",
-        "type": 301
-      }
-    ],
-    "rewrites": [
-      {
-        "source": "/event/**",
-        "destination": "/event/[id]/[title].html"
-      },
-      {
-        "source": "/blog/event/**",
-        "destination": "/blog/event/[page].html"
-      },
-      {
-        "source": "/blog/post/**",
-        "destination": "/blog/post/[id]/[title].html"
-      },
-      {
-        "source": "/blog/list/**",
-        "destination": "/blog/list/[page].html"
       }
     ],
     "cleanUrls": true

@@ -1,9 +1,0 @@
-.content {
-    height: 100%;
-    width: 100vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: blur(4px) opacity(.4);
-    -webkit-filter: blur(4px) opacity(.4);
-}
