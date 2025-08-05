@@ -1,0 +1,63 @@
+.cover {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.cover>div {
+    position: absolute;
+    top: 13vh;
+    left: 10vw;
+}
+
+.cover img {
+    position: absolute;
+    opacity: 0.6;
+    width: 80vw;
+    right: -5vw;
+    bottom: 5vh;
+    z-index: -1;
+}
+
+.color-grid {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+
+}
+
+table.color-grid,
+table.color-grid td,
+table.color-grid th {
+    border: 1px solid #fff;
+}
+
+table.color-grid td {
+    padding: 5px;
+}
+
+.color-item {
+    aspect-ratio: 16/9;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.colors>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.colors .color-name {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.colors .color-code {
+    -webkit-writing-mode: vertical-lr;
+    writing-mode: vertical-lr;
+    margin: 5px 5px 5px auto;
+}

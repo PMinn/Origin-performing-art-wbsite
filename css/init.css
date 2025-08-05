@@ -1,4 +1,4 @@
-html,
+/* html,
 body,
 div,
 span,
@@ -87,7 +87,7 @@ video {
     vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
+/* HTML5 display-role reset for older browsers 
 article,
 aside,
 details,
@@ -127,7 +127,7 @@ q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
-}
+} */
 
 :root {
     /* quaternary */
@@ -138,7 +138,18 @@ table {
     /* --octonary */
     /* --nonary */
     /* --denary */
-    --color-primary: #eb5604;
+    /* --color-primary: #eb5604;
+    --color-primary-50: #fff7ec;
+    --color-primary-100: #ffeed4;
+    --color-primary-200: #ffd8a7;
+    --color-primary-300: #ffbc6f;
+    --color-primary-400: #ff9435;
+    --color-primary-500: #ff750e;
+    --color-primary-600: #eb5604;
+    --color-primary-700: #c84006;
+    --color-primary-800: #9f340d;
+    --color-primary-900: #802c0e;
+    --color-primary-950: #451405;
 
     --color-secondary: #f0d990;
     --color-secondary-50: #fdf9ed;
@@ -176,12 +187,14 @@ table {
     --grey-color-700: #616161;
     --grey-color-800: #424242;
     --grey-color-900: #212121;
-    --grey-color-950: #121212;
+    --grey-color-950: #121212; */
 }
 
-html {
-    font-size: 0.83vw;
-}
+/* @media screen and (min-width: 64rem) {
+    html {
+        font-size: 0.83vw;
+    }
+} */
 
 body,
 html {
@@ -194,3 +207,68 @@ body {
     overflow-x: hidden;
     font-family: "Noto Sans TC", sans-serif;
 }
+
+/* .text-xs {
+    font-size: 0.75rem;
+    line-height: calc(1 / 0.75);
+}
+
+.text-sm {
+    font-size: 0.875rem;
+    line-height: calc(1.25 / 0.875);
+}
+
+.text-base {
+    font-size: 1rem;
+    line-height: calc(1.5 / 1);
+}
+
+.text-lg {
+    font-size: 1.125rem;
+    line-height: calc(1.75 / 1.125);
+}
+
+.text-xl {
+    font-size: 1.25rem;
+    line-height: calc(1.75 / 1.25);
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+    line-height: calc(2 / 1.5);
+}
+
+.text-3xl {
+    font-size: 1.875rem;
+    line-height: calc(2.25 / 1.875);
+}
+
+.text-4xl {
+    font-size: 2.25rem;
+    line-height: calc(2.5 / 2.25);
+}
+
+.text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+}
+
+.text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+}
+
+.text-8xl {
+    font-size: 6rem;
+    line-height: 1;
+}
+
+.text-9xl {
+    font-size: 8rem;
+    line-height: 1;
+} */

@@ -1,26 +1,18 @@
 nav {
-    font-size: 1.53rem;
     font-weight: 700;
-    color: var(--color-primary);
     box-sizing: border-box;
-    padding: 9.07vh 10vw;
+    padding: 2.5rem 1.5rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
     z-index: 999;
     letter-spacing: 0.25rem;
-}
-
-nav:not(#cover_text) {
     position: fixed;
-    left: 0;
     top: 0;
+    left: 0;
 }
 
 nav#cover_text {
-    position: absolute;
-    left: 0;
-    bottom: 0;
     width: 100%;
 }
 
@@ -29,7 +21,6 @@ nav .zh {
 }
 
 nav a {
-    color: var(--color-primary);
     text-decoration: none;
 }
 
@@ -103,6 +94,22 @@ nav a {
 
 .menu>div>* {
     color: #000;
-    font-size: 1.53rem;
     text-decoration: none;
+}
+
+@media screen and (min-width: 64rem) {
+    nav {
+        font-size: 1.53rem;
+        padding: 9.07vh 10vw;
+    }
+
+    nav#cover_text {
+        position: absolute;
+        top: unset;
+        bottom: 0;
+    }
+
+    .menu>div>* {
+        font-size: 1.53rem;
+    }
 }
