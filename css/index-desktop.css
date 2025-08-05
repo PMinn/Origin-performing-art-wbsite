@@ -1,0 +1,317 @@
+#cover_img {
+    width: 50%;
+    max-width: 1330px;
+}
+
+/* s1 */
+#s1 {
+    margin: 50vh 0;
+}
+
+#s1 .img-outer {
+    width: 67%;
+}
+
+#s1 img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: top;
+    position: relative;
+    left: 0;
+}
+
+#s1 .text-outer {
+    right: 11.63%;
+    top: 36.2%;
+}
+
+#s1 .text-outer p {
+    font-size: 1.175rem;
+    font-weight: normal;
+    color: var(--color-tertiary-200);
+    line-height: 1.7em;
+    letter-spacing: 0.45em;
+}
+
+/* s2 */
+#s2 {
+    margin: 50vh 0;
+}
+
+#s2 .img-outer {
+    width: 89%;
+    margin-left: auto;
+}
+
+#s2 .img-outer img {
+    height: auto;
+    width: 125%;
+    top: -26%;
+    left: auto;
+}
+
+#s2 .text-outer {
+    left: 8.8%;
+    top: 12.4%;
+}
+
+/* s3 */
+#s3 {
+    margin: 50vh 0;
+}
+
+#s3 .img-outer {
+    width: 60%;
+}
+
+#s3 .img-outer img {
+    left: -13.94%;
+}
+
+#s3 .text-outer {
+    left: 58.25%;
+    top: 15%;
+}
+
+/* #panels */
+.full-screen {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#panels::-webkit-scrollbar {
+    display: none;
+}
+
+#panels {
+    overflow-x: hidden;
+}
+
+#panels #panels-container {
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* #panel_1 */
+#panel_1 img {
+    top: 0;
+    left: 16.74%;
+    height: 100%;
+    width: 83.26%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#panel_1 .text-outer {
+    padding: 10vh 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* #panel_2 */
+#panel_2 img {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#panel_2 .text-outer {
+    left: 8vw;
+    bottom: 18vh;
+}
+
+/* #panel_3 */
+#panel_3 img {
+    position: relative;
+    top: 0;
+    height: 100%;
+    width: 68.8%;
+    object-position: center 60%;
+    margin-left: auto;
+}
+
+#panel_3 .text-outer {
+    left: 8vw;
+    top: 18vh;
+}
+
+/* #panel_4 */
+#panel_4 img {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-position: center 45%;
+    margin-left: auto;
+}
+
+#panel_4 .text-outer {
+    right: 8vw;
+    top: 30vh;
+}
+
+
+/* s6 */
+#s6 {
+    height: 100vh;
+    margin: 50vh 0;
+}
+
+#s6 .img-outer img {
+    object-fit: cover;
+    object-position: center 80%;
+}
+
+#s6 .text-outer {
+    top: 0;
+    right: 0;
+    width: 42.86%;
+    height: 100%;
+    padding: 15vh 0 0 0;
+}
+
+#s6 .text-outer>div {
+    padding-bottom: 1em;
+}
+
+/* s7 */
+#s7 {
+    margin: 50vh 0;
+}
+
+#s7 .text-outer>img {
+    height: 100%;
+    width: auto;
+    object-fit: unset;
+}
+
+#s7 .text-outer>div {
+    width: 50%;
+    padding: 15vh 4vw 0 15vw;
+    position: relative;
+    left: unset;
+    top: unset;
+}
+
+/* s8 */
+#s8 {
+    height: 100vh;
+    margin: 50vh 0;
+}
+
+#s8 .img-outer img {
+    object-fit: cover;
+}
+
+#s8 .text-outer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 35%;
+}
+
+/* s9 */
+#s9 {
+    height: 100vh;
+    margin: 50vh 0;
+}
+
+#s9 .img-outer img {
+    height: 218.98%;
+    position: absolute;
+    top: -80%;
+    right: -25%;
+}
+
+#s9 .text-outer {
+    top: 0;
+    bottom: unset;
+    right: 0;
+    left: unset;
+    width: 30.86%;
+    height: 100%;
+    padding: 30vh 0 0 0;
+}
+
+/* s10 */
+#s10 {
+    height: 100vh;
+    margin: 50vh 0;
+}
+
+#s10 .img-outer img {
+    height: 143.24%;
+    width: auto;
+    object-fit: none;
+    position: absolute;
+    top: -19%;
+    left: 0;
+}
+
+#s10 .text-outer {
+    bottom: unset;
+    top: 0;
+    right: 0;
+    width: 31.35%;
+    height: 100%;
+    padding: 70.9vh 0 0 0;
+}
+
+/* s11 */
+#s11 {
+    margin: 50vh 0;
+}
+
+#s11 .img-outer img {
+    position: relative;
+    bottom: unset;
+    left: unset;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#s11 .text-outer {
+    top: 0;
+    bottom: unset;
+    right: 8.79%;
+    width: 35.5%;
+    height: 100%;
+    padding: 27.14vh 0 0 0;
+}
+
+#s11 .text-outer h3 {
+    position: absolute;
+    bottom: 5vh;
+    right: 0;
+}
+
+/* s12 */
+#s12 {
+    margin: 50vh 0;
+}
+
+#s12 .img-outer img {
+    width: 124.23%;
+    left: -16%;
+    top: -40%;
+    bottom: unset;
+    opacity: 1;
+}
+
+#s12 .text-outer {
+    padding: 20vh 0 0 0;
+}

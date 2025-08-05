@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>品牌視覺系統 | Origin 起源劇團</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg" href="/favicon_package/icon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_package/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_package/favicon-16x16.png" />
+    <link rel="manifest" href="/favicon_package/site.webmanifest" />
+    <link rel="mask-icon" href="/favicon_package/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="apple-mobile-web-app-title" content="Origin 起源劇團" />
+    <meta name="application-name" content="Origin 起源劇團" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-TileImage" content="/favicon_package/mstile-144x144.png" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/png" sizes="36x36" href="/favicon_package/android-chrome-36x36.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon_package/android-chrome-48x48.png" />
+    <link rel="icon" type="image/png" sizes="72x72" href="/favicon_package/android-chrome-72x72.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon_package/android-chrome-96x96.png" />
+    <link rel="icon" type="image/png" sizes="144x144" href="/favicon_package/android-chrome-144x144.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon_package/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="256x256" href="/favicon_package/android-chrome-256x256.png" />
+    <link rel="icon" type="image/png" sizes="384x384" href="/favicon_package/android-chrome-384x384.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon_package/android-chrome-512x512.png" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: #eb5604;
+            --color-primary-50: #fff7ec;
+            --color-primary-100: #ffeed4;
+            --color-primary-200: #ffd8a7;
+            --color-primary-300: #ffbc6f;
+            --color-primary-400: #ff9435;
+            --color-primary-500: #ff750e;
+            --color-primary-600: #eb5604;
+            --color-primary-700: #c84006;
+            --color-primary-800: #9f340d;
+            --color-primary-900: #802c0e;
+            --color-primary-950: #451405;
+            --color-primary-foreground: #fff7ec;
+            --color-secondary: #f0d990;
+            --color-secondary-50: #fdf9ed;
+            --color-secondary-100: #f8eecd;
+            --color-secondary-200: #f0d990;
+            --color-secondary-300: #e9c460;
+            --color-secondary-400: #e4ae3b;
+            --color-secondary-500: #dc9124;
+            --color-secondary-600: #c36e1c;
+            --color-secondary-700: #a2501b;
+            --color-secondary-800: #843f1c;
+            --color-secondary-900: #6d351a;
+            --color-secondary-950: #3e1a0a;
+            --color-secondary-foreground: #3e1a0a;
+            --color-tertiary: #cca05a;
+            --color-tertiary-50: #f9f6ed;
+            --color-tertiary-100: #f1e8d0;
+            --color-tertiary-200: #e4d0a4;
+            --color-tertiary-300: #d4b170;
+            --color-tertiary-400: #cca05a;
+            --color-tertiary-500: #b7823b;
+            --color-tertiary-600: #9e6630;
+            --color-tertiary-700: #7e4c2a;
+            --color-tertiary-800: #6a3f29;
+            --color-tertiary-900: #5c3627;
+            --color-tertiary-950: #351c13;
+            --color-tertiary-foreground: #351c13;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="/css/init.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/visual_identity_system.css">
+    <!-- <link rel="stylesheet" href="/css/experience-desktop.css" media="screen and (min-width: 64rem)"> -->
+</head>
+<body>
+    <header>
+        <nav class="text-primary">
+            <h1><a href="/index.html">Origin <span class="zh">起源劇團</span></a></h1>
+            <div id="menu_icon" onclick="toggleMenu()">
+                <div className="bg-primary"></div>
+                <div className="bg-primary"></div>
+            </div>
+        </nav>
+        <div class="menu" id="menu">
+            <div>
+                <a href="/index.html">首頁</a>
+                <a href="/experience.html">演出經歷</a>
+            </div>
+        </div>
+    </header>
+    <div class="cover text-white">
+        <div>
+            <h2 class="text-5xl font-bold mb-6">
+                Brand<br>Identity<br>System
+                <br>
+                <span class="text-2xl font-bold">品牌視覺系統</span>
+            </h2>
+        </div>
+        <img src="/favicon_package/android-chrome-512x512.png" alt="">
+    </div>
+    <div class="container text-white">
+        <h3 class="text-lg text-center my-2">顏色<br><span class="text-sm">Color</span></h3>
+        <table class="color-grid">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="color-item w-full bg-primary text-primary-foreground">
+                            <span>Primary 600</span>
+                            <span class="mt-auto">#EB5604</span>
+                        </div>
+                        <div class="flex text-xs colors">
+                            <div class="bg-primary-50 text-primary-950">
+                                <span class="color-name">50</span>
+                                <span class="color-code">#FFF7EC</span>
+                            </div>
+                            <div class="bg-primary-100 text-primary-950">
+                                <span class="color-name">100</span>
+                                <span class="color-code">#FFEED4</span>
+                            </div>
+                            <div class="bg-primary-200 text-primary-950">
+                                <span class="color-name">200</span>
+                                <span class="color-code">#FFD8A7</span>
+                            </div>
+                            <div class="bg-primary-300 text-primary-950">
+                                <span class="color-name">300</span>
+                                <span class="color-code">#FFBC6F</span>
+                            </div>
+                            <div class="bg-primary-400 text-primary-950">
+                                <span class="color-name">400</span>
+                                <span class="color-code">#FF9435</span>
+                            </div>
+                            <div class="bg-primary-500 text-primary-50">
+                                <span class="color-name">500</span>
+                                <span class="color-code">#FF750E</span>
+                            </div>
+                            <div class="bg-primary-600 text-primary-50">
+                                <span class="color-name">600</span>
+                                <span class="color-code">#EB5604</span>
+                            </div>
+                            <div class="bg-primary-700 text-primary-50">
+                                <span class="color-name">700</span>
+                                <span class="color-code">#C84006</span>
+                            </div>
+                            <div class="bg-primary-800 text-primary-50">
+                                <span class="color-name">800</span>
+                                <span class="color-code">#9F340D</span>
+                            </div>
+                            <div class="bg-primary-900 text-primary-50">
+                                <span class="color-name">900</span>
+                                <span class="color-code">#802C0E</span>
+                            </div>
+                            <div class="bg-primary-950 text-primary-50">
+                                <span class="color-name">950</span>
+                                <span class="color-code">#451405</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="color-item w-full bg-secondary text-secondary-foreground">
+                            <span>Secondary 200</span>
+                            <span class="mt-auto">#F0D990</span>
+                        </div>
+                        <div class="flex text-xs colors">
+                            <div class="bg-secondary-50 text-secondary-950">
+                                <span class="color-name">50</span>
+                                <span class="color-code">#FDF9ED</span>
+                            </div>
+                            <div class="bg-secondary-100 text-secondary-950">
+                                <span class="color-name">100</span>
+                                <span class="color-code">#F8EECF</span>
+                            </div>
+                            <div class="bg-secondary-200 text-secondary-950">
+                                <span class="color-name">200</span>
+                                <span class="color-code">#F0D990</span>
+                            </div>
+                            <div class="bg-secondary-300 text-secondary-950">
+                                <span class="color-name">300</span>
+                                <span class="color-code">#E9C460</span>
+                            </div>
+                            <div class="bg-secondary-400 text-secondary-950">
+                                <span class="color-name">400</span>
+                                <span class="color-code">#E4AE3B</span>
+                            </div>
+                            <div class="bg-secondary-500 text-secondary-50">
+                                <span class="color-name">500</span>
+                                <span class="color-code">#DC9124</span>
+                            </div>
+                            <div class="bg-secondary-600 text-secondary-50">
+                                <span class="color-name">600</span>
+                                <span class="color-code">#C36E1C</span>
+                            </div>
+                            <div class="bg-secondary-700 text-secondary-50">
+                                <span class="color-name">700</span>
+                                <span class="color-code">#A2501B</span>
+                            </div>
+                            <div class="bg-secondary-800 text-secondary-50">
+                                <span class="color-name">800</span>
+                                <span class="color-code">#843F1C</span>
+                            </div>
+                            <div class="bg-secondary-900 text-secondary-50">
+                                <span class="color-name">900</span>
+                                <span class="color-code">#6D351A</span>
+                            </div>
+                            <div class="bg-secondary-950 text-secondary-50">
+                                <span class="color-name">950</span>
+                                <span class="color-code">#3E1A0A</span>
+                            </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="color-item w-full bg-tertiary">
+                            <span>Tertiary</span>
+                            <span class="mt-auto">#CCA05A</span>
+                        </div>
+                        <div class="flex text-xs colors">
+                            <div class="bg-tertiary-50 text-tertiary-950">
+                                <span class="color-name">50</span>
+                                <span class="color-code">#F9F6ED</span>
+                            </div>
+                            <div class="bg-tertiary-100 text-tertiary-950">
+                                <span class="color-name">100</span>
+                                <span class="color-code">#F1E8D0</span>
+                            </div>
+                            <div class="bg-tertiary-200 text-tertiary-950">
+                                <span class="color-name">200</span>
+                                <span class="color-code">#E4D0A4</span>
+                            </div>
+                            <div class="bg-tertiary-300 text-tertiary-950">
+                                <span class="color-name">300</span>
+                                <span class="color-code">#D4B170</span>
+                            </div>
+                            <div class="bg-tertiary-400 text-tertiary-50">
+                                <span class="color-name">400</span>
+                                <span class="color-code">#CCA05A</span>
+                            </div>
+                            <div class="bg-tertiary-500 text-tertiary-50">
+                                <span class="color-name">500</span>
+                                <span class="color-code">#B7823B</span>
+                            </div>
+                            <div class="bg-tertiary-600 text-tertiary-50">
+                                <span class="color-name">600</span>
+                                <span class="color-code">#9E6630</span>
+                            </div>
+                            <div class="bg-tertiary-700 text-tertiary-50">
+                                <span class="color-name">700</span>
+                                <span class="color-code">#7E4C2A</span>
+                            </div>
+                            <div class="bg-tertiary-800 text-tertiary-50">
+                                <span class="color-name">800</span>
+                                <span class="color-code">#6A3F29</span>
+                            </div>
+                            <div class="bg-tertiary-900 text-tertiary-50">
+                                <span class="color-name">900</span>
+                                <span class="color-code">#5C3627</span>
+                            </div>
+                            <div class="bg-tertiary-950 text-tertiary-50">
+                                <span class="color-name">950</span>
+                                <span class="color-code">#351C13</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="flex">
+                            <div class="color-item w-1/2 bg-gray-50 text-gray-950">
+                                <span class="color-name">Grey 50</span>
+                                <span class="mt-auto">#FAFAFA</span>
+                            </div>
+                            <div class="color-item w-1/2 bg-gray-950 text-gray-50">
+                                <span class="color-name">Grey 950</span>
+                                <span class="mt-auto">#030712</span>
+                            </div>
+                        </div>
+                        <div class="flex text-xs colors">
+                            <div class="bg-gray-50 text-gray-950">
+                                <span class="color-name">50</span>
+                                <span class="color-code">#FAFAFA</span>
+                            </div>
+                            <div class="bg-gray-100 text-gray-950">
+                                <span class="color-name">100</span>
+                                <span class="color-code">#F6F3F4</span>
+                            </div>
+                            <div class="bg-gray-200 text-gray-950">
+                                <span class="color-name">200</span>
+                                <span class="color-code">#EBE6E7</span>
+                            </div>
+                            <div class="bg-gray-300 text-gray-950">
+                                <span class="color-name">300</span>
+                                <span class="color-code">#D1D5DC</span>
+                            </div>
+                            <div class="bg-gray-400 text-gray-950">
+                                <span class="color-name">400</span>
+                                <span class="color-code">#99A1AF</span>
+                            </div>
+                            <div class="bg-gray-500 text-gray-50">
+                                <span class="color-name">500</span>
+                                <span class="color-code">#6A7282</span>
+                            </div>
+                            <div class="bg-gray-600 text-gray-50">
+                                <span class="color-name">600</span>
+                                <span class="color-code">#4A5565</span>
+                            </div>
+                            <div class="bg-gray-700 text-gray-50">
+                                <span class="color-name">700</span>
+                                <span class="color-code">#364153</span>
+                            </div>
+                            <div class="bg-gray-800 text-gray-50">
+                                <span class="color-name">800</span>
+                                <span class="color-code">#1E2939</span>
+                            </div>
+                            <div class="bg-gray-900 text-gray-50">
+                                <span class="color-name">900</span>
+                                <span class="color-code">#101828</span>
+                            </div>
+                            <div class="bg-gray-950 text-gray-50">
+                                <span class="color-name">950</span>
+                                <span class="color-code">#030712</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer class="text-xs lg:text-base">
+        <div>
+            <img src="/media/temp/cover_logo.webp" alt="">
+            <div class="footer-links">
+                <a href="tel:0905217487">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z">
+                        </path>
+                    </svg>
+                    0905217487
+                </a>
+                <a href="mailto:originperforming@gmail.com">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z">
+                        </path>
+                    </svg>
+                    originperforming@gmail.com
+                </a>
+                <a href="https://www.instagram.com/origin_performing_art/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z">
+                        </path>
+                    </svg>
+                    https://www.instagram.com/origin_performing_art/
+                </a>
+                <a href="https://www.facebook.com/OriginPerformingArt" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z">
+                        </path>
+                    </svg>
+                    https://www.facebook.com/OriginPerformingArt
+                </a>
+            </div>
+        </div>
+        <div>
+            <img src="/media/temp/qr_ig.png" alt="">
+            <img src="/media/temp/qr_fb.png" alt="">
+            <img src="/media/temp/qr_yt.png" alt="">
+            <span>Instagram</span>
+            <span>Facebook</span>
+            <span>Youtube</span>
+        </div>
+    </footer>
+    <script src="/js/nav.js"></script>
+    <!-- <script src="/js/experience.js"></script> -->
+</body>
+</html>
