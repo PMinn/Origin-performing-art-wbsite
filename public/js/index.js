@@ -156,4 +156,6 @@ if (window.matchMedia("(min-width: 64rem)").matches) {
         });
 
     });
+} else {
+    document.getElementById("panels-container").style.width = "100%";
 }
