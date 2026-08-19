@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /visual_identity_system.html
 
 Sitemap: https://origin-performing-art.web.app/sitemap.xml
