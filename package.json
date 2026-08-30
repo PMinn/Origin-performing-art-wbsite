@@ -2,5 +2,31 @@
   "name": "origin-performing-art",
   "version": "0.1.0",
   "private": true,
-  "scripts": {}
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@heroui/react": "^3.2.4",
+    "@heroui/styles": "^3.2.4",
+    "firebase": "^12.3.0",
+    "gsap": "^3.13.0",
+    "next": "^16.3.3",
+    "react": "^19.2.0",
+    "react-aria": "^3.44.0",
+    "react-aria-components": "^1.13.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.16",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.3.3",
+    "tailwindcss": "^4.1.16",
+    "typescript": "^5.9.0"
+  }
 }

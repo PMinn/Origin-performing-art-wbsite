@@ -1,0 +1,397 @@
+/* ===== 開啟通知頁 — 沉靜、克制，像演出點亮前的舞台 ===== */
+.notify-page {
+  --ink: #000000;
+  --ember: #eb5604;
+  --gold: #cca05a;
+  --ash: #f2ece0;
+  --ash-dim: #948b7d;
+  --line: rgba(242, 236, 224, 0.1);
+  --surface: rgba(242, 236, 224, 0.028);
+}
+
+.notify-page .ic {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+  flex: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.notify-page main {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 8rem 1.5rem 5rem;
+  color: var(--ash);
+  line-height: 1.7;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+@media screen and (min-width: 64rem) {
+  .notify-page main {
+    padding-top: 14rem;
+  }
+}
+
+/* ---- hero ---- */
+.notify-page main h2 {
+  margin: 0;
+  font-size: clamp(1.9rem, 6vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ash);
+}
+
+.notify-page .lead {
+  margin: 1.2rem 0 0;
+  max-width: 28rem;
+  color: var(--ash-dim);
+}
+
+.notify-page .status-line {
+  margin-top: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  border: 1px solid var(--line);
+}
+
+.notify-page .status-line .ic {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.notify-page .status-line[data-tone="granted"] {
+  color: var(--gold);
+  border-color: rgba(204, 160, 90, 0.4);
+}
+
+.notify-page .status-line[data-tone="denied"] {
+  color: var(--ash-dim);
+}
+
+/* ---- device tabs ---- */
+.notify-page .tabs {
+  display: flex;
+  gap: 0.15rem;
+  margin: 2.75rem 0 0;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.notify-page .tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.notify-page .tab {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 0.85rem;
+  margin-bottom: -1px;
+  border: 0;
+  border-bottom: 1.5px solid transparent;
+  background: transparent;
+  color: var(--ash-dim);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.notify-page .tab .ic {
+  width: 1rem;
+  height: 1rem;
+}
+
+.notify-page .tab:hover {
+  color: var(--ash);
+}
+
+.notify-page .tab[aria-selected="true"] {
+  color: var(--ember);
+  border-bottom-color: var(--ember);
+}
+
+.notify-page .tab:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+/* ---- panel ---- */
+.notify-page .panel {
+  padding-top: 2.25rem;
+}
+
+.notify-page .panel h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.75rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ash);
+}
+
+.notify-page .panel h3 .ic {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--gold);
+}
+
+/* ---- note ---- */
+.notify-page .callout {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  margin: 1.75rem 0 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font-size: 0.85rem;
+  color: var(--ash-dim);
+}
+
+.notify-page .panel h3 + .callout {
+  margin: 0 0 2rem;
+}
+
+.notify-page .callout .ic {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.18rem;
+  color: var(--ember);
+}
+
+.notify-page .callout span {
+  min-width: 0;
+}
+
+/* ---- steps: 羅馬數字索引（如演出的幕次），無左線、無漸層 ---- */
+.notify-page ol.steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 0;
+  padding: 0;
+}
+
+.notify-page ol.steps > li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  align-items: start;
+  column-gap: 1.1rem;
+  padding: 1.6rem 0;
+}
+
+.notify-page ol.steps > li + li {
+  border-top: 1px solid var(--line);
+}
+
+/* single instruction is not a sequence — drop the numeral */
+.notify-page ol.steps > li:only-child {
+  display: block;
+  padding: 0;
+}
+
+.notify-page ol.steps > li:only-child::before {
+  content: none;
+}
+
+.notify-page ol.steps > li::before {
+  content: counter(step, upper-roman);
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.75;
+}
+
+.notify-page ol.steps > li:last-child::before {
+  color: var(--ember);
+  opacity: 1;
+}
+
+.notify-page ol.steps .txt {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+}
+
+.notify-page ol.steps .sub {
+  display: block;
+  grid-column: 2;
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--ash-dim);
+}
+
+.notify-page .step-action {
+  display: block;
+  grid-column: 2;
+  margin-top: 1rem;
+}
+
+.notify-page .step-hint {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--ash-dim);
+}
+
+/* ---- action button: 方正、細邊 ---- */
+.notify-page .notify-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1.6rem;
+  border: 1px solid var(--ember);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--ember);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.notify-page .notify-btn .ic {
+  width: 1rem;
+  height: 1rem;
+}
+
+.notify-page .notify-btn:hover:not(:disabled) {
+  background: var(--ember);
+  color: #0a0300;
+}
+
+.notify-page .notify-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.notify-page .notify-btn[data-state="granted"] {
+  border-color: var(--gold);
+  color: var(--gold);
+  cursor: default;
+}
+
+.notify-page .notify-btn[data-state="denied"] {
+  border-color: var(--ash-dim);
+  color: var(--ash-dim);
+  cursor: default;
+}
+
+.notify-page .notify-btn[data-state="loading"] {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+/* ---- faq ---- */
+.notify-page ul.faq {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notify-page ul.faq > li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+  color: var(--ash-dim);
+}
+
+.notify-page ul.faq > li:first-child {
+  border-top: 0;
+}
+
+.notify-page ul.faq .ic {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.2rem;
+  color: var(--gold);
+}
+
+.notify-page .faq b,
+.notify-page .steps b {
+  color: var(--ash);
+  font-weight: 700;
+}
+
+/* ---- back link ---- */
+.notify-page .back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+  color: var(--ember);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.notify-page .back-home .ic {
+  width: 0.9rem;
+  height: 0.9rem;
+  transition: transform 0.18s ease;
+}
+
+.notify-page .back-home:hover .ic {
+  transform: translateX(-3px);
+}
+
+.notify-page .back-home:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ---- motion: 一次性的登場，如燈光亮起 ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .notify-page .panel {
+    animation: notify-rise 0.3s ease;
+  }
+
+  .notify-page .eyebrow {
+    animation: notify-rise 0.5s ease both;
+  }
+
+  .notify-page main h2 {
+    animation: notify-rise 0.5s ease 0.08s both;
+  }
+
+  .notify-page .lead {
+    animation: notify-rise 0.5s ease 0.16s both;
+  }
+}
+
+@keyframes notify-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -31,4 +31,4 @@ Origin 起源劇團是一支源自台灣花蓮的專業表演團隊，以火舞�
 ## Pages
 
 - [首頁](https://origin-performing-art.web.app/): 團隊介紹、表演項目與表演類型總覽
-- [演出經歷](https://origin-performing-art.web.app/experience.html): 2021年至今的演出實績列表，包含企業尾牙、節慶祭典、藝術節、海外演出等
+- [演出經歷](https://origin-performing-art.web.app/experience): 2021年至今的演出實績列表，包含企業尾牙、節慶祭典、藝術節、海外演出等
