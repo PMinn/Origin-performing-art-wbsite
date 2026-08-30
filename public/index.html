@@ -223,6 +223,7 @@
             <div>
                 <a href="/index.html">首頁</a>
                 <a href="/experience.html">演出經歷</a>
+                <button id="notify-btn" type="button" class="mt-2 rounded border border-primary px-3 py-1 text-primary">訂閱通知</button>
             </div>
         </div>
     </header>
@@ -506,5 +507,11 @@
     </footer>
     <script src="/js/nav.js"></script>
     <script src="/js/index.js"></script>
+
+    <!-- 推播通知（Firebase Cloud Messaging） -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="/js/notifications.js"></script>
 </body>
 </html>

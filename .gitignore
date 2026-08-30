@@ -36,3 +36,7 @@ next-env.d.ts
 
 
 /temp/
+
+# firebase admin 私密金鑰 — 絕對不要 commit
+scripts/service-account.json
+scripts/node_modules
