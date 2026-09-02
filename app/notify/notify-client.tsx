@@ -111,12 +111,18 @@ export function NotifyClient() {
     }
 
     let unsub: (() => void) | undefined;
+    let cancelled = false;
     listenForeground()
       .then((fn) => {
-        unsub = fn;
+        // StrictMode（dev）會掛載兩次；若這次已被清理就立刻解除，避免留下重複的 onMessage 監聽
+        if (cancelled) fn();
+        else unsub = fn;
       })
       .catch(() => {});
-    return () => unsub?.();
+    return () => {
+      cancelled = true;
+      unsub?.();
+    };
   }, []);
 
   const { tab, standaloneNote: showStandaloneNote, fallbackMsg } = env;

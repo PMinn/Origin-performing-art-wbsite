@@ -16,7 +16,9 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
-// 收到背景訊息時（只有「data-only」訊息會走這裡；含 notification 欄位的訊息瀏覽器會自動顯示）
+// 收到背景訊息時顯示通知。
+// 後端（scripts/send-notification.js）一律送 data-only 訊息，讓顯示只發生一次；
+// 若改送含 notification 欄位的訊息，FCM 會「自動顯示一則 + 這裡再顯示一則」變成收到兩則。
 messaging.onBackgroundMessage((payload) => {
     const title = (payload.notification && payload.notification.title) || payload.data?.title || 'Origin 起源劇團';
     const options = {
