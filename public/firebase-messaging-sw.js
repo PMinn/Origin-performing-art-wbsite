@@ -21,26 +21,52 @@ const messaging = firebase.messaging();
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim()));
 
+// data.actions 是 JSON 字串：[{ action, title, url }, …]，解析失敗就當作沒有按鈕。
+function parseActions(raw) {
+    if (!raw) return [];
+    try {
+        const arr = JSON.parse(raw);
+        if (!Array.isArray(arr)) return [];
+        return arr.filter((a) => a && a.action && a.title).slice(0, 2);
+    } catch (e) {
+        return [];
+    }
+}
+
 // 收到背景訊息時顯示通知。
 // 後端（scripts/send-notification.js）一律送 data-only 訊息，讓顯示只發生一次；
 // 若改送含 notification 欄位的訊息，FCM 會「自動顯示一則 + 這裡再顯示一則」變成收到兩則。
 messaging.onBackgroundMessage((payload) => {
-    const title = (payload.notification && payload.notification.title) || payload.data?.title || 'Origin 起源劇團';
-    const image = (payload.notification && payload.notification.image) || payload.data?.image;
+    const d = payload.data || {};
+    const title = d.title || 'Origin 起源劇團';
+    const actions = parseActions(d.actions);
+
+    // 每個按鈕點下去要開的網址，存進 data 供 notificationclick 取用
+    const actionUrls = {};
+    actions.forEach((a) => { if (a.url) actionUrls[a.action] = a.url; });
+
     const options = {
-        body: (payload.notification && payload.notification.body) || payload.data?.body || '',
+        body: d.body || '',
         icon: '/favicon_package/android-chrome-192x192.png',
         badge: '/favicon_package/favicon-32x32.png',
-        data: { url: (payload.fcmOptions && payload.fcmOptions.link) || payload.data?.url || '/' },
+        data: { url: d.url || '/', actionUrls },
     };
-    if (image) options.image = image;
+    if (d.image) options.image = d.image;
+    if (d.tag) options.tag = d.tag;
+    if (d.requireInteraction === 'true') options.requireInteraction = true;
+    if (actions.length > 0) {
+        options.actions = actions.map((a) => ({ action: a.action, title: a.title }));
+    }
+
     self.registration.showNotification(title, options);
 });
 
-// 點擊通知時開啟對應頁面
+// 點擊通知（或通知上的按鈕）時開啟對應頁面
 self.addEventListener('notificationclick', (event) => {
     event.notification.close();
-    const target = (event.notification.data && event.notification.data.url) || '/';
+    const data = event.notification.data || {};
+    const target =
+        (event.action && data.actionUrls && data.actionUrls[event.action]) || data.url || '/';
     event.waitUntil(
         clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
             for (const client of list) {
