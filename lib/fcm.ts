@@ -46,6 +46,8 @@ async function getMessagingInstance(): Promise<Messaging> {
 
 async function registerAndGetToken(): Promise<string> {
   const swReg = await navigator.serviceWorker.register("/firebase-messaging-sw.js");
+  // 已註冊過的裝置：主動檢查有沒有新版 SW（例如新增了通知大圖支援），有的話會在背景下載並立即接管
+  swReg.update().catch(() => {});
   const m = await getMessagingInstance();
   const token = await getToken(m, { vapidKey: VAPID_KEY, serviceWorkerRegistration: swReg });
   if (!token) throw new Error("無法取得 FCM token");

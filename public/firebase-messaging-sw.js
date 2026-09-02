@@ -16,6 +16,11 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
+// 新版 SW 一裝好就立刻接管，不必等所有分頁關閉。
+// （配合 firebase.json 對本檔設 Cache-Control: no-cache，讓裝置能盡快抓到新版）
+self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim()));
+
 // 收到背景訊息時顯示通知。
 // 後端（scripts/send-notification.js）一律送 data-only 訊息，讓顯示只發生一次；
 // 若改送含 notification 欄位的訊息，FCM 會「自動顯示一則 + 這裡再顯示一則」變成收到兩則。
