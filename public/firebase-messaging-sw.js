@@ -21,12 +21,14 @@ const messaging = firebase.messaging();
 // 若改送含 notification 欄位的訊息，FCM 會「自動顯示一則 + 這裡再顯示一則」變成收到兩則。
 messaging.onBackgroundMessage((payload) => {
     const title = (payload.notification && payload.notification.title) || payload.data?.title || 'Origin 起源劇團';
+    const image = (payload.notification && payload.notification.image) || payload.data?.image;
     const options = {
         body: (payload.notification && payload.notification.body) || payload.data?.body || '',
         icon: '/favicon_package/android-chrome-192x192.png',
         badge: '/favicon_package/favicon-32x32.png',
         data: { url: (payload.fcmOptions && payload.fcmOptions.link) || payload.data?.url || '/' },
     };
+    if (image) options.image = image;
     self.registration.showNotification(title, options);
 });
 

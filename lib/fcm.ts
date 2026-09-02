@@ -81,7 +81,8 @@ export async function listenForeground(): Promise<() => void> {
       new Notification(n.title, {
         body: n.body ?? "",
         icon: "/favicon_package/android-chrome-192x192.png",
-      });
+        ...(n.image ? { image: n.image } : {}),
+      } as NotificationOptions);
     }
   });
 }
