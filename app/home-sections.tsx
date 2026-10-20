@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiteNav } from "@/components/site-nav";
+import { cleanupMobileMotion, initMobileMotion } from "@/lib/mobile-motion";
 
 export function HomeSections() {
   useEffect(() => {
@@ -13,8 +14,40 @@ export function HomeSections() {
     const panelsContainer = document.querySelector<HTMLElement>("#panels-container");
 
     if (!isDesktop) {
-      if (panelsContainer) panelsContainer.style.width = "100%";
-      return;
+      // 偏好減少動態時，維持靜態直向排列
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        if (panelsContainer) panelsContainer.style.width = "100%";
+        return;
+      }
+
+      const runMobile = () => {
+        const coverImg = document.getElementById("cover_img");
+        ScrollTrigger.create({
+          trigger: "#cover",
+          start: "top top",
+          end: "bottom top",
+          onUpdate: (self) => {
+            if (!coverImg) return;
+            coverImg.style.opacity = String(1 - self.progress);
+            coverImg.style.transform = `translateY(${self.progress * 30}vh)`;
+          },
+        });
+
+        initMobileMotion({
+          texts: ["#s1", "#s2", "#s3", "#s6", "#s7", "#s8", "#s9", "#s10", "#s11"].map(
+            (id) => `${id} .text-outer`,
+          ),
+          images: ["#s1", "#s2", "#s3"].map((id) => `${id} .img-outer img`),
+        });
+      };
+
+      if (document.readyState === "complete") runMobile();
+      else window.addEventListener("load", runMobile);
+
+      return () => {
+        window.removeEventListener("load", runMobile);
+        cleanupMobileMotion();
+      };
     }
 
     const run = () => {

@@ -4,10 +4,11 @@ import "./globals.css";
 
 const notoSansTC = Noto_Sans_TC({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
+  weight: ["400", "500", "700"],
   variable: "--font-noto-sans-tc",
   display: "swap",
 });
+
 
 const SITE_URL = "https://origin-performing-art.web.app";
 

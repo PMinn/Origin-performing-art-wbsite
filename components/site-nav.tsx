@@ -23,16 +23,18 @@ export function SiteNav({ variant = "plain" }: { variant?: "plain" | "cover" }) 
             Origin <span className="zh">起源劇團</span>
           </Link>
         </h1>
-        <button
-          type="button"
-          className={`menu-icon${open ? " open" : ""}`}
-          aria-label="選單"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-          <span />
-        </button>
+        <div className="nav-actions">
+          <button
+            type="button"
+            className={`menu-icon${open ? " open" : ""}`}
+            aria-label="選單"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+            <span />
+          </button>
+        </div>
       </nav>
       <div className={`menu${open ? " open" : ""}`}>
         <div>

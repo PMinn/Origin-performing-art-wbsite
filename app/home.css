@@ -489,7 +489,7 @@
     font-weight: normal;
     color: var(--color-tertiary-200);
     line-height: 1.7em;
-    letter-spacing: 0.45em;
+    letter-spacing: var(--track-caption);
   }
 
   /* s2 */
@@ -794,5 +794,21 @@
 
   #s12 .img-outer img {
     top: -80%;
+  }
+}
+
+/* ---- 開場：封面從黑暗中顯影（全站唯一的進場動態） ---- */
+@media (prefers-reduced-motion: no-preference) {
+  #cover_img {
+    animation: cover-reveal 2s ease-out both;
+  }
+}
+
+@keyframes cover-reveal {
+  from {
+    filter: brightness(0);
+  }
+  to {
+    filter: brightness(1);
   }
 }

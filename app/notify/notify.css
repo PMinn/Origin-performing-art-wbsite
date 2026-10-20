@@ -1,14 +1,4 @@
 /* ===== 開啟通知頁 — 沉靜、克制，像演出點亮前的舞台 ===== */
-.notify-page {
-  --ink: #000000;
-  --ember: #eb5604;
-  --gold: #cca05a;
-  --ash: #f2ece0;
-  --ash-dim: #948b7d;
-  --line: rgba(242, 236, 224, 0.1);
-  --surface: rgba(242, 236, 224, 0.028);
-}
-
 .notify-page .ic {
   width: 1.25rem;
   height: 1.25rem;

@@ -45,6 +45,20 @@
 /* ---- base (原 css/init.css) ---- */
 :root {
   --color-primary: #eb5604;
+
+  /* 語意色：全站共用，自訂頁面請用這組 */
+  --ink: #000000;
+  --ember: #eb5604;
+  --gold: #cca05a;
+  --ash: #f2ece0;
+  --ash-dim: #948b7d;
+  --line: rgba(242, 236, 224, 0.1);
+  --surface: rgba(242, 236, 224, 0.028);
+
+  /* 字距：只用在導覽與短副標，內文與長標題不加 */
+  --track-nav: 0.25rem;
+  --track-nav-zh: 0.5rem;
+  --track-caption: 0.45em;
 }
 
 html,
@@ -73,7 +87,7 @@ body {
   display: flex;
   justify-content: space-between;
   z-index: 999;
-  letter-spacing: 0.25rem;
+  letter-spacing: var(--track-nav);
   position: fixed;
   top: 0;
   left: 0;
@@ -84,11 +98,22 @@ body {
 }
 
 .site-nav .zh {
-  letter-spacing: 0.5rem;
+  letter-spacing: var(--track-nav-zh);
 }
 
 .site-nav a {
   text-decoration: none;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.menu-icon:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
 
 .menu-icon {
@@ -266,5 +291,26 @@ body {
   .footer-links > a svg {
     width: 2vh;
     height: 2vh;
+  }
+}
+
+/* ---- 手機版橫向 pin 面板（由 lib/mobile-motion.ts 加上 .h-scroll） ---- */
+@media screen and (max-width: 63.999rem) {
+  #panels-container.h-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  #panels-container.h-scroll .panel {
+    flex: none;
+    height: 100svh;
+  }
+}
+
+@media screen and (max-width: 63.999rem) {
+  html {
+    overflow-x: clip;
   }
 }

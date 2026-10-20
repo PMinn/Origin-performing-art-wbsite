@@ -4,10 +4,28 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiteNav } from "@/components/site-nav";
+import { cleanupMobileMotion, initMobileMotion } from "@/lib/mobile-motion";
 
 export function ExperienceSections() {
   useEffect(() => {
-    if (!window.matchMedia("(min-width: 64rem)").matches) return;
+    if (!window.matchMedia("(min-width: 64rem)").matches) {
+      // 偏好減少動態時，維持靜態直向排列
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const runMobile = () =>
+        initMobileMotion({
+          texts: ["#s4 .text-outer", "#s5 .text-outer"],
+          images: ["#s4 .img-outer img", "#s5 .img-outer img"],
+        });
+
+      if (document.readyState === "complete") runMobile();
+      else window.addEventListener("load", runMobile);
+
+      return () => {
+        window.removeEventListener("load", runMobile);
+        cleanupMobileMotion();
+      };
+    }
 
     gsap.registerPlugin(ScrollTrigger);
 
