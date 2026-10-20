@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// 手機版（< 64rem）的捲動動畫：文字淡入上移、圖片緩慢縮放（視差）、橫向 pin 面板。
+// 手機版（非桌機版型：手機與直立平板）的捲動動畫：文字淡入上移、圖片緩慢縮放（視差）、橫向 pin 面板。
 // 桌面版的動畫各頁自行處理，這裡只負責手機。
 
 type MobileMotionOptions = {

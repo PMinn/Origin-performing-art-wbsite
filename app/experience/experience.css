@@ -181,8 +181,8 @@
   justify-content: space-between;
 }
 
-/* ===== 桌面（原 css/experience-desktop.css，link media 64rem） ===== */
-@media screen and (min-width: 64rem) {
+/* ===== 桌面（原 css/experience-desktop.css，link media 64rem，現為 48rem） ===== */
+@media screen and (min-width: 48rem) and (orientation: landscape) {
   /* s4 */
   #s4 {
     margin-bottom: 50vh;

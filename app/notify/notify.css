@@ -18,7 +18,7 @@
   overflow-wrap: anywhere;
 }
 
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: 48rem) and (orientation: landscape) {
   .notify-page main {
     padding-top: 14rem;
   }

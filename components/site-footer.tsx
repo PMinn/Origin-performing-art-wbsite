@@ -2,7 +2,7 @@ import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon } from "./contact-icon
 
 export function SiteFooter() {
   return (
-    <footer className="site-footer text-xs lg:text-base">
+    <footer className="site-footer text-xs desk:text-base">
       <div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/media/temp/cover_logo.webp" alt="Origin 起源劇團標誌" />

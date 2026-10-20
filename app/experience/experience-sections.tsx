@@ -5,10 +5,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiteNav } from "@/components/site-nav";
 import { cleanupMobileMotion, initMobileMotion } from "@/lib/mobile-motion";
+import { DESKTOP_QUERY, reloadOnBreakpointChange } from "@/lib/breakpoint-reload";
 
 export function ExperienceSections() {
+  useEffect(() => reloadOnBreakpointChange(), []);
+
   useEffect(() => {
-    if (!window.matchMedia("(min-width: 64rem)").matches) {
+    if (!window.matchMedia(DESKTOP_QUERY).matches) {
       // 偏好減少動態時，維持靜態直向排列
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -88,18 +91,18 @@ export function ExperienceSections() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/media/temp/8.webp" alt="Origin起源劇團2021至2023年演出經歷照片" />
         </div>
-        <div className="text-outer text-tertiary-50 text-sm lg:text-xl">
-          <h2 className="text-secondary-300 font-bold text-3xl lg:text-5xl">演出經歷</h2>
+        <div className="text-outer text-tertiary-50 text-sm desk:text-xl">
+          <h2 className="text-secondary-300 font-bold text-3xl desk:text-5xl">演出經歷</h2>
           <div>
             <div>
-              <h3 className="text-tertiary-200 font-bold text-lg mt-4 lg:text-2xl">2021</h3>
+              <h3 className="text-tertiary-200 font-bold text-lg mt-4 desk:text-2xl">2021</h3>
               <ul>
                 <li>2021頭城農場跨年</li>
                 <li>2021英群企業尾牙</li>
                 <li>2021花蓮六期重劃區祭天祈福大會</li>
                 <li>2021花蓮聖南宮祭天祈福吉安遶境活動</li>
               </ul>
-              <h3 className="text-tertiary-200 font-bold text-lg mt-4 lg:text-2xl lg:mt-[5%]">2022</h3>
+              <h3 className="text-tertiary-200 font-bold text-lg mt-4 desk:text-2xl desk:mt-[5%]">2022</h3>
               <ul>
                 <li>2022二派克食品尾牙活動</li>
                 <li>2022羅東藝穗節</li>
@@ -110,7 +113,7 @@ export function ExperienceSections() {
               </ul>
             </div>
             <div>
-              <h3 className="text-tertiary-200 font-bold text-lg mt-4 lg:text-2xl">2023</h3>
+              <h3 className="text-tertiary-200 font-bold text-lg mt-4 desk:text-2xl">2023</h3>
               <ul>
                 <li>2023碧潭地景/碧潭寫生趣活動演出</li>
                 <li>2023花蓮野宅露營區活動演出</li>
@@ -132,11 +135,11 @@ export function ExperienceSections() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/media/temp/9.webp" alt="Origin起源劇團2024至2025年演出經歷照片" />
         </div>
-        <div className="text-outer text-tertiary-50 text-sm lg:text-xl">
-          <h2 className="text-secondary-300 font-bold text-3xl lg:text-5xl">演出經歷</h2>
+        <div className="text-outer text-tertiary-50 text-sm desk:text-xl">
+          <h2 className="text-secondary-300 font-bold text-3xl desk:text-5xl">演出經歷</h2>
           <div>
             <div>
-              <h3 className="text-tertiary-200 font-bold text-lg mt-4 lg:text-2xl">2024</h3>
+              <h3 className="text-tertiary-200 font-bold text-lg mt-4 desk:text-2xl">2024</h3>
               <ul>
                 <li>2024金門縣烈嶼芋頭節</li>
                 <li>2024越南富國島火舞演出</li>
@@ -146,7 +149,7 @@ export function ExperienceSections() {
                 <li>2024宜蘭傳統藝術中心 愛在夏天夜傳藝 大型火舞秀</li>
                 <li>2024花蓮縣清潔隊員節特邀演出</li>
               </ul>
-              <h3 className="text-tertiary-200 font-bold text-lg mt-4 lg:text-2xl">2025</h3>
+              <h3 className="text-tertiary-200 font-bold text-lg mt-4 desk:text-2xl">2025</h3>
               <ul>
                 <li>2025花蓮縣七星連珠星空音樂節 大型火舞秀</li>
                 <li>2025花蓮縣太平洋燈會</li>
@@ -160,24 +163,24 @@ export function ExperienceSections() {
         <div id="panels-container" style={{ width: "300%" }}>
           <div id="panel_5" className="panel full-screen">
             <div className="text-outer">
-              <h2 className="text-2xl font-bold text-tertiary-200 lg:text-5xl">碧潭地景藝術節開場</h2>
-              <p className="text-base text-tertiary-300 mt-2 lg:text-2xl lg:mt-8">大型火舞商演</p>
+              <h2 className="text-2xl font-bold text-tertiary-200 desk:text-5xl">碧潭地景藝術節開場</h2>
+              <p className="text-base text-tertiary-300 mt-2 desk:text-2xl desk:mt-8">大型火舞商演</p>
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/media/temp/10.jpg" alt="碧潭地景藝術節開場大型火舞商演" />
           </div>
           <div id="panel_6" className="panel full-screen">
             <div className="text-outer text-tertiary-300">
-              <h2 className="text-2xl font-bold text-tertiary-200 lg:text-5xl">宜蘭傳藝中心 愛在夏天 夜傳藝</h2>
-              <p className="text-base text-tertiary-300 mt-2 lg:text-2xl lg:mt-8">客製化風格主題商演</p>
+              <h2 className="text-2xl font-bold text-tertiary-200 desk:text-5xl">宜蘭傳藝中心 愛在夏天 夜傳藝</h2>
+              <p className="text-base text-tertiary-300 mt-2 desk:text-2xl desk:mt-8">客製化風格主題商演</p>
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/media/temp/11.webp" alt="宜蘭傳藝中心愛在夏天夜傳藝客製化風格主題商演" />
           </div>
           <div id="panel_7" className="panel full-screen">
             <div className="text-outer text-tertiary-300">
-              <h2 className="text-2xl font-bold text-tertiary-200 lg:text-5xl">花蓮七星潭 七星連珠星光音樂會</h2>
-              <p className="text-base text-tertiary-300 mt-2 lg:text-2xl lg:mt-8">特色活動結合火舞藝術撼動觀眾</p>
+              <h2 className="text-2xl font-bold text-tertiary-200 desk:text-5xl">花蓮七星潭 七星連珠星光音樂會</h2>
+              <p className="text-base text-tertiary-300 mt-2 desk:text-2xl desk:mt-8">特色活動結合火舞藝術撼動觀眾</p>
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/media/temp/12.webp" alt="花蓮七星潭七星連珠星光音樂會火舞演出" />

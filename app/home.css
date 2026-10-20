@@ -454,8 +454,8 @@
   align-items: center;
 }
 
-/* ===== 桌面（原 css/index-desktop.css，link media 64rem） ===== */
-@media screen and (min-width: 64rem) {
+/* ===== 桌面（原 css/index-desktop.css，link media 64rem，現為 48rem） ===== */
+@media screen and (min-width: 48rem) and (orientation: landscape) {
   #cover_img {
     width: 50%;
     max-width: 1330px;
@@ -768,6 +768,37 @@
 
   #s12 .text-outer {
     padding: 20vh 0 0 0;
+  }
+}
+
+/* ===== 直立平板／大手機（直立且 >= 30rem）：手機版型的圖片改為填滿寬度 ===== */
+@media screen and (min-width: 30rem) and (orientation: portrait) {
+  #s1 img {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  #s11 .img-outer img {
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  #panel_1 img {
+    left: 0;
+    width: 100%;
+  }
+
+  #panel_2 img,
+  #panel_4 img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 

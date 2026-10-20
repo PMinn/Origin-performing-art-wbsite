@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "@heroui/styles";
 
+/* 桌機版型：寬 >= 48rem 且橫向（Tailwind 用 desk:） */
+@custom-variant desk (@media screen and (min-width: 48rem) and (orientation: landscape));
+
 @theme {
   --color-primary: #eb5604;
   --color-primary-50: #fff7ec;
@@ -65,6 +68,42 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+/* ---- 版型與字級縮放 ----
+   版型：桌機版型 = 寬 >= 48rem 且橫向；其餘（手機、直立平板）用手機版型。
+   全站以 rem 排版，調整根字級即可整體縮放：
+   小手機 <22.5rem 縮小｜直立 >=26.25rem 隨寬度放大（上限 1.5rem）
+   橫向 48–80rem 由平板縮到筆電｜>=120rem 超寬螢幕放大｜橫放低高度依高度縮 */
+@media screen and (max-width: 22.5rem) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+@media screen and (min-width: 26.25rem) and (orientation: portrait) {
+  html {
+    font-size: min(calc(1rem + (100vw - 26.25rem) * 0.0115), 1.5rem);
+  }
+}
+
+@media screen and (min-width: 48rem) and (max-width: 79.999rem) and (orientation: landscape) {
+  html {
+    font-size: clamp(0.75rem, 0.375rem + 0.78vw, 1rem);
+  }
+}
+
+@media screen and (min-width: 120rem) and (orientation: landscape) {
+  html {
+    font-size: min(calc(100vw / 120), calc(100vh / 67.5));
+  }
+}
+
+/* 橫放手機或矮視窗：版面以 vh 計，字級跟著高度縮 */
+@media screen and (min-width: 48rem) and (max-height: 40rem) and (orientation: landscape) {
+  html {
+    font-size: clamp(0.625rem, 2.5vh, 1rem);
+  }
 }
 
 body {
@@ -187,7 +226,7 @@ body {
   text-decoration: none;
 }
 
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: 48rem) and (orientation: landscape) {
   .site-nav {
     font-size: 1.53rem;
     padding: 9.07vh 10vw;
@@ -253,7 +292,7 @@ body {
   height: 1rem;
 }
 
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: 48rem) and (orientation: landscape) {
   .site-footer {
     padding: 5vw;
     flex-direction: row;
@@ -295,7 +334,7 @@ body {
 }
 
 /* ---- 手機版橫向 pin 面板（由 lib/mobile-motion.ts 加上 .h-scroll） ---- */
-@media screen and (max-width: 63.999rem) {
+@media screen and (max-width: 47.999rem), screen and (orientation: portrait) {
   #panels-container.h-scroll {
     display: flex;
     flex-wrap: nowrap;
@@ -309,7 +348,7 @@ body {
   }
 }
 
-@media screen and (max-width: 63.999rem) {
+@media screen and (max-width: 47.999rem), screen and (orientation: portrait) {
   html {
     overflow-x: clip;
   }
