@@ -163,7 +163,7 @@ export function NotifyClient() {
   return (
     <main>
       <div className="hero">
-        <h2>開啟通知</h2>
+        <h1>開啟通知</h1>
         <p className="lead">
           有新的演出、開賣或活動時，消息會直接送到你的手機或電腦，不用一直回來看網站。
         </p>

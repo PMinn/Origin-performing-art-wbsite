@@ -1,6 +1,24 @@
+# 搜尋與引用型 AI 爬蟲
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
+# 訓練型 AI 爬蟲（目前政策：允許）
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
+
+# 高流量低價值爬蟲
+User-agent: Bytespider
+Disallow: /
+
 User-agent: *
 Allow: /
-Disallow: /visual_identity_system.html
-Disallow: /notify
 
 Sitemap: https://origin-performing-art.web.app/sitemap.xml

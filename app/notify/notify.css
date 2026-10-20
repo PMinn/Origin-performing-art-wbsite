@@ -25,7 +25,7 @@
 }
 
 /* ---- hero ---- */
-.notify-page main h2 {
+.notify-page main h1 {
   margin: 0;
   font-size: clamp(1.9rem, 6vw, 2.5rem);
   font-weight: 700;
@@ -366,7 +366,7 @@
     animation: notify-rise 0.5s ease both;
   }
 
-  .notify-page main h2 {
+  .notify-page main h1 {
     animation: notify-rise 0.5s ease 0.08s both;
   }
 

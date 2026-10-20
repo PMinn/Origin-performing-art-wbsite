@@ -18,11 +18,11 @@ export function SiteNav({ variant = "plain" }: { variant?: "plain" | "cover" }) 
         id={variant === "cover" ? "cover_text" : undefined}
         className={`site-nav text-primary${variant === "cover" ? " is-cover" : ""}`}
       >
-        <h1>
+        <p className="site-brand">
           <Link href="/">
             Origin <span className="zh">起源劇團</span>
           </Link>
-        </h1>
+        </p>
         <div className="nav-actions">
           <button
             type="button"

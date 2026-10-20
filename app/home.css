@@ -434,11 +434,14 @@
   position: relative;
 }
 
+/* 敬禮的人位於原圖橫向約 53%：以該點對齊容器中心；寬度保留餘量，確保各種螢幕比例都不露邊 */
 #s12 .img-outer img {
-  height: 137.68%;
-  position: absolute;
-  left: -185%;
-  bottom: -15%;
+  width: max(110vw, 165vh);
+  height: auto;
+  aspect-ratio: 3 / 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-53%, -50%);
   z-index: 0;
   opacity: 0.4;
 }
@@ -747,7 +750,7 @@
     padding: 27.14vh 0 0 0;
   }
 
-  #s11 .text-outer h3 {
+  #s11 .text-outer > .tagline {
     position: absolute;
     bottom: 5vh;
     right: 0;
@@ -759,10 +762,6 @@
   }
 
   #s12 .img-outer img {
-    width: 124.23%;
-    left: -16%;
-    top: -40%;
-    bottom: unset;
     opacity: 1;
   }
 
@@ -823,9 +822,6 @@
     top: 0;
   }
 
-  #s12 .img-outer img {
-    top: -80%;
-  }
 }
 
 /* ---- 開場：封面從黑暗中顯影（全站唯一的進場動態） ---- */

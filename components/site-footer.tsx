@@ -5,7 +5,7 @@ export function SiteFooter() {
     <footer className="site-footer text-xs desk:text-base">
       <div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/media/temp/cover_logo.webp" alt="Origin 起源劇團標誌" />
+        <img loading="lazy" decoding="async" src="/media/temp/cover_logo.webp" alt="Origin 起源劇團標誌" />
         <div className="footer-links">
           <a href="tel:0905217487">
             <PhoneIcon />
@@ -27,11 +27,11 @@ export function SiteFooter() {
       </div>
       <div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/media/temp/qr_ig.png" alt="Origin起源劇團 Instagram 頁面 QR Code" />
+        <img loading="lazy" decoding="async" src="/media/temp/qr_ig.png" alt="Origin 起源劇團 Instagram 頁面 QR Code" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/media/temp/qr_fb.png" alt="Origin起源劇團 Facebook 頁面 QR Code" />
+        <img loading="lazy" decoding="async" src="/media/temp/qr_fb.png" alt="Origin 起源劇團 Facebook 頁面 QR Code" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/media/temp/qr_yt.png" alt="Origin起源劇團 Youtube 頁面 QR Code" />
+        <img loading="lazy" decoding="async" src="/media/temp/qr_yt.png" alt="Origin 起源劇團 Youtube 頁面 QR Code" />
         <span>Instagram</span>
         <span>Facebook</span>
         <span>Youtube</span>
